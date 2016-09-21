@@ -476,7 +476,13 @@
       <option name="project" value="LOCAL" />
       <updated>1474491186272</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Добавлены методы &quot;Отменить&quot; и &quot;Повторить&quot;">
+      <created>1474491206993</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1474491206993</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
