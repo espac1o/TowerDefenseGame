@@ -36,7 +36,45 @@ class MainWindow extends JFrame {
         setResizable(false);
         setTitle("TD Maps Generator");
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
 
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if (!fileSaved && !saveOnCloseDialog())
+                    System.out.println("Карта до сих пор не сохранена");
+                else
+                    System.exit(0);
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+
+            }
+        });
         jmBrush = new JMenu("Кисть");
         jmView = new JMenu("Вид");
 
@@ -62,8 +100,8 @@ class MainWindow extends JFrame {
         jmiCreate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!fileSaved)
-                    saveOnCloseDialog();
+                if (!fileSaved && saveOnCloseDialog())
+                    return;
                 String s;
                 int x, y;
                 while (true) {
@@ -96,8 +134,8 @@ class MainWindow extends JFrame {
         jmiOpen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!fileSaved)
-                    saveOnCloseDialog();
+                if (!fileSaved && saveOnCloseDialog())
+                    return;
                 openFile();
                 if (file != null && !fileSaved) {
                     jmBrush.setEnabled(true);
@@ -115,8 +153,8 @@ class MainWindow extends JFrame {
         jmiExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!fileSaved)
-                    saveOnCloseDialog();
+                if (!fileSaved && saveOnCloseDialog())
+                    return;
                 System.exit(0);
             }
         });
@@ -261,9 +299,9 @@ class MainWindow extends JFrame {
             jmiRedo.setEnabled(status);
     }
 
-    private void saveFile() {
+    private Boolean saveFile() {
         if (fileSaved)
-            return;
+            return true;
         if (file == null) {
             JFileChooser fileChooser;
             FileFilter filter;
@@ -276,6 +314,8 @@ class MainWindow extends JFrame {
 
             if (returnVal == JFileChooser.APPROVE_OPTION)
                 file = fileChooser.getSelectedFile();
+            else if (returnVal == JFileChooser.CANCEL_OPTION)
+                return false;
         }
         try {
             FileWriter fw;
@@ -302,6 +342,7 @@ class MainWindow extends JFrame {
         catch (IOException e1) {
             e1.printStackTrace();
         }
+        return true;
     }
 
     private void openFile() {
@@ -358,7 +399,7 @@ class MainWindow extends JFrame {
         }
     }
 
-    private void saveOnCloseDialog() {
+    private Boolean saveOnCloseDialog() {
         int returnVal;
         returnVal = JOptionPane.showConfirmDialog(
                 MainWindow.this,
@@ -367,12 +408,12 @@ class MainWindow extends JFrame {
                 JOptionPane.YES_NO_OPTION
         );
         if (returnVal == JOptionPane.YES_OPTION) {
-            saveFile();
-            fileSaved = true;
+            fileSaved = saveFile();
         }
         else if (returnVal == JOptionPane.NO_OPTION) {
             fileSaved = true;
         }
+        return fileSaved;
     }
 
     private boolean saveDialog() {
