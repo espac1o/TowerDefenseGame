@@ -16,8 +16,8 @@ import java.net.URL;
  **/
 
 class MainWindow extends JFrame {
-    private static final int WINDOW_X = 800; // actually, 805
-    private static final int WINDOW_Y = 600; // actually, 687
+    static final int WINDOW_X = 800; // actually, 805
+    static final int WINDOW_Y = 600; // actually, 687
     Font btnFont = new Font("Times New Roman", Font.PLAIN, 16);
     private File file;
     private static boolean fileSaved = true;
@@ -29,6 +29,7 @@ class MainWindow extends JFrame {
         JMenu jmFile, jmBrush, jmView;
         JMenuItem jmiCreate, jmiOpen, jmiSave, jmiExit;
         JMenuItem jmiBrushRoad, jmiBrushDesert,  jmiBrushStone, jmiBrushRb, jmiBrushNexus, jmiBrushEraser;
+        JMenuItem jmiZoomIn, jmiZoomOut;
 
         setSize(WINDOW_X, WINDOW_Y);
         setResizable(false);
@@ -37,6 +38,8 @@ class MainWindow extends JFrame {
 
         jmBrush = new JMenu("Кисть");
         jmView = new JMenu("Вид");
+
+                                                                                                                        /** MENU: FILE **/
 
         jmbMenu = new JMenuBar();
         add(jmbMenu, BorderLayout.NORTH);
@@ -65,8 +68,8 @@ class MainWindow extends JFrame {
                 while (true) {
                     s = (String) JOptionPane.showInputDialog(
                             MainWindow.this,
-                            "Введите размер карты (минимум: 15*15):",
-                            "15*15");
+                            "Введите размер поля (минимум: 15*15):",
+                            "100*100");
                     if (s == null) break;
                     if (s.isEmpty()) continue;
                     if (!s.contains("*")) continue;
@@ -118,8 +121,8 @@ class MainWindow extends JFrame {
         });
         jmFile.add(jmiExit);
 
+                                                                                                                        /** MENU: BRUSHES **/
 
-        jmBrush.setSize(new Dimension(10, 10));
         URL imageUrl = this.getClass().getResource(".\\src\\ru\\burningGlobe\\generator\\images\\brush.png");
         if (imageUrl != null) {
             jmBrush.setText("");
@@ -191,6 +194,31 @@ class MainWindow extends JFrame {
             }
         });
         jmBrush.add(jmiBrushEraser);
+
+                                                                                                                        /** MENU: VIEW **/
+
+        jmView.setEnabled(false);
+        jmbMenu.add(jmView);
+        jmiZoomIn = new JMenuItem("Zoom In");
+        jmiZoomIn.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_EQUALS, InputEvent.CTRL_MASK));
+        jmiZoomIn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jpMap.zoom(0.5f);
+            }
+        });
+        jmView.add(jmiZoomIn);
+
+        jmiZoomOut = new JMenuItem("Zoom Out");
+        jmiZoomOut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_MINUS, InputEvent.CTRL_MASK));
+        jmiZoomOut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jpMap.zoom(-0.5f);
+            }
+        });
+        jmView.add(jmiZoomOut);
+
 
 
         setVisible(true);

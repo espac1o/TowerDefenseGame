@@ -10,12 +10,11 @@ import java.awt.event.*;
 class Map extends JPanel{
     private int xLinesCount;
     private int yLinesCount;
-    private static final int CELL_SIZE = 50;
+    private static final int CELL_SIZE = 25;
     private float ZOOM = 1;
     private int[][] map;
     private double dx = 0, dy = 0;
     private boolean isMove = false;
-    private boolean ctrlPressed = false;
     private Point mouse;
     private int currentBrush;
 
@@ -26,10 +25,51 @@ class Map extends JPanel{
         addMouseWheelListener(new MouseWheelListener() {
             @Override
             public void mouseWheelMoved(MouseWheelEvent e) {
-                int dWheel = e.getWheelRotation();
-                zoom(dWheel);
+                int wheelVelocity = CELL_SIZE / 2;
+                int sign = e.getWheelRotation();
+                int mapHeight = getBounds().height;
+                int mapWidth = getBounds().width;
+                if (e.isControlDown()) {
+                    if (sign == 1) {
+                        System.out.println("Scrolled down");
+                        if (CELL_SIZE * ZOOM * xLinesCount + dx > mapWidth) {
+                            if (CELL_SIZE * ZOOM * xLinesCount + dx + wheelVelocity < mapWidth)
+                                wheelVelocity = (int) (CELL_SIZE * ZOOM * xLinesCount + dx) - mapWidth;
+                            dx -= sign * wheelVelocity;
+                            System.out.println("dx = " + dx + "dy = " + dy);
+                        }
+                    } else if (sign == -1) {
+                        System.out.println("Scrolled up");
+                        if (dx < 0) {
+                            if (dx + wheelVelocity > 0)
+                                wheelVelocity = (int) dx;
+                            dx -= sign * wheelVelocity;
+                            System.out.println("dx = " + dx + "dy = " + dy);
+                        }
+                    }
+                } else {
+                    if (sign == 1) {
+                        System.out.println("Scrolled down");
+                        if (CELL_SIZE * ZOOM * yLinesCount + dy > mapHeight) {
+                            if (CELL_SIZE * ZOOM * yLinesCount + dy + wheelVelocity < mapHeight)
+                                wheelVelocity = (int) (CELL_SIZE * ZOOM * yLinesCount + dy) - mapHeight;
+                            dy -= sign * wheelVelocity;
+                            System.out.println("dx = " + dx + "dy = " + dy);
+                        }
+                    }
+                    else if (sign == -1) {
+                        System.out.println("Scrolled up");
+                        if (dy < 0) {
+                            if (dy + wheelVelocity > 0)
+                                wheelVelocity = (int) dy;
+                            dy -= sign * wheelVelocity;
+                            System.out.println("dx = " + dx + "dy = " + dy);
+                        }
+                    }
+                }
+                repaint();
             }
-        });
+    });
 
         addMouseListener(new MouseListener() {
             @Override
@@ -41,9 +81,9 @@ class Map extends JPanel{
                 System.out.println("кнопка мыши нажата");
                 MainWindow.setFileAsUnsaved();
                 int i, j;
-                i = (int) (e.getX() / (CELL_SIZE * ZOOM));
-                j = (int) (e.getY() / (CELL_SIZE * ZOOM));
-                System.out.println("x: " + e.getX() + " y: " + e.getY());
+                i = (int) ((e.getX() - dx) / (CELL_SIZE * ZOOM));
+                j = (int) ((e.getY() - dy) / (CELL_SIZE * ZOOM));
+                System.out.println("x: " + (e.getX() * ZOOM + dx) + " y: " + (e.getY() * ZOOM + dy));
                 if (i >= xLinesCount || j >= xLinesCount)
                     return;
                 System.out.println(j + "x" + i);
@@ -72,9 +112,9 @@ class Map extends JPanel{
                 System.out.println("кнопка мыши удерживается");
                 MainWindow.setFileAsUnsaved();
                 int i, j;
-                i = (int) (e.getX() / (CELL_SIZE * ZOOM));
-                j = (int) (e.getY() / (CELL_SIZE * ZOOM));
-                System.out.println("x: " + e.getX() * ZOOM + " y: " + e.getY() * ZOOM);
+                i = (int) ((e.getX() - dx) / (CELL_SIZE * ZOOM));
+                j = (int) ((e.getY() - dy) / (CELL_SIZE * ZOOM));
+                System.out.println("x: " + (e.getX() * ZOOM + dx) + " y: " + (e.getY() * ZOOM + dy));
                 if (i >= xLinesCount || j >= xLinesCount)
                     return;
                 System.out.println(j + "x" + i);
@@ -85,23 +125,7 @@ class Map extends JPanel{
 
             @Override
             public void mouseMoved(MouseEvent e) {
-                System.out.println("x: " + e.getX() + " y: " + e.getY());
-            }
-        });
-
-        addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.isControlDown())
-                    ctrlPressed = true;
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                ctrlPressed = false;
+//                System.out.println("x: " + e.getX() + " y: " + e.getY());
             }
         });
     }
@@ -147,7 +171,7 @@ class Map extends JPanel{
         repaint();
     }
 
-    private void zoom(int dZoom) {
+    void zoom(float dZoom) {
         dZoom += ZOOM;
         if (dZoom <= 0)
             ZOOM = 0.5f;
@@ -176,7 +200,7 @@ class Map extends JPanel{
                     g.setColor(GeneratorColors.rbColor);
                 else if (map[j][i] == 5) // green cell <==> nexus
                     g.setColor(GeneratorColors.nexusColor);
-                g.fillRect((int)(i * CELL_SIZE * ZOOM), (int)(j * CELL_SIZE * ZOOM), (int)(CELL_SIZE * ZOOM), (int)(CELL_SIZE * ZOOM));
+                g.fillRect((int)(i * CELL_SIZE * ZOOM + dx), (int)(j * CELL_SIZE * ZOOM + dy), (int)(CELL_SIZE * ZOOM), (int)(CELL_SIZE * ZOOM));
             }
         }
         g.setColor(new Color(0, 0, 0));
