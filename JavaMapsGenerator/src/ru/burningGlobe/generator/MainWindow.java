@@ -134,7 +134,7 @@ class MainWindow extends JFrame {
         jmiOpen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!fileSaved && saveOnCloseDialog())
+                if (!fileSaved && !saveOnCloseDialog())
                     return;
                 openFile();
                 if (file != null && !fileSaved) {
@@ -153,7 +153,7 @@ class MainWindow extends JFrame {
         jmiExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!fileSaved && saveOnCloseDialog())
+                if (!fileSaved && !saveOnCloseDialog())
                     return;
                 System.exit(0);
             }
