@@ -3,6 +3,8 @@ package ru.burningGlobe.generator;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  ** Created by espacio on 19.09.2016.
@@ -14,13 +16,18 @@ class Map extends JPanel{
     private float ZOOM = 1;
     private int[][] map;
     private double dx = 0, dy = 0;
-    private boolean isMove = false;
-    private Point mouse;
     private int currentBrush;
+//    private Vector<java.util.Map<int[], Integer>> stack;
+    private ArrayList<String> stack;
+    private String currentStep;
+    private int linesMissed;
 
     Map(int x_count, int y_count) {
         xLinesCount = x_count;
         yLinesCount = y_count;
+        stack = new ArrayList<>();
+        currentStep = "";
+        linesMissed = 0;
 
         addMouseWheelListener(new MouseWheelListener() {
             @Override
@@ -79,14 +86,18 @@ class Map extends JPanel{
             @Override
             public void mousePressed(MouseEvent e) {
                 System.out.println("кнопка мыши нажата");
-                MainWindow.setFileAsUnsaved();
                 int i, j;
                 i = (int) ((e.getX() - dx) / (CELL_SIZE * ZOOM));
                 j = (int) ((e.getY() - dy) / (CELL_SIZE * ZOOM));
                 System.out.println("x: " + (e.getX() * ZOOM + dx) + " y: " + (e.getY() * ZOOM + dy));
+                if (map[j][i] == currentBrush)
+                    return;
                 if (i >= xLinesCount || j >= xLinesCount)
                     return;
+                MainWindow.setFileAsUnsaved();
+                MainWindow.setUndoEnabled(true);
                 System.out.println(j + "x" + i);
+                currentStep += "#" + i + ":" + j + "|" + map[j][i] + "->" + currentBrush;
                 map[j][i] = currentBrush;
                 System.out.println("клетка покрашена; тип: " + GeneratorColors.getColorType(currentBrush));
                 repaint();
@@ -95,6 +106,15 @@ class Map extends JPanel{
             @Override
             public void mouseReleased(MouseEvent e) {
                 System.out.println("кнопка мыши отпущена");
+                if (!currentStep.isEmpty()) {
+                    if (linesMissed != 0) {
+                        stack = new ArrayList<>(stack.subList(0, stack.size() - linesMissed));
+                        linesMissed = 0;
+                    }
+                    stack.add(currentStep);
+                    currentStep = "";
+                    System.out.println("команда добавлена в стек; Текущий стек: " + stack.toString());
+                }
             }
 
             @Override
@@ -110,14 +130,17 @@ class Map extends JPanel{
             @Override
             public void mouseDragged(MouseEvent e) {
                 System.out.println("кнопка мыши удерживается");
-                MainWindow.setFileAsUnsaved();
                 int i, j;
                 i = (int) ((e.getX() - dx) / (CELL_SIZE * ZOOM));
                 j = (int) ((e.getY() - dy) / (CELL_SIZE * ZOOM));
                 System.out.println("x: " + (e.getX() * ZOOM + dx) + " y: " + (e.getY() * ZOOM + dy));
+                if (map[j][i] == currentBrush)
+                    return;
                 if (i >= xLinesCount || j >= xLinesCount)
                     return;
+                MainWindow.setFileAsUnsaved();
                 System.out.println(j + "x" + i);
+                currentStep += "#" + i + ":" + j + "|" + map[j][i] + "->" + currentBrush;
                 map[j][i] = currentBrush;
                 System.out.println("клетка покрашена; тип: " + GeneratorColors.getColorType(currentBrush));
                 repaint();
@@ -180,6 +203,57 @@ class Map extends JPanel{
         else
             ZOOM = dZoom;
         validate();
+        repaint();
+    }
+
+    void undo() {
+        String step;
+        int x, y;
+        int brush;
+        int nextStep;
+        linesMissed += 1;
+        if (linesMissed == stack.size())
+            MainWindow.setUndoEnabled(false);
+        MainWindow.setRedoEnabled(true);
+        step = stack.get(stack.size() - linesMissed);
+        while(true) {
+            x = Integer.parseInt(step.substring(step.indexOf("#") + 1, step.indexOf(":")));
+            y = Integer.parseInt(step.substring(step.indexOf(":") + 1, step.indexOf("|")));
+            brush = Integer.parseInt(step.substring(step.indexOf("|") + 1, step.indexOf("->")));
+            map[y][x] = brush;
+            nextStep = step.substring(1).indexOf("#") + 1;
+            if (nextStep == 0)
+                break;
+            else
+                step = step.substring(nextStep);
+        }
+        repaint();
+    }
+
+    void redo() {
+        String step;
+        int x, y;
+        int brush;
+        int nextStep;
+        linesMissed -= 1;
+        if (linesMissed == 0)
+            MainWindow.setRedoEnabled(false);
+        MainWindow.setUndoEnabled(true);
+        step = stack.get(stack.size() - linesMissed - 1);
+        while(true) {
+            x = Integer.parseInt(step.substring(step.indexOf("#") + 1, step.indexOf(":")));
+            y = Integer.parseInt(step.substring(step.indexOf(":") + 1, step.indexOf("|")));
+            nextStep = step.substring(1).indexOf("#") + 1;
+            if (nextStep == 0)
+                brush = Integer.parseInt(step.substring(step.indexOf("->") + 2));
+            else
+                brush = Integer.parseInt(step.substring(step.indexOf("->") + 2, nextStep));
+            map[y][x] = brush;
+            if (nextStep == 0)
+                break;
+            else
+                step = step.substring(nextStep);
+        }
         repaint();
     }
 

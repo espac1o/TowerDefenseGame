@@ -21,12 +21,13 @@ class MainWindow extends JFrame {
     Font btnFont = new Font("Times New Roman", Font.PLAIN, 16);
     private File file;
     private static boolean fileSaved = true;
+    private static JMenuItem jmiUndo, jmiRedo;
 
     private Map jpMap;
 
     MainWindow() {
         JMenuBar jmbMenu;
-        JMenu jmFile, jmBrush, jmView;
+        JMenu jmFile, jmEdit, jmBrush, jmView;
         JMenuItem jmiCreate, jmiOpen, jmiSave, jmiExit;
         JMenuItem jmiBrushRoad, jmiBrushDesert,  jmiBrushStone, jmiBrushRb, jmiBrushNexus, jmiBrushEraser;
         JMenuItem jmiZoomIn, jmiZoomOut;
@@ -120,6 +121,32 @@ class MainWindow extends JFrame {
             }
         });
         jmFile.add(jmiExit);
+
+                                                                                                                        /** MENU: EDIT **/
+
+        jmEdit = new JMenu("Правка");
+        jmbMenu.add(jmEdit);
+        jmiUndo = new JMenuItem("Отменить");
+        jmiUndo.setEnabled(false);
+        jmiUndo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_DOWN_MASK));
+        jmiUndo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jpMap.undo();
+            }
+        });
+        jmEdit.add(jmiUndo);
+
+        jmiRedo = new JMenuItem("Повторить");
+        jmiRedo.setEnabled(false);
+        jmiRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Y, InputEvent.CTRL_DOWN_MASK));
+        jmiRedo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jpMap.redo();
+            }
+        });
+        jmEdit.add(jmiRedo);
 
                                                                                                                         /** MENU: BRUSHES **/
 
@@ -219,12 +246,20 @@ class MainWindow extends JFrame {
         });
         jmView.add(jmiZoomOut);
 
-
-
         setVisible(true);
     }
 
     static void setFileAsUnsaved() {fileSaved = false;}
+
+    static void setUndoEnabled(Boolean status) {
+        if (jmiUndo != null)
+            jmiUndo.setEnabled(status);
+    }
+
+    static void setRedoEnabled(Boolean status) {
+        if (jmiRedo != null)
+            jmiRedo.setEnabled(status);
+    }
 
     private void saveFile() {
         if (fileSaved)
