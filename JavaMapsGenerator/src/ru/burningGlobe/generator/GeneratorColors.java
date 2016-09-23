@@ -12,6 +12,7 @@ public final class GeneratorColors {
     static final Color stoneColor = new Color(200, 230, 200);
     static final Color rbColor = new Color(130, 10, 80);
     static final Color nexusColor = new Color(0, 255, 0);
+    static final Color mapBorderColor = new Color(255, 0, 0);
 
     static String getColorType(int brushId) {
         switch (brushId) {

@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1764488e-5e37-4719-8a1c-921473f72f8c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JavaMapsGenerator/ru/burningGlobe/generator/MainWindow.class" afterPath="$PROJECT_DIR$/out/production/JavaMapsGenerator/ru/burningGlobe/generator/MainWindow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JavaMapsGenerator/ru/burningGlobe/generator/Map.class" afterPath="$PROJECT_DIR$/out/production/JavaMapsGenerator/ru/burningGlobe/generator/Map.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java" afterPath="$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java" afterPath="$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="M:\Documents\Программирование\TowerDefenseFlashGame\JavaMapsGenerator\src\ru\burningGlobe\generator\Map.java" afterPath="$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java" />
     </list>
     <ignored path="td_maps_generator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,35 +28,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30835736">
-              <caret line="136" column="35" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="347" column="28" selection-start-line="347" selection-start-column="28" selection-end-line="347" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5825#5826#0" expanded="true" />
-                <element signature="e#5869#5870#0" expanded="true" />
+                <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+                <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
+                <element signature="method#setRedoEnabled#0;class#MainWindow#0" expanded="false" />
+                <element signature="method#saveFile#0;class#MainWindow#0" expanded="false" />
+                <element signature="method#openFile#0;class#MainWindow#0" expanded="false" />
+                <element signature="method#saveOnCloseDialog#0;class#MainWindow#0" expanded="false" />
+                <element signature="method#saveDialog#0;class#MainWindow#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Map.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Map.java">
+      <file leaf-file-name="Field.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="169" column="5" selection-start-line="169" selection-start-column="5" selection-end-line="169" selection-end-column="5" />
+            <state vertical-scroll-proportion="3.3916185">
+              <caret line="296" column="138" selection-start-line="296" selection-start-column="138" selection-end-line="296" selection-end-column="138" />
               <folding>
-                <element signature="method#Map#0;class#Map#0" expanded="false" />
-                <element signature="class#827:3232" expanded="false" />
-                <element signature="method#initMap#0;class#Map#0" expanded="false" />
-                <element signature="method#createNewMap#0;class#Map#0" expanded="false" />
-                <element signature="method#createNewMap#1;class#Map#0" expanded="false" />
-                <element signature="method#zoom#0;class#Map#0" expanded="false" />
-                <element signature="method#undo#0;class#Map#0" expanded="false" />
-                <element signature="method#redo#0;class#Map#0" expanded="false" />
-                <element signature="method#paintComponent#0;class#Map#0" expanded="false" />
+                <element signature="class#955:3360" expanded="false" />
+                <element signature="e#6700#6701#0" expanded="true" />
+                <element signature="e#6734#6735#0" expanded="true" />
+                <element signature="method#initMap#0;class#Field#0" expanded="false" />
+                <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
+                <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+                <element signature="method#zoom#0;class#Field#0" expanded="false" />
+                <element signature="method#undo#0;class#Field#0" expanded="false" />
+                <element signature="method#redo#0;class#Field#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -65,35 +71,7 @@
         <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Map.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../java programmer/java 1/java1/src/ru/geekbrains/java1/dz/dz7/EfimovAndrey/Map.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#567#568#0" expanded="false" />
-                <element signature="e#601#602#0" expanded="false" />
-                <element signature="e#635#636#0" expanded="false" />
-                <element signature="e#669#670#0" expanded="false" />
-                <element signature="e#701#702#0" expanded="false" />
-                <element signature="e#733#734#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="explorer_main.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://M:/OneDrive/c++/SFML/audio_player/audio_player/audio_player/explorer_main.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="650" column="13" selection-start-line="650" selection-start-column="13" selection-end-line="650" selection-end-column="13" />
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -127,9 +105,10 @@
         <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/Main.java" />
         <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/CreateWindow.java" />
         <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/CreatingWindow.java" />
-        <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java" />
         <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/Map.java" />
         <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java" />
+        <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java" />
       </list>
     </option>
   </component>
@@ -194,7 +173,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -247,8 +227,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -495,7 +474,13 @@
       <option name="project" value="LOCAL" />
       <updated>1474494128089</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Добавлена обработка кнопки закрытия">
+      <created>1474494588454</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1474494588454</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -507,15 +492,16 @@
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284055" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2375924" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2375924" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2375924" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23970433" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24166666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -528,7 +514,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -551,8 +536,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Map.java</url>
-          <line>110</line>
+          <url>file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java</url>
+          <line>116</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
@@ -563,7 +548,7 @@
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="24" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -578,26 +563,31 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5825#5826#0" expanded="true" />
-            <element signature="e#5869#5870#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setRedoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#openFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveOnCloseDialog#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveDialog#0;class#MainWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Map.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="190" column="0" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+          <caret line="169" column="5" selection-start-line="169" selection-start-column="5" selection-end-line="169" selection-end-column="5" />
           <folding>
-            <element signature="method#Map#0;class#Map#0" expanded="false" />
-            <element signature="class#827:3232" expanded="false" />
-            <element signature="method#initMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Map#0" expanded="false" />
-            <element signature="method#zoom#0;class#Map#0" expanded="false" />
-            <element signature="method#undo#0;class#Map#0" expanded="false" />
-            <element signature="method#redo#0;class#Map#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Map#0" expanded="false" />
+            <element signature="class#955:3360" expanded="false" />
+            <element signature="e#6700#6701#0" expanded="true" />
+            <element signature="e#6734#6735#0" expanded="true" />
+            <element signature="method#initMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="method#zoom#0;class#Field#0" expanded="false" />
+            <element signature="method#undo#0;class#Field#0" expanded="false" />
+            <element signature="method#redo#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -614,15 +604,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#601#602#0" expanded="false" />
-            <element signature="e#635#636#0" expanded="false" />
-            <element signature="e#669#670#0" expanded="false" />
-            <element signature="e#701#702#0" expanded="false" />
-            <element signature="e#733#734#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -640,26 +622,31 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5825#5826#0" expanded="true" />
-            <element signature="e#5869#5870#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setRedoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#openFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveOnCloseDialog#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveDialog#0;class#MainWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Map.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="150" column="22" selection-start-line="150" selection-start-column="22" selection-end-line="150" selection-end-column="22" />
+          <caret line="190" column="0" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
           <folding>
-            <element signature="method#Map#0;class#Map#0" expanded="false" />
-            <element signature="class#827:3232" expanded="false" />
-            <element signature="method#initMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Map#0" expanded="false" />
-            <element signature="method#zoom#0;class#Map#0" expanded="false" />
-            <element signature="method#undo#0;class#Map#0" expanded="false" />
-            <element signature="method#redo#0;class#Map#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Map#0" expanded="false" />
+            <element signature="class#955:3360" expanded="false" />
+            <element signature="e#6700#6701#0" expanded="true" />
+            <element signature="e#6734#6735#0" expanded="true" />
+            <element signature="method#initMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="method#zoom#0;class#Field#0" expanded="false" />
+            <element signature="method#undo#0;class#Field#0" expanded="false" />
+            <element signature="method#redo#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -676,15 +663,66 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://M:/OneDrive/c++/SFML/audio_player/audio_player/audio_player/explorer_main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="650" column="13" selection-start-line="650" selection-start-column="13" selection-end-line="650" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#601#602#0" expanded="false" />
-            <element signature="e#635#636#0" expanded="false" />
-            <element signature="e#669#670#0" expanded="false" />
-            <element signature="e#701#702#0" expanded="false" />
-            <element signature="e#733#734#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setRedoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#openFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveOnCloseDialog#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveDialog#0;class#MainWindow#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="150" column="22" selection-start-line="150" selection-start-column="22" selection-end-line="150" selection-end-column="22" />
+          <folding>
+            <element signature="class#955:3360" expanded="false" />
+            <element signature="e#6700#6701#0" expanded="true" />
+            <element signature="e#6734#6735#0" expanded="true" />
+            <element signature="method#initMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="method#zoom#0;class#Field#0" expanded="false" />
+            <element signature="method#undo#0;class#Field#0" expanded="false" />
+            <element signature="method#redo#0;class#Field#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../java programmer/java 1/java1/src/ru/geekbrains/java1/dz/dz7/EfimovAndrey/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -702,26 +740,31 @@
           <caret line="121" column="46" selection-start-line="121" selection-start-column="46" selection-end-line="121" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5825#5826#0" expanded="true" />
-            <element signature="e#5869#5870#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setRedoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#openFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveOnCloseDialog#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveDialog#0;class#MainWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Map.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#Map#0;class#Map#0" expanded="false" />
-            <element signature="class#827:3232" expanded="false" />
-            <element signature="method#initMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Map#0" expanded="false" />
-            <element signature="method#zoom#0;class#Map#0" expanded="false" />
-            <element signature="method#undo#0;class#Map#0" expanded="false" />
-            <element signature="method#redo#0;class#Map#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Map#0" expanded="false" />
+            <element signature="class#955:3360" expanded="false" />
+            <element signature="e#6700#6701#0" expanded="true" />
+            <element signature="e#6734#6735#0" expanded="true" />
+            <element signature="method#initMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="method#zoom#0;class#Field#0" expanded="false" />
+            <element signature="method#undo#0;class#Field#0" expanded="false" />
+            <element signature="method#redo#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -738,15 +781,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#601#602#0" expanded="false" />
-            <element signature="e#635#636#0" expanded="false" />
-            <element signature="e#669#670#0" expanded="false" />
-            <element signature="e#701#702#0" expanded="false" />
-            <element signature="e#733#734#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -756,26 +791,31 @@
           <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5825#5826#0" expanded="true" />
-            <element signature="e#5869#5870#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setRedoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#openFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveOnCloseDialog#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveDialog#0;class#MainWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Map.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#Map#0;class#Map#0" expanded="false" />
-            <element signature="class#827:3232" expanded="false" />
-            <element signature="method#initMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Map#0" expanded="false" />
-            <element signature="method#zoom#0;class#Map#0" expanded="false" />
-            <element signature="method#undo#0;class#Map#0" expanded="false" />
-            <element signature="method#redo#0;class#Map#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Map#0" expanded="false" />
+            <element signature="class#955:3360" expanded="false" />
+            <element signature="e#6700#6701#0" expanded="true" />
+            <element signature="e#6734#6735#0" expanded="true" />
+            <element signature="method#initMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="method#zoom#0;class#Field#0" expanded="false" />
+            <element signature="method#undo#0;class#Field#0" expanded="false" />
+            <element signature="method#redo#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -792,15 +832,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#601#602#0" expanded="false" />
-            <element signature="e#635#636#0" expanded="false" />
-            <element signature="e#669#670#0" expanded="false" />
-            <element signature="e#701#702#0" expanded="false" />
-            <element signature="e#733#734#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -810,26 +842,31 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5825#5826#0" expanded="true" />
-            <element signature="e#5869#5870#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setRedoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#openFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveOnCloseDialog#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveDialog#0;class#MainWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Map.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
           <folding>
-            <element signature="method#Map#0;class#Map#0" expanded="false" />
-            <element signature="class#827:3232" expanded="false" />
-            <element signature="method#initMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Map#0" expanded="false" />
-            <element signature="method#zoom#0;class#Map#0" expanded="false" />
-            <element signature="method#undo#0;class#Map#0" expanded="false" />
-            <element signature="method#redo#0;class#Map#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Map#0" expanded="false" />
+            <element signature="class#955:3360" expanded="false" />
+            <element signature="e#6700#6701#0" expanded="true" />
+            <element signature="e#6734#6735#0" expanded="true" />
+            <element signature="method#initMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="method#zoom#0;class#Field#0" expanded="false" />
+            <element signature="method#undo#0;class#Field#0" expanded="false" />
+            <element signature="method#redo#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -840,8 +877,13 @@
           <caret line="90" column="33" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5825#5826#0" expanded="true" />
-            <element signature="e#5869#5870#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setRedoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#openFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveOnCloseDialog#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveDialog#0;class#MainWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -853,20 +895,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Map.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#Map#0;class#Map#0" expanded="false" />
-            <element signature="class#827:3232" expanded="false" />
-            <element signature="method#initMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Map#0" expanded="false" />
-            <element signature="method#zoom#0;class#Map#0" expanded="false" />
-            <element signature="method#undo#0;class#Map#0" expanded="false" />
-            <element signature="method#redo#0;class#Map#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Map#0" expanded="false" />
+            <element signature="class#955:3360" expanded="false" />
+            <element signature="e#6700#6701#0" expanded="true" />
+            <element signature="e#6734#6735#0" expanded="true" />
+            <element signature="method#initMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="method#zoom#0;class#Field#0" expanded="false" />
+            <element signature="method#undo#0;class#Field#0" expanded="false" />
+            <element signature="method#redo#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -877,8 +919,13 @@
           <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5825#5826#0" expanded="true" />
-            <element signature="e#5869#5870#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setRedoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#openFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveOnCloseDialog#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveDialog#0;class#MainWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -887,7 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33285302">
           <caret line="187" column="11" selection-start-line="187" selection-start-column="11" selection-end-line="187" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -919,19 +965,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://P:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/AbstractList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33297062">
+          <caret line="617" column="4" selection-start-line="617" selection-start-column="4" selection-end-line="617" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://P:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35146898">
+          <caret line="1037" column="54" selection-start-line="1037" selection-start-column="54" selection-end-line="1037" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="347" column="28" selection-start-line="347" selection-start-column="28" selection-end-line="347" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#setRedoEnabled#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#openFile#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveOnCloseDialog#0;class#MainWindow#0" expanded="false" />
+            <element signature="method#saveDialog#0;class#MainWindow#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../java programmer/java 1/java1/src/ru/geekbrains/java1/dz/dz7/EfimovAndrey/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#601#602#0" expanded="false" />
-            <element signature="e#635#636#0" expanded="false" />
-            <element signature="e#669#670#0" expanded="false" />
-            <element signature="e#701#702#0" expanded="false" />
-            <element signature="e#733#734#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -946,56 +1015,25 @@
     <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://P:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/AbstractList.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33297062">
-          <caret line="617" column="4" selection-start-line="617" selection-start-column="4" selection-end-line="617" selection-end-column="4" />
+        <state vertical-scroll-proportion="3.3916185">
+          <caret line="296" column="138" selection-start-line="296" selection-start-column="138" selection-end-line="296" selection-end-column="138" />
           <folding>
-            <element signature="e#26798#26799#0" expanded="false" />
-            <element signature="e#26845#26846#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://P:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/Vector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35146898">
-          <caret line="1037" column="54" selection-start-line="1037" selection-start-column="54" selection-end-line="1037" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="169" column="5" selection-start-line="169" selection-start-column="5" selection-end-line="169" selection-end-column="5" />
-          <folding>
-            <element signature="method#Map#0;class#Map#0" expanded="false" />
-            <element signature="class#827:3232" expanded="false" />
-            <element signature="method#initMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Map#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Map#0" expanded="false" />
-            <element signature="method#zoom#0;class#Map#0" expanded="false" />
-            <element signature="method#undo#0;class#Map#0" expanded="false" />
-            <element signature="method#redo#0;class#Map#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Map#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30835736">
-          <caret line="136" column="35" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5825#5826#0" expanded="true" />
-            <element signature="e#5869#5870#0" expanded="true" />
+            <element signature="class#955:3360" expanded="false" />
+            <element signature="e#6700#6701#0" expanded="true" />
+            <element signature="e#6734#6735#0" expanded="true" />
+            <element signature="method#initMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="method#zoom#0;class#Field#0" expanded="false" />
+            <element signature="method#undo#0;class#Field#0" expanded="false" />
+            <element signature="method#redo#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -9,7 +9,7 @@ import java.util.Vector;
 /**
  ** Created by espacio on 19.09.2016.
  **/
-class Map extends JPanel{
+class Field extends JPanel{
     private int xLinesCount;
     private int yLinesCount;
     private static final int CELL_SIZE = 25;
@@ -17,17 +17,23 @@ class Map extends JPanel{
     private int[][] map;
     private double dx = 0, dy = 0;
     private int currentBrush;
-//    private Vector<java.util.Map<int[], Integer>> stack;
     private ArrayList<String> stack;
     private String currentStep;
     private int linesMissed;
+    private int mapSizeX;
+    private int mapSizeY;
+    private Point mapStartPoint;
 
-    Map(int x_count, int y_count) {
+    Field(int x_count, int y_count) {
         xLinesCount = x_count;
         yLinesCount = y_count;
         stack = new ArrayList<>();
         currentStep = "";
         linesMissed = 0;
+
+        mapStartPoint = new Point(0, 0);
+        mapSizeX = x_count;
+        mapSizeY = y_count;
 
         addMouseWheelListener(new MouseWheelListener() {
             @Override
@@ -284,5 +290,10 @@ class Map extends JPanel{
         for (int i = 0; i <= yLinesCount; i++) {
             g.drawLine((int) dx, (int)(i * CELL_SIZE * ZOOM + dy), (int)(xLinesCount * CELL_SIZE * ZOOM + dx), (int)(i * CELL_SIZE * ZOOM + dy));
         }
+        g.setColor(GeneratorColors.mapBorderColor);
+        g.drawLine((int) (mapStartPoint.x * CELL_SIZE * ZOOM + dx), (int) (mapStartPoint.y * CELL_SIZE * ZOOM + dy), (int) (mapStartPoint.x * CELL_SIZE * ZOOM + dx), (int) (mapStartPoint.y * CELL_SIZE * ZOOM + mapSizeY * CELL_SIZE * ZOOM + dy)); // |<
+        g.drawLine((int) (mapStartPoint.x * CELL_SIZE * ZOOM + dx), (int) (mapStartPoint.y * CELL_SIZE * ZOOM + dy), (int) (mapStartPoint.x * CELL_SIZE * ZOOM + mapSizeX * CELL_SIZE * ZOOM + dx), (int) (mapStartPoint.y * CELL_SIZE * ZOOM + dy)); // -^
+        g.drawLine((int) (mapStartPoint.x * CELL_SIZE * ZOOM + mapSizeX * CELL_SIZE * ZOOM + dx), (int) (mapStartPoint.y * CELL_SIZE * ZOOM + dy), (int) (mapStartPoint.x * CELL_SIZE * ZOOM + mapSizeX * CELL_SIZE * ZOOM + dx), (int) (mapStartPoint.y * CELL_SIZE * ZOOM + mapSizeY * CELL_SIZE * ZOOM + dy)); // |>
+        g.drawLine((int)(mapStartPoint.x * CELL_SIZE * ZOOM + dx), (int)(mapStartPoint.y * CELL_SIZE * ZOOM + mapSizeY * CELL_SIZE * ZOOM + dy), (int)(mapStartPoint.x * CELL_SIZE * ZOOM + mapSizeX * CELL_SIZE * ZOOM + dx), (int)(mapStartPoint.y * CELL_SIZE * ZOOM + mapSizeY * CELL_SIZE * ZOOM + dy)); // _
     }
 }

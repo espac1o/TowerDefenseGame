@@ -23,7 +23,7 @@ class MainWindow extends JFrame {
     private static boolean fileSaved = true;
     private static JMenuItem jmiUndo, jmiRedo;
 
-    private Map jpMap;
+    private Field jpMap;
 
     MainWindow() {
         JMenuBar jmbMenu;
@@ -116,7 +116,7 @@ class MainWindow extends JFrame {
                     if (x < 15) continue;
                     y = Integer.parseInt(s.substring(s.indexOf("*") + 1));
                     if (y < 15) continue;
-                    jpMap = new Map(x, y);
+                    jpMap = new Field(x, y);
                     add(jpMap, BorderLayout.CENTER);
                     jpMap.createNewMap();
                     fileSaved = false;
@@ -388,7 +388,7 @@ class MainWindow extends JFrame {
                     map[i][j] = Integer.parseInt(lineElements[j]);
                 }
             }
-            jpMap = new Map(xCount, yCount);
+            jpMap = new Field(xCount, yCount);
             add(jpMap, BorderLayout.CENTER);
             jpMap.createNewMap(map);
             fileSaved = false;
