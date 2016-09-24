@@ -1,8 +1,9 @@
 package ru.burningGlobe.generator;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
@@ -20,11 +21,12 @@ import java.net.URL;
 class MainWindow extends JFrame {
     static final int WINDOW_X = 800; // actually, 805
     static final int WINDOW_Y = 600; // actually, 687
+    private static final String WINDOW_TITLE = "TD Maps Generator";
     Font statusBarFont = new Font("Century Gothic", Font.PLAIN, 12);
     private File file;
     private static boolean fileSaved = true;
     private static JMenuItem jmiUndo, jmiRedo;
-    private static JLabel jlMapSizeInfo, jlLineInfo;
+    private static JLabel jlMapSizeInfo, jlPositionInfo, jlFieldSizeInfo;;
 
     private Field jpField;
 
@@ -35,10 +37,11 @@ class MainWindow extends JFrame {
         JMenuItem jmiBrushRoad, jmiBrushDesert,  jmiBrushStone, jmiBrushRb, jmiBrushNexus, jmiBrushMapBorder, jmiBrushEraser;
         JMenuItem jmiZoomIn, jmiZoomOut;
         JPanel jpStatusBar;
+        JLabel jlPositionFlatText, jlMapSizeFlatText, jlFieldSizeFlatText;
 
         setSize(WINDOW_X, WINDOW_Y);
         setResizable(false);
-        setTitle("TD Maps Generator");
+        setTitle(WINDOW_TITLE);
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowListener() {
             @Override
@@ -83,16 +86,26 @@ class MainWindow extends JFrame {
         jpStatusBar = new JPanel();
         jpStatusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
         jpStatusBar.setPreferredSize(new Dimension(this.getWidth(), 28));
-        jlMapSizeInfo = new JLabel("map size");
-        jlMapSizeInfo.setPreferredSize(new Dimension(70, 16));
+        jlPositionFlatText = new JLabel("Позиция: ");
+        jlPositionFlatText.setFont(statusBarFont);
+        jlPositionInfo = new JLabel("0:0");
+        jlPositionInfo.setPreferredSize(new Dimension(50, 16));
+        jlPositionInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.statusBarBorderColor));
+        jlPositionInfo.setFont(statusBarFont);
+        jlPositionInfo.setHorizontalTextPosition(JLabel.CENTER);
+        jlMapSizeFlatText = new JLabel("Размер карты: ");
+        jlMapSizeFlatText.setFont(statusBarFont);
+        jlMapSizeInfo = new JLabel("0x0");
+        jlMapSizeInfo.setPreferredSize(new Dimension(55, 16));
         jlMapSizeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.statusBarBorderColor));
         jlMapSizeInfo.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 String s;
                 int x, y;
-                if (fileSaved && file == null) {
+                if (jpField == null) {
                     JOptionPane.showMessageDialog(MainWindow.this, "Карта еще не создана");
+                    return;
                 }
                 while (true) {
                     s = (String) JOptionPane.showInputDialog(
@@ -114,13 +127,20 @@ class MainWindow extends JFrame {
         });
         jlMapSizeInfo.setFont(statusBarFont);
         jlMapSizeInfo.setHorizontalTextPosition(JLabel.CENTER);
-        jlLineInfo = new JLabel("0:0");
-        jlLineInfo.setPreferredSize(new Dimension(50, 16));
-        jlLineInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.statusBarBorderColor));
-        jlLineInfo.setFont(statusBarFont);
-        jlLineInfo.setHorizontalTextPosition(JLabel.CENTER);
-        jpStatusBar.add(jlLineInfo);
+        jlFieldSizeFlatText = new JLabel("Размер карты: ");
+        jlFieldSizeFlatText.setFont(statusBarFont);
+        jlFieldSizeInfo = new JLabel("0x0");
+        jlFieldSizeInfo.setPreferredSize(new Dimension(55, 16));
+        jlFieldSizeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.statusBarBorderColor));
+        jlFieldSizeInfo.setFont(statusBarFont);
+        jlFieldSizeInfo.setHorizontalTextPosition(JLabel.CENTER);
+        jpStatusBar.add(jlPositionFlatText);
+        jpStatusBar.add(jlPositionInfo);
+        jpStatusBar.add(jlMapSizeFlatText);
         jpStatusBar.add(jlMapSizeInfo);
+        jpStatusBar.add(jlFieldSizeFlatText);
+        jpStatusBar.add(jlFieldSizeInfo);
+
         add(jpStatusBar, BorderLayout.SOUTH);
 
         jmBrush = new JMenu("Кисть");
@@ -138,8 +158,8 @@ class MainWindow extends JFrame {
         jmiSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (saveDialog())
-                    saveFile();
+                if (saveDialog() && saveFile())
+                    setTitle(WINDOW_TITLE + " - " + file.toString());
             }
         });
 
@@ -148,7 +168,7 @@ class MainWindow extends JFrame {
         jmiCreate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!fileSaved && saveOnCloseDialog())
+                if (!fileSaved && !saveOnCloseDialog())
                     return;
                 String s;
                 int x, y;
@@ -164,13 +184,18 @@ class MainWindow extends JFrame {
                     if (x < 15) continue;
                     y = Integer.parseInt(s.substring(s.indexOf("x") + 1));
                     if (y < 15) continue;
-                    jpField = new Field(x, y);
+                    if (jpField == null)
+                        jpField = new Field(x, y);
+                    else
+                        jpField.newField(x, y);
+                    jlFieldSizeInfo.setText(x + "x" + y);
                     add(jpField, BorderLayout.CENTER);
-                    jpField.createNewMap();
+                    jpField.initField();
                     jlMapSizeInfo.setText(jpField.getMapSize());
-                    fileSaved = false;
+                    fileSaved = true;
                     jmBrush.setEnabled(true);
                     jmView.setEnabled(true);
+                    setTitle(WINDOW_TITLE + " - Новая карта");
                     revalidate();
                     break;
                 }
@@ -185,8 +210,9 @@ class MainWindow extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (!fileSaved && !saveOnCloseDialog())
                     return;
-                openFile();
-                if (file != null && !fileSaved) {
+                if (openFile()) {
+                    add(jpField, BorderLayout.CENTER);
+                    setTitle(WINDOW_TITLE + " - " + file.toString());
                     jmBrush.setEnabled(true);
                     jmView.setEnabled(true);
                 }
@@ -355,8 +381,8 @@ class MainWindow extends JFrame {
     }
 
     static void setLineInfo(String info) {
-        if (jlLineInfo != null)
-            jlLineInfo.setText(info);
+        if (jlPositionInfo != null)
+            jlPositionInfo.setText(info);
     }
 
     static void setUndoEnabled(Boolean status) {
@@ -369,7 +395,8 @@ class MainWindow extends JFrame {
             jmiRedo.setEnabled(status);
     }
 
-    private Boolean saveFile() {
+
+    @NotNull private Boolean saveFile() {
         if (fileSaved)
             return true;
         if (file == null) {
@@ -405,6 +432,8 @@ class MainWindow extends JFrame {
                 }
                 sb.append("\r\n");
             }
+            sb.append(jpField.getMapStartPoint().x).append(" ").append(jpField.getMapStartPoint().y).append("\r\n");
+            sb.append(jpField.getMapEndPoint().x).append(" ").append(jpField.getMapEndPoint().y).append("\r\n");
             fw.write(sb.toString());
             fw.close();
             fileSaved = true;
@@ -415,7 +444,7 @@ class MainWindow extends JFrame {
         return true;
     }
 
-    private void openFile() {
+    private boolean openFile() {
         try {
             JFileChooser fileChooser;
             FileFilter filter;
@@ -430,13 +459,16 @@ class MainWindow extends JFrame {
                 file = fileChooser.getSelectedFile();
                 fileSaved = false;
             }
+            else if (returnVal == JFileChooser.CANCEL_OPTION) {
+                return false;
+            }
 
             FileReader fr;
-            int xCount, yCount;
+            int fieldSizeX, fieldSizeY;
             StringBuilder fileData;
             String sFile, s;
             String[] lineElements;
-            int[][] map;
+            int[][] field;
 
             fr = new FileReader(file);
             fileData = new StringBuilder();
@@ -447,25 +479,49 @@ class MainWindow extends JFrame {
             fr.close();
 
             sFile = fileData.toString();
-            lineElements = sFile.substring(0, fileData.indexOf("\r\n")).split(" ");
-            xCount = Integer.parseInt(lineElements[0]);
-            yCount = Integer.parseInt(lineElements[1]);
-            map = new int[yCount][xCount];
-            for (int i = 0; i < yCount; i++) {
+            lineElements = sFile.substring(0, sFile.indexOf("\r\n")).split(" ");
+            fieldSizeX = Integer.parseInt(lineElements[0]);
+            fieldSizeY = Integer.parseInt(lineElements[1]);
+            field = new int[fieldSizeY][fieldSizeX];
+            for (int i = 0; i < fieldSizeY; i++) {
                 sFile = sFile.substring(sFile.indexOf("\n") + 1);
                 lineElements = sFile.substring(0, sFile.indexOf("\r\n")).split(" ");
-                for (int j = 0; j < xCount; j++) {
-                    map[i][j] = Integer.parseInt(lineElements[j]);
+                for (int j = 0; j < fieldSizeX; j++) {
+                    field[i][j] = Integer.parseInt(lineElements[j]);
                 }
             }
-            jpField = new Field(xCount, yCount);
-            add(jpField, BorderLayout.CENTER);
-            jpField.createNewMap(map);
-            fileSaved = false;
+            if (jpField == null)
+                jpField = new Field(fieldSizeX, fieldSizeY);
+            else
+                jpField.newField(fieldSizeX, fieldSizeY);
+            jlFieldSizeInfo.setText(fieldSizeX + "x" + fieldSizeY);
+            jpField.initField(field);
+            sFile = sFile.substring(sFile.indexOf("\n") + 1);
+            int nextElement = sFile.indexOf("\r\n");
+            if (nextElement != -1) {
+                lineElements = sFile.substring(0, nextElement).split(" ");
+                int x1, y1, x2, y2;
+                x1 = Integer.parseInt(lineElements[0]);
+                y1 = Integer.parseInt(lineElements[1]);
+                sFile = sFile.substring(sFile.indexOf("\n") + 1);
+                nextElement = sFile.indexOf("\r\n");
+                if (nextElement != -1) {
+                    lineElements = sFile.substring(0, nextElement).split(" ");
+                    x2 = Integer.parseInt(lineElements[0]);
+                    y2 = Integer.parseInt(lineElements[1]);
+                    jpField.setMapSize(new Point(x1, y1), new Point(x2, y2));
+                }
+                else {
+                    jpField.setMapSize(new Point(x1, y1), null);
+                }
+            }
+            fileSaved = true;
             revalidate();
+            return true;
         }
         catch (IOException e) {
             e.printStackTrace();
+            return false;
         }
     }
 
