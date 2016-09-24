@@ -1,6 +1,8 @@
 package ru.burningGlobe.generator;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
@@ -18,19 +20,21 @@ import java.net.URL;
 class MainWindow extends JFrame {
     static final int WINDOW_X = 800; // actually, 805
     static final int WINDOW_Y = 600; // actually, 687
-    Font btnFont = new Font("Times New Roman", Font.PLAIN, 16);
+    Font statusBarFont = new Font("Century Gothic", Font.PLAIN, 12);
     private File file;
     private static boolean fileSaved = true;
     private static JMenuItem jmiUndo, jmiRedo;
+    private static JLabel jlMapSizeInfo, jlLineInfo;
 
-    private Field jpMap;
+    private Field jpField;
 
     MainWindow() {
         JMenuBar jmbMenu;
         JMenu jmFile, jmEdit, jmBrush, jmView;
         JMenuItem jmiCreate, jmiOpen, jmiSave, jmiExit;
         JMenuItem jmiBrushRoad, jmiBrushDesert,  jmiBrushStone, jmiBrushRb, jmiBrushNexus, jmiBrushMapBorder, jmiBrushEraser;
-        JMenuItem jmiZoomIn, jmiZoomOut, jmiSetMapSize;
+        JMenuItem jmiZoomIn, jmiZoomOut;
+        JPanel jpStatusBar;
 
         setSize(WINDOW_X, WINDOW_Y);
         setResizable(false);
@@ -75,6 +79,50 @@ class MainWindow extends JFrame {
 
             }
         });
+
+        jpStatusBar = new JPanel();
+        jpStatusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
+        jpStatusBar.setPreferredSize(new Dimension(this.getWidth(), 28));
+        jlMapSizeInfo = new JLabel("map size");
+        jlMapSizeInfo.setPreferredSize(new Dimension(70, 16));
+        jlMapSizeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.statusBarBorderColor));
+        jlMapSizeInfo.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String s;
+                int x, y;
+                if (fileSaved && file == null) {
+                    JOptionPane.showMessageDialog(MainWindow.this, "Карта еще не создана");
+                }
+                while (true) {
+                    s = (String) JOptionPane.showInputDialog(
+                            MainWindow.this,
+                            "Введите размер карты (минимум: 15x15):",
+                            jpField.getMapSize());
+                    if (s == null) break;
+                    if (s.isEmpty()) continue;
+                    if (!s.contains("x")) continue;
+                    x = Integer.parseInt(s.substring(0, s.indexOf("x")));
+                    y = Integer.parseInt(s.substring(s.indexOf("x") + 1));
+                    jpField.setMapSize(null, new Point(x, y));
+                    jlMapSizeInfo.setText(jpField.getMapSize());
+                    revalidate();
+                    jpField.repaint();
+                    return;
+                }
+            }
+        });
+        jlMapSizeInfo.setFont(statusBarFont);
+        jlMapSizeInfo.setHorizontalTextPosition(JLabel.CENTER);
+        jlLineInfo = new JLabel("0:0");
+        jlLineInfo.setPreferredSize(new Dimension(50, 16));
+        jlLineInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.statusBarBorderColor));
+        jlLineInfo.setFont(statusBarFont);
+        jlLineInfo.setHorizontalTextPosition(JLabel.CENTER);
+        jpStatusBar.add(jlLineInfo);
+        jpStatusBar.add(jlMapSizeInfo);
+        add(jpStatusBar, BorderLayout.SOUTH);
+
         jmBrush = new JMenu("Кисть");
         jmView = new JMenu("Вид");
 
@@ -107,18 +155,19 @@ class MainWindow extends JFrame {
                 while (true) {
                     s = (String) JOptionPane.showInputDialog(
                             MainWindow.this,
-                            "Введите размер поля (минимум: 15*15):",
-                            "100*100");
+                            "Введите размер поля (минимум: 15x15):",
+                            "100x100");
                     if (s == null) break;
                     if (s.isEmpty()) continue;
-                    if (!s.contains("*")) continue;
-                    x = Integer.parseInt(s.substring(0, s.indexOf("*")));
+                    if (!s.contains("x")) continue;
+                    x = Integer.parseInt(s.substring(0, s.indexOf("x")));
                     if (x < 15) continue;
-                    y = Integer.parseInt(s.substring(s.indexOf("*") + 1));
+                    y = Integer.parseInt(s.substring(s.indexOf("x") + 1));
                     if (y < 15) continue;
-                    jpMap = new Field(x, y);
-                    add(jpMap, BorderLayout.CENTER);
-                    jpMap.createNewMap();
+                    jpField = new Field(x, y);
+                    add(jpField, BorderLayout.CENTER);
+                    jpField.createNewMap();
+                    jlMapSizeInfo.setText(jpField.getMapSize());
                     fileSaved = false;
                     jmBrush.setEnabled(true);
                     jmView.setEnabled(true);
@@ -170,7 +219,7 @@ class MainWindow extends JFrame {
         jmiUndo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpMap.undo();
+                jpField.undo();
             }
         });
         jmEdit.add(jmiUndo);
@@ -181,7 +230,7 @@ class MainWindow extends JFrame {
         jmiRedo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpMap.redo();
+                jpField.redo();
             }
         });
         jmEdit.add(jmiRedo);
@@ -203,7 +252,7 @@ class MainWindow extends JFrame {
         jmiBrushRoad.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpMap.setCurrentBrush(1);
+                jpField.setCurrentBrush(1);
             }
         });
         jmBrush.add(jmiBrushRoad);
@@ -213,7 +262,7 @@ class MainWindow extends JFrame {
         jmiBrushDesert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpMap.setCurrentBrush(2);
+                jpField.setCurrentBrush(2);
             }
         });
         jmBrush.add(jmiBrushDesert);
@@ -223,7 +272,7 @@ class MainWindow extends JFrame {
         jmiBrushStone.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpMap.setCurrentBrush(3);
+                jpField.setCurrentBrush(3);
             }
         });
         jmBrush.add(jmiBrushStone);
@@ -233,7 +282,7 @@ class MainWindow extends JFrame {
         jmiBrushRb.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpMap.setCurrentBrush(4);
+                jpField.setCurrentBrush(4);
             }
         });
         jmBrush.add(jmiBrushRb);
@@ -243,7 +292,7 @@ class MainWindow extends JFrame {
         jmiBrushNexus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpMap.setCurrentBrush(5);
+                jpField.setCurrentBrush(5);
             }
         });
         jmBrush.add(jmiBrushNexus);
@@ -254,7 +303,7 @@ class MainWindow extends JFrame {
         jmiBrushMapBorder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpMap.setCurrentBrush(6);
+                jpField.setCurrentBrush(6);
             }
         });
         jmBrush.add(jmiBrushMapBorder);
@@ -266,7 +315,7 @@ class MainWindow extends JFrame {
         jmiBrushEraser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpMap.setCurrentBrush(-1);
+                jpField.setCurrentBrush(-1);
             }
         });
         jmBrush.add(jmiBrushEraser);
@@ -280,7 +329,7 @@ class MainWindow extends JFrame {
         jmiZoomIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpMap.zoom(0.5f);
+                jpField.zoom(0.5f);
             }
         });
         jmView.add(jmiZoomIn);
@@ -290,23 +339,25 @@ class MainWindow extends JFrame {
         jmiZoomOut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpMap.zoom(-0.5f);
+                jpField.zoom(-0.5f);
             }
         });
         jmView.add(jmiZoomOut);
-
-//        jmiSetMapSize = new JMenuItem("Установить размер карты");
-//        jmiSetMapSize.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//
-//            }
-//        });
 
         setVisible(true);
     }
 
     static void setFileAsUnsaved() {fileSaved = false;}
+
+    static void setMapSizeInfo(String info) {
+        if (jlMapSizeInfo != null)
+            jlMapSizeInfo.setText(info);
+    }
+
+    static void setLineInfo(String info) {
+        if (jlLineInfo != null)
+            jlLineInfo.setText(info);
+    }
 
     static void setUndoEnabled(Boolean status) {
         if (jmiUndo != null)
@@ -346,10 +397,10 @@ class MainWindow extends JFrame {
                 filename += ".tdmap";
             fw = new FileWriter(filename);
             sb = new StringBuilder();
-            sb.append(jpMap.getXLinesCount()).append(" ").append(jpMap.getYLinesCount()).append("\r\n");
-            int[][] mapArray = jpMap.getField();
-            for (int i = 0; i < jpMap.getYLinesCount(); i++) {
-                for (int j = 0; j < jpMap.getXLinesCount(); j++) {
+            sb.append(jpField.getXLinesCount()).append(" ").append(jpField.getYLinesCount()).append("\r\n");
+            int[][] mapArray = jpField.getField();
+            for (int i = 0; i < jpField.getYLinesCount(); i++) {
+                for (int j = 0; j < jpField.getXLinesCount(); j++) {
                     sb.append(mapArray[i][j]).append(" ");
                 }
                 sb.append("\r\n");
@@ -407,9 +458,9 @@ class MainWindow extends JFrame {
                     map[i][j] = Integer.parseInt(lineElements[j]);
                 }
             }
-            jpMap = new Field(xCount, yCount);
-            add(jpMap, BorderLayout.CENTER);
-            jpMap.createNewMap(map);
+            jpField = new Field(xCount, yCount);
+            add(jpField, BorderLayout.CENTER);
+            jpField.createNewMap(map);
             fileSaved = false;
             revalidate();
         }
