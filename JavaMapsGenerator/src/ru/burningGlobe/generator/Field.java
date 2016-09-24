@@ -93,9 +93,9 @@ class Field extends JPanel{
                 System.out.println("кнопка мыши нажата");
                 int i, j;
                 final int BRUSH_MAP_BORDER_ID = 6;
-                i = (int) ((e.getX() + dx) / (CELL_SIZE * ZOOM));
-                j = (int) ((e.getY() + dy) / (CELL_SIZE * ZOOM));
-                System.out.println("x: " + (e.getX() * ZOOM + dx) + " y: " + (e.getY() * ZOOM + dy));
+                i = (int) ((e.getX() - dx) / (CELL_SIZE * ZOOM));
+                j = (int) ((e.getY() - dy) / (CELL_SIZE * ZOOM));
+                System.out.println("x: " + (e.getX() * ZOOM - dx) + " y: " + (e.getY() * ZOOM - dy));
                 if (field[j][i] == currentBrush)
                     return;
                 if (i >= xLinesCount || j >= xLinesCount)
@@ -116,6 +116,7 @@ class Field extends JPanel{
                     }
                     System.out.println("граница установлена в точке " + i + ":" + j);
                     borderIsPressed = true;
+                    MainWindow.setMapSizeInfo(getMapSize());
                     repaint();
                     return;
                 }
@@ -156,9 +157,9 @@ class Field extends JPanel{
             public void mouseDragged(MouseEvent e) {
                 System.out.println("кнопка мыши удерживается");
                 int i, j;
-                i = (int) ((e.getX() + dx) / (CELL_SIZE * ZOOM));
-                j = (int) ((e.getY() + dy) / (CELL_SIZE * ZOOM));
-                System.out.println("x: " + (e.getX() * ZOOM + dx) + " y: " + (e.getY() * ZOOM + dy));
+                i = (int) ((e.getX() - dx) / (CELL_SIZE * ZOOM));
+                j = (int) ((e.getY() - dy) / (CELL_SIZE * ZOOM));
+                System.out.println("x: " + (e.getX() * ZOOM - dx) + " y: " + (e.getY() * ZOOM - dy));
                 if (field[j][i] == currentBrush)
                     return;
                 if (i >= xLinesCount || j >= xLinesCount)
@@ -178,6 +179,7 @@ class Field extends JPanel{
                         System.out.print("начальная ");
                     }
                     System.out.println("граница установлена в точке " + i + ":" + j);
+                    MainWindow.setMapSizeInfo(getMapSize());
                     repaint();
                     return;
                 }
@@ -190,7 +192,10 @@ class Field extends JPanel{
 
             @Override
             public void mouseMoved(MouseEvent e) {
-//                System.out.println("x: " + e.getX() + " y: " + e.getY());
+                int i, j;
+                i = (int) ((e.getX() - dx) / (CELL_SIZE * ZOOM));
+                j = (int) ((e.getY() - dy) / (CELL_SIZE * ZOOM));
+                MainWindow.setLineInfo(i + ":" + j);
             }
         });
     }
@@ -203,9 +208,17 @@ class Field extends JPanel{
         this.field = field;
     }
 
-    private void setMap(Point mapStartPoint, Point mapEndPoint) {
-        this.mapStartPoint = mapStartPoint;
-        this.mapEndPoint = mapEndPoint;
+    void setMapSize(Point mapStartPoint, Point mapEndPoint) {
+        if (mapStartPoint != null) {
+            this.mapStartPoint = mapStartPoint;
+        }
+        if (mapEndPoint != null) {
+            this.mapEndPoint = mapEndPoint;
+        }
+    }
+
+    public String getMapSize() {
+        return (mapEndPoint.x - mapStartPoint.x) + "x" + (mapEndPoint.y - mapStartPoint.y);
     }
 
     int[][] getField() {
@@ -335,6 +348,12 @@ class Field extends JPanel{
         g.drawLine((int) (mapStartPoint.x * CELL_SIZE * ZOOM + dx), (int) (mapStartPoint.y * CELL_SIZE * ZOOM + dy), (int) (mapStartPoint.x * CELL_SIZE * ZOOM + dx), (int) (mapEndPoint.y * CELL_SIZE * ZOOM + dy)); // |<
         g.drawLine((int) (mapStartPoint.x * CELL_SIZE * ZOOM + dx), (int) (mapStartPoint.y * CELL_SIZE * ZOOM + dy), (int) (mapEndPoint.x * CELL_SIZE * ZOOM + dx), (int) (mapStartPoint.y * CELL_SIZE * ZOOM + dy)); // -^
         g.drawLine((int) (mapEndPoint.x * CELL_SIZE * ZOOM + dx), (int) (mapStartPoint.y * CELL_SIZE * ZOOM + dy), (int) (mapEndPoint.x * CELL_SIZE * ZOOM + dx), (int) (mapEndPoint.y * CELL_SIZE * ZOOM + dy)); // |>
-        g.drawLine((int)(mapStartPoint.x * CELL_SIZE * ZOOM + dx), (int)(mapEndPoint.y * CELL_SIZE * ZOOM + dy), (int)(mapEndPoint.x * CELL_SIZE * ZOOM + dx), (int)(mapEndPoint.y * CELL_SIZE * ZOOM + dy)); // _
+        g.drawLine((int) (mapStartPoint.x * CELL_SIZE * ZOOM + dx), (int) (mapEndPoint.y * CELL_SIZE * ZOOM + dy), (int) (mapEndPoint.x * CELL_SIZE * ZOOM + dx), (int) (mapEndPoint.y * CELL_SIZE * ZOOM + dy)); // _
+
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setColor(GeneratorColors.mapBorderPointColor);
+        g2.setStroke(new BasicStroke(3));
+        g2.drawRect((int)(mapStartPoint.x * CELL_SIZE * ZOOM + dx), (int)(mapStartPoint.y * CELL_SIZE * ZOOM + dy), 1, 1);
+        g2.drawRect((int)(mapEndPoint.x * CELL_SIZE * ZOOM + dx), (int)(mapEndPoint.y * CELL_SIZE * ZOOM + dy), 1, 1);
     }
 }
