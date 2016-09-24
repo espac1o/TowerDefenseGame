@@ -21,18 +21,13 @@ class Field extends JPanel{
     private int linesMissed;
     private Point mapStartPoint;
     private Point mapEndPoint;
-    private boolean borderIsPressed;
+    private boolean isBorderPressed;
+    private boolean isControlDown;
 
     Field(int x_count, int y_count) {
-        xLinesCount = x_count;
-        yLinesCount = y_count;
-        stack = new ArrayList<>();
-        currentStep = "";
-        linesMissed = 0;
-        borderIsPressed = false;
+        newField(x_count, y_count);
 
-        mapStartPoint = new Point(0, 0);
-        mapEndPoint = new Point(x_count, y_count);
+        setCurrentBrush(-1);
 
         addMouseWheelListener(new MouseWheelListener() {
             @Override
@@ -68,8 +63,7 @@ class Field extends JPanel{
                             dy -= sign * wheelVelocity;
                             System.out.println("dx = " + dx + "dy = " + dy);
                         }
-                    }
-                    else if (sign == -1) {
+                    } else if (sign == -1) {
                         System.out.println("Scrolled up");
                         if (dy < 0) {
                             if (dy + wheelVelocity > 0)
@@ -81,7 +75,7 @@ class Field extends JPanel{
                 }
                 repaint();
             }
-    });
+        });
 
         addMouseListener(new MouseListener() {
             @Override
@@ -96,31 +90,35 @@ class Field extends JPanel{
                 i = (int) ((e.getX() - dx) / (CELL_SIZE * ZOOM));
                 j = (int) ((e.getY() - dy) / (CELL_SIZE * ZOOM));
                 System.out.println("x: " + (e.getX() * ZOOM - dx) + " y: " + (e.getY() * ZOOM - dy));
-                if (field[j][i] == currentBrush)
-                    return;
                 if (i >= xLinesCount || j >= xLinesCount)
                     return;
-                MainWindow.setFileAsUnsaved();
+                if (i < 0 || j < 0)
+                    return;
+                if (closeToBorderPoint(e.getX(), e.getY())) {
+                    isBorderPressed = true;
+                    return;
+                }
                 if (currentBrush == BRUSH_MAP_BORDER_ID) {
-                    if (e.isControlDown()) {
+                    isBorderPressed = true;
+                    if (e.isControlDown() || isControlDown) {
                         if (mapEndPoint.x == i + 1 && mapEndPoint.y == j + 1)
                             return;
                         mapEndPoint.setLocation(i + 1, j + 1);
                         System.out.print("конечная ");
-                    }
-                    else {
+                    } else {
                         if (mapStartPoint.x == i && mapStartPoint.y == j)
                             return;
                         mapStartPoint.setLocation(i, j);
                         System.out.print("начальная ");
                     }
                     System.out.println("граница установлена в точке " + i + ":" + j);
-                    borderIsPressed = true;
                     MainWindow.setMapSizeInfo(getMapSize());
                     repaint();
                     return;
                 }
-                MainWindow.setUndoEnabled(true);
+                if (field[j][i] == currentBrush)
+                    return;
+                MainWindow.setFileAsUnsaved();
                 System.out.println(j + "x" + i);
                 currentStep += "#" + i + ":" + j + "|" + field[j][i] + "->" + currentBrush;
                 field[j][i] = currentBrush;
@@ -131,7 +129,8 @@ class Field extends JPanel{
             @Override
             public void mouseReleased(MouseEvent e) {
                 System.out.println("кнопка мыши отпущена");
-                borderIsPressed = false;
+                isBorderPressed = false;
+                isControlDown = false;
                 if (!currentStep.isEmpty()) {
                     if (linesMissed != 0) {
                         stack = new ArrayList<>(stack.subList(0, stack.size() - linesMissed));
@@ -140,6 +139,7 @@ class Field extends JPanel{
                     stack.add(currentStep);
                     currentStep = "";
                     System.out.println("команда добавлена в стек; Текущий стек: " + stack.toString());
+                    MainWindow.setUndoEnabled(true);
                 }
             }
 
@@ -157,22 +157,21 @@ class Field extends JPanel{
             public void mouseDragged(MouseEvent e) {
                 System.out.println("кнопка мыши удерживается");
                 int i, j;
+                final int BRUSH_MAP_BORDER_ID = 6;
                 i = (int) ((e.getX() - dx) / (CELL_SIZE * ZOOM));
                 j = (int) ((e.getY() - dy) / (CELL_SIZE * ZOOM));
                 System.out.println("x: " + (e.getX() * ZOOM - dx) + " y: " + (e.getY() * ZOOM - dy));
-                if (field[j][i] == currentBrush)
-                    return;
                 if (i >= xLinesCount || j >= xLinesCount)
                     return;
-                MainWindow.setFileAsUnsaved();
-                if (borderIsPressed) {
-                    if (e.isControlDown()) {
+                if (i < 0 || j < 0)
+                    return;
+                if (isBorderPressed) {
+                    if (e.isControlDown() || isControlDown) {
                         if (mapEndPoint.x == i + 1 && mapEndPoint.y == j + 1)
                             return;
                         mapEndPoint.setLocation(i + 1, j + 1);
                         System.out.print("конечная ");
-                    }
-                    else {
+                    } else {
                         if (mapStartPoint.x == i && mapStartPoint.y == j)
                             return;
                         mapStartPoint.setLocation(i, j);
@@ -183,6 +182,10 @@ class Field extends JPanel{
                     repaint();
                     return;
                 }
+                if (currentBrush == BRUSH_MAP_BORDER_ID)
+                    return;
+                if (field[j][i] == currentBrush)
+                    return;
                 System.out.println(j + "x" + i);
                 currentStep += "#" + i + ":" + j + "|" + field[j][i] + "->" + currentBrush;
                 field[j][i] = currentBrush;
@@ -195,9 +198,29 @@ class Field extends JPanel{
                 int i, j;
                 i = (int) ((e.getX() - dx) / (CELL_SIZE * ZOOM));
                 j = (int) ((e.getY() - dy) / (CELL_SIZE * ZOOM));
+                if (i >= xLinesCount || j >= xLinesCount)
+                    return;
                 MainWindow.setLineInfo(i + ":" + j);
             }
         });
+    }
+
+    public void newField(int x, int y) {
+        xLinesCount = x;
+        yLinesCount = y;
+        if (stack == null)
+            stack = new ArrayList<>();
+        else
+            stack.clear();
+        currentStep = "";
+        linesMissed = 0;
+        isBorderPressed = false;
+        isControlDown = false;
+        mapStartPoint = new Point(0, 0);
+        mapEndPoint = new Point(x, y);
+        MainWindow.setUndoEnabled(false);
+        MainWindow.setRedoEnabled(false);
+        MainWindow.setMapSizeInfo(getMapSize());
     }
 
     public void setCurrentBrush(int currentBrush) {
@@ -215,6 +238,7 @@ class Field extends JPanel{
         if (mapEndPoint != null) {
             this.mapEndPoint = mapEndPoint;
         }
+        MainWindow.setMapSizeInfo(getMapSize());
     }
 
     public String getMapSize() {
@@ -233,25 +257,44 @@ class Field extends JPanel{
         return yLinesCount;
     }
 
-    private void initMap() {
+    public Point getMapStartPoint() {
+        return mapStartPoint;
+    }
+
+    public Point getMapEndPoint() {
+        return mapEndPoint;
+    }
+
+    void initField() {
+        field = new int[yLinesCount][xLinesCount];
         for (int i = 0; i < yLinesCount; i++) {
             for (int j = 0; j < xLinesCount; j++) {
                 field[i][j] = -1;
             }
         }
-    }
-
-    void createNewMap() {
-        field = new int[yLinesCount][xLinesCount];
-        initMap();
-        setCurrentBrush(-1);
         repaint();
     }
 
-    void createNewMap(int[][] map) {
-        setField(map);
-        setCurrentBrush(-1);
+    void initField(int[][] field) {
+        setField(field);
         repaint();
+    }
+
+    private boolean closeToBorderPoint(int clickX, int clickY) {
+        final double error = 5 * ZOOM;
+        final double startPointX = mapStartPoint.x * CELL_SIZE * ZOOM + dx;
+        final double startPointY = mapStartPoint.y * CELL_SIZE * ZOOM + dy;
+        final double endPointX = mapEndPoint.x * CELL_SIZE * ZOOM + dx;
+        final double endPointY = mapEndPoint.y * CELL_SIZE * ZOOM + dy;
+
+        if (Math.abs(startPointX - clickX) <= error && Math.abs(startPointY - clickY) <= error)
+            return true;
+        else if (Math.abs(endPointX - clickX) <= error && Math.abs(endPointY - clickY) <= error) {
+            isControlDown = true;
+            return true;
+        }
+
+        return false;
     }
 
     void zoom(float dZoom) {
