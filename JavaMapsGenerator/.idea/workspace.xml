@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1764488e-5e37-4719-8a1c-921473f72f8c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java" afterPath="$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java" afterPath="$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java" afterPath="$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JavaMapsGenerator/ru/burningGlobe/generator/GeneratorColors.class" afterPath="$PROJECT_DIR$/out/production/JavaMapsGenerator/ru/burningGlobe/generator/GeneratorColors.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="td_maps_generator.iws" />
@@ -27,41 +25,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="86" column="55" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.5005441">
+              <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="class#1405:2278" expanded="false" />
-                <element signature="class#2718:3840" expanded="false" />
-                <element signature="class#4914:5101" expanded="false" />
-                <element signature="class#5298:6595" expanded="false" />
-                <element signature="class#6824:7216" expanded="false" />
-                <element signature="class#7391:7628" expanded="false" />
-                <element signature="e#8180#8181#0" expanded="true" />
-                <element signature="e#8226#8227#0" expanded="true" />
-                <element signature="e#8583#8584#0" expanded="true" />
-                <element signature="e#8629#8630#0" expanded="true" />
-                <element signature="e#9521#9522#0" expanded="true" />
-                <element signature="e#9579#9580#0" expanded="true" />
-                <element signature="e#9888#9889#0" expanded="true" />
-                <element signature="e#9946#9947#0" expanded="true" />
-                <element signature="e#10252#10253#0" expanded="true" />
-                <element signature="e#10310#10311#0" expanded="true" />
-                <element signature="e#10604#10605#0" expanded="true" />
-                <element signature="e#10662#10663#0" expanded="true" />
-                <element signature="e#10964#10965#0" expanded="true" />
-                <element signature="e#11022#11023#0" expanded="true" />
-                <element signature="e#11310#11311#0" expanded="true" />
-                <element signature="e#11368#11369#0" expanded="true" />
-                <element signature="e#11714#11715#0" expanded="true" />
-                <element signature="e#11773#11774#0" expanded="true" />
-                <element signature="e#12313#12314#0" expanded="true" />
-                <element signature="e#12363#12364#0" expanded="true" />
-                <element signature="e#12694#12695#0" expanded="true" />
-                <element signature="e#12745#12746#0" expanded="true" />
+                <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+                <element signature="class#1570:2443" expanded="false" />
+                <element signature="e#9583#9584#0" expanded="true" />
+                <element signature="e#9629#9630#0" expanded="true" />
+                <element signature="e#9986#9987#0" expanded="true" />
+                <element signature="e#10032#10033#0" expanded="true" />
+                <element signature="e#10924#10925#0" expanded="true" />
+                <element signature="e#10982#10983#0" expanded="true" />
+                <element signature="e#11291#11292#0" expanded="true" />
+                <element signature="e#11349#11350#0" expanded="true" />
+                <element signature="e#11655#11656#0" expanded="true" />
+                <element signature="e#11713#11714#0" expanded="true" />
+                <element signature="e#12007#12008#0" expanded="true" />
+                <element signature="e#12065#12066#0" expanded="true" />
+                <element signature="e#12367#12368#0" expanded="true" />
+                <element signature="e#12425#12426#0" expanded="true" />
+                <element signature="e#12713#12714#0" expanded="true" />
+                <element signature="e#12771#12772#0" expanded="true" />
+                <element signature="e#13117#13118#0" expanded="true" />
+                <element signature="e#13176#13177#0" expanded="true" />
+                <element signature="e#13716#13717#0" expanded="true" />
+                <element signature="e#13766#13767#0" expanded="true" />
+                <element signature="e#14097#14098#0" expanded="true" />
+                <element signature="e#14148#14149#0" expanded="true" />
+                <element signature="method#setFileAsUnsaved#0;class#MainWindow#0" expanded="false" />
                 <element signature="method#setMapSizeInfo#0;class#MainWindow#0" expanded="false" />
                 <element signature="method#setLineInfo#0;class#MainWindow#0" expanded="false" />
                 <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
@@ -91,34 +86,25 @@
         <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+              <caret line="287" column="59" selection-start-line="287" selection-start-column="59" selection-end-line="287" selection-end-column="59" />
               <folding>
-                <element signature="method#Field#0;class#Field#0" expanded="false" />
-                <element signature="class#976:3381" expanded="false" />
-                <element signature="class#3414:6288" expanded="false" />
-                <element signature="method#mouseClicked#0;class#3414:6288" expanded="false" />
-                <element signature="method#mousePressed#0;class#3414:6288" expanded="false" />
-                <element signature="method#mouseReleased#0;class#3414:6288" expanded="false" />
-                <element signature="class#6327:8436" expanded="false" />
-                <element signature="method#mouseDragged#0;class#6327:8436" expanded="false" />
-                <element signature="method#mouseMoved#0;class#6327:8436" expanded="false" />
-                <element signature="method#setMapSize#0;class#Field#0" expanded="false" />
-                <element signature="method#initMap#0;class#Field#0" expanded="false" />
-                <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
-                <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+                <element signature="class#803:3192" expanded="false" />
+                <element signature="e#9423#9424#0" expanded="true" />
+                <element signature="e#9457#9458#0" expanded="true" />
+                <element signature="e#10181#10182#0" expanded="true" />
+                <element signature="e#10215#10216#0" expanded="true" />
                 <element signature="method#zoom#0;class#Field#0" expanded="false" />
                 <element signature="method#undo#0;class#Field#0" expanded="false" />
                 <element signature="method#redo#0;class#Field#0" expanded="false" />
-                <element signature="method#paintComponent#0;class#Field#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeneratorColors.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GeneratorColors.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38583815">
+            <state vertical-scroll-proportion="0.0">
               <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
               <folding />
             </state>
@@ -184,8 +170,8 @@
         <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/CreateWindow.java" />
         <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/CreatingWindow.java" />
         <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/Map.java" />
-        <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java" />
         <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java" />
+        <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java" />
         <option value="$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java" />
       </list>
     </option>
@@ -251,6 +237,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -304,8 +292,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -317,13 +303,13 @@
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="282" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="280" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="310" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="308" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="312" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="310" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="986" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="979" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="304" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
@@ -576,7 +562,37 @@
       <option name="project" value="LOCAL" />
       <updated>1474731222082</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Добавлен цвет для границ элементов статус-бара">
+      <created>1474743924789</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1474743924789</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Добавлена функция getMapSize">
+      <created>1474744002334</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1474744002334</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Добавлен статус-бар">
+      <created>1474744058031</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1474744058031</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Добавлена обработка нажатий, близких к значимым точкам границы карты.&#10;Добавлена функция создания нового поля.">
+      <created>1474756801751</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1474756801752</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Исправлена ошибка, возникавшая при открытии нового файла (при условии уже открытого файла).">
+      <created>1474756867450</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1474756867450</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -593,7 +609,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23970433" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23970433" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19427083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -624,23 +640,59 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <MESSAGE value="Добавлены методы &quot;Отменить&quot; и &quot;Повторить&quot;" />
     <MESSAGE value="Добавлена обработка кнопки закрытия" />
     <MESSAGE value="Добавлена граница карты" />
     <MESSAGE value="Изменение границ карты" />
-    <option name="LAST_COMMIT_MESSAGE" value="Изменение границ карты" />
+    <MESSAGE value="Добавлен цвет для границ элементов статус-бара" />
+    <MESSAGE value="Добавлена функция getMapSize" />
+    <MESSAGE value="Добавлен статус-бар" />
+    <MESSAGE value="Добавлена обработка нажатий, близких к значимым точкам границы карты.&#10;Добавлена функция создания нового поля." />
+    <MESSAGE value="Исправлена ошибка, возникавшая при открытии нового файла (при условии уже открытого файла)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправлена ошибка, возникавшая при открытии нового файла (при условии уже открытого файла)." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java</url>
-          <line>136</line>
+          <line>135</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java</url>
+          <line>480</line>
+          <properties />
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java</url>
+          <line>494</line>
+          <properties />
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java</url>
+          <line>89</line>
+          <properties />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java</url>
+          <line>102</line>
+          <properties />
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java</url>
+          <line>168</line>
+          <properties />
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="27" />
+      <option name="time" value="46" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -649,74 +701,37 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="177" column="33" selection-start-line="177" selection-start-column="33" selection-end-line="177" selection-end-column="33" />
-          <folding>
-            <element signature="method#Field#0;class#Field#0" expanded="false" />
-            <element signature="class#976:3381" expanded="false" />
-            <element signature="class#3414:6288" expanded="false" />
-            <element signature="method#mouseClicked#0;class#3414:6288" expanded="false" />
-            <element signature="method#mousePressed#0;class#3414:6288" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3414:6288" expanded="false" />
-            <element signature="class#6327:8436" expanded="false" />
-            <element signature="method#mouseDragged#0;class#6327:8436" expanded="false" />
-            <element signature="method#mouseMoved#0;class#6327:8436" expanded="false" />
-            <element signature="method#setMapSize#0;class#Field#0" expanded="false" />
-            <element signature="method#initMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
-            <element signature="method#zoom#0;class#Field#0" expanded="false" />
-            <element signature="method#undo#0;class#Field#0" expanded="false" />
-            <element signature="method#redo#0;class#Field#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Field#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#1405:2278" expanded="false" />
-            <element signature="class#2718:3840" expanded="false" />
-            <element signature="class#4914:5101" expanded="false" />
-            <element signature="class#5298:6595" expanded="false" />
-            <element signature="class#6824:7216" expanded="false" />
-            <element signature="class#7391:7628" expanded="false" />
-            <element signature="e#8180#8181#0" expanded="true" />
-            <element signature="e#8226#8227#0" expanded="true" />
-            <element signature="e#8583#8584#0" expanded="true" />
-            <element signature="e#8629#8630#0" expanded="true" />
-            <element signature="e#9521#9522#0" expanded="true" />
-            <element signature="e#9579#9580#0" expanded="true" />
-            <element signature="e#9888#9889#0" expanded="true" />
-            <element signature="e#9946#9947#0" expanded="true" />
-            <element signature="e#10252#10253#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10604#10605#0" expanded="true" />
-            <element signature="e#10662#10663#0" expanded="true" />
-            <element signature="e#10964#10965#0" expanded="true" />
-            <element signature="e#11022#11023#0" expanded="true" />
-            <element signature="e#11310#11311#0" expanded="true" />
-            <element signature="e#11368#11369#0" expanded="true" />
-            <element signature="e#11714#11715#0" expanded="true" />
-            <element signature="e#11773#11774#0" expanded="true" />
-            <element signature="e#12313#12314#0" expanded="true" />
-            <element signature="e#12363#12364#0" expanded="true" />
-            <element signature="e#12694#12695#0" expanded="true" />
-            <element signature="e#12745#12746#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="class#1570:2443" expanded="false" />
+            <element signature="e#9583#9584#0" expanded="true" />
+            <element signature="e#9629#9630#0" expanded="true" />
+            <element signature="e#9986#9987#0" expanded="true" />
+            <element signature="e#10032#10033#0" expanded="true" />
+            <element signature="e#10924#10925#0" expanded="true" />
+            <element signature="e#10982#10983#0" expanded="true" />
+            <element signature="e#11291#11292#0" expanded="true" />
+            <element signature="e#11349#11350#0" expanded="true" />
+            <element signature="e#11655#11656#0" expanded="true" />
+            <element signature="e#11713#11714#0" expanded="true" />
+            <element signature="e#12007#12008#0" expanded="true" />
+            <element signature="e#12065#12066#0" expanded="true" />
+            <element signature="e#12367#12368#0" expanded="true" />
+            <element signature="e#12425#12426#0" expanded="true" />
+            <element signature="e#12713#12714#0" expanded="true" />
+            <element signature="e#12771#12772#0" expanded="true" />
+            <element signature="e#13117#13118#0" expanded="true" />
+            <element signature="e#13176#13177#0" expanded="true" />
+            <element signature="e#13716#13717#0" expanded="true" />
+            <element signature="e#13766#13767#0" expanded="true" />
+            <element signature="e#14097#14098#0" expanded="true" />
+            <element signature="e#14148#14149#0" expanded="true" />
+            <element signature="method#setFileAsUnsaved#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setMapSizeInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setLineInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
@@ -734,23 +749,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="177" column="33" selection-start-line="177" selection-start-column="33" selection-end-line="177" selection-end-column="33" />
           <folding>
-            <element signature="method#Field#0;class#Field#0" expanded="false" />
-            <element signature="class#976:3381" expanded="false" />
-            <element signature="class#3414:6288" expanded="false" />
-            <element signature="method#mouseClicked#0;class#3414:6288" expanded="false" />
-            <element signature="method#mousePressed#0;class#3414:6288" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3414:6288" expanded="false" />
-            <element signature="class#6327:8436" expanded="false" />
-            <element signature="method#mouseDragged#0;class#6327:8436" expanded="false" />
-            <element signature="method#mouseMoved#0;class#6327:8436" expanded="false" />
-            <element signature="method#setMapSize#0;class#Field#0" expanded="false" />
-            <element signature="method#initMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="class#803:3192" expanded="false" />
+            <element signature="e#9423#9424#0" expanded="true" />
+            <element signature="e#9457#9458#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#10215#10216#0" expanded="true" />
             <element signature="method#zoom#0;class#Field#0" expanded="false" />
             <element signature="method#undo#0;class#Field#0" expanded="false" />
             <element signature="method#redo#0;class#Field#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -769,34 +775,31 @@
           <caret line="347" column="28" selection-start-line="347" selection-start-column="28" selection-end-line="347" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#1405:2278" expanded="false" />
-            <element signature="class#2718:3840" expanded="false" />
-            <element signature="class#4914:5101" expanded="false" />
-            <element signature="class#5298:6595" expanded="false" />
-            <element signature="class#6824:7216" expanded="false" />
-            <element signature="class#7391:7628" expanded="false" />
-            <element signature="e#8180#8181#0" expanded="true" />
-            <element signature="e#8226#8227#0" expanded="true" />
-            <element signature="e#8583#8584#0" expanded="true" />
-            <element signature="e#8629#8630#0" expanded="true" />
-            <element signature="e#9521#9522#0" expanded="true" />
-            <element signature="e#9579#9580#0" expanded="true" />
-            <element signature="e#9888#9889#0" expanded="true" />
-            <element signature="e#9946#9947#0" expanded="true" />
-            <element signature="e#10252#10253#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10604#10605#0" expanded="true" />
-            <element signature="e#10662#10663#0" expanded="true" />
-            <element signature="e#10964#10965#0" expanded="true" />
-            <element signature="e#11022#11023#0" expanded="true" />
-            <element signature="e#11310#11311#0" expanded="true" />
-            <element signature="e#11368#11369#0" expanded="true" />
-            <element signature="e#11714#11715#0" expanded="true" />
-            <element signature="e#11773#11774#0" expanded="true" />
-            <element signature="e#12313#12314#0" expanded="true" />
-            <element signature="e#12363#12364#0" expanded="true" />
-            <element signature="e#12694#12695#0" expanded="true" />
-            <element signature="e#12745#12746#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="class#1570:2443" expanded="false" />
+            <element signature="e#9583#9584#0" expanded="true" />
+            <element signature="e#9629#9630#0" expanded="true" />
+            <element signature="e#9986#9987#0" expanded="true" />
+            <element signature="e#10032#10033#0" expanded="true" />
+            <element signature="e#10924#10925#0" expanded="true" />
+            <element signature="e#10982#10983#0" expanded="true" />
+            <element signature="e#11291#11292#0" expanded="true" />
+            <element signature="e#11349#11350#0" expanded="true" />
+            <element signature="e#11655#11656#0" expanded="true" />
+            <element signature="e#11713#11714#0" expanded="true" />
+            <element signature="e#12007#12008#0" expanded="true" />
+            <element signature="e#12065#12066#0" expanded="true" />
+            <element signature="e#12367#12368#0" expanded="true" />
+            <element signature="e#12425#12426#0" expanded="true" />
+            <element signature="e#12713#12714#0" expanded="true" />
+            <element signature="e#12771#12772#0" expanded="true" />
+            <element signature="e#13117#13118#0" expanded="true" />
+            <element signature="e#13176#13177#0" expanded="true" />
+            <element signature="e#13716#13717#0" expanded="true" />
+            <element signature="e#13766#13767#0" expanded="true" />
+            <element signature="e#14097#14098#0" expanded="true" />
+            <element signature="e#14148#14149#0" expanded="true" />
+            <element signature="method#setFileAsUnsaved#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setMapSizeInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setLineInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
@@ -814,23 +817,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#Field#0;class#Field#0" expanded="false" />
-            <element signature="class#976:3381" expanded="false" />
-            <element signature="class#3414:6288" expanded="false" />
-            <element signature="method#mouseClicked#0;class#3414:6288" expanded="false" />
-            <element signature="method#mousePressed#0;class#3414:6288" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3414:6288" expanded="false" />
-            <element signature="class#6327:8436" expanded="false" />
-            <element signature="method#mouseDragged#0;class#6327:8436" expanded="false" />
-            <element signature="method#mouseMoved#0;class#6327:8436" expanded="false" />
-            <element signature="method#setMapSize#0;class#Field#0" expanded="false" />
-            <element signature="method#initMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="class#803:3192" expanded="false" />
+            <element signature="e#9423#9424#0" expanded="true" />
+            <element signature="e#9457#9458#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#10215#10216#0" expanded="true" />
             <element signature="method#zoom#0;class#Field#0" expanded="false" />
             <element signature="method#undo#0;class#Field#0" expanded="false" />
             <element signature="method#redo#0;class#Field#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -849,34 +843,31 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#1405:2278" expanded="false" />
-            <element signature="class#2718:3840" expanded="false" />
-            <element signature="class#4914:5101" expanded="false" />
-            <element signature="class#5298:6595" expanded="false" />
-            <element signature="class#6824:7216" expanded="false" />
-            <element signature="class#7391:7628" expanded="false" />
-            <element signature="e#8180#8181#0" expanded="true" />
-            <element signature="e#8226#8227#0" expanded="true" />
-            <element signature="e#8583#8584#0" expanded="true" />
-            <element signature="e#8629#8630#0" expanded="true" />
-            <element signature="e#9521#9522#0" expanded="true" />
-            <element signature="e#9579#9580#0" expanded="true" />
-            <element signature="e#9888#9889#0" expanded="true" />
-            <element signature="e#9946#9947#0" expanded="true" />
-            <element signature="e#10252#10253#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10604#10605#0" expanded="true" />
-            <element signature="e#10662#10663#0" expanded="true" />
-            <element signature="e#10964#10965#0" expanded="true" />
-            <element signature="e#11022#11023#0" expanded="true" />
-            <element signature="e#11310#11311#0" expanded="true" />
-            <element signature="e#11368#11369#0" expanded="true" />
-            <element signature="e#11714#11715#0" expanded="true" />
-            <element signature="e#11773#11774#0" expanded="true" />
-            <element signature="e#12313#12314#0" expanded="true" />
-            <element signature="e#12363#12364#0" expanded="true" />
-            <element signature="e#12694#12695#0" expanded="true" />
-            <element signature="e#12745#12746#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="class#1570:2443" expanded="false" />
+            <element signature="e#9583#9584#0" expanded="true" />
+            <element signature="e#9629#9630#0" expanded="true" />
+            <element signature="e#9986#9987#0" expanded="true" />
+            <element signature="e#10032#10033#0" expanded="true" />
+            <element signature="e#10924#10925#0" expanded="true" />
+            <element signature="e#10982#10983#0" expanded="true" />
+            <element signature="e#11291#11292#0" expanded="true" />
+            <element signature="e#11349#11350#0" expanded="true" />
+            <element signature="e#11655#11656#0" expanded="true" />
+            <element signature="e#11713#11714#0" expanded="true" />
+            <element signature="e#12007#12008#0" expanded="true" />
+            <element signature="e#12065#12066#0" expanded="true" />
+            <element signature="e#12367#12368#0" expanded="true" />
+            <element signature="e#12425#12426#0" expanded="true" />
+            <element signature="e#12713#12714#0" expanded="true" />
+            <element signature="e#12771#12772#0" expanded="true" />
+            <element signature="e#13117#13118#0" expanded="true" />
+            <element signature="e#13176#13177#0" expanded="true" />
+            <element signature="e#13716#13717#0" expanded="true" />
+            <element signature="e#13766#13767#0" expanded="true" />
+            <element signature="e#14097#14098#0" expanded="true" />
+            <element signature="e#14148#14149#0" expanded="true" />
+            <element signature="method#setFileAsUnsaved#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setMapSizeInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setLineInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
@@ -894,23 +885,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="5" selection-start-line="169" selection-start-column="5" selection-end-line="169" selection-end-column="5" />
           <folding>
-            <element signature="method#Field#0;class#Field#0" expanded="false" />
-            <element signature="class#976:3381" expanded="false" />
-            <element signature="class#3414:6288" expanded="false" />
-            <element signature="method#mouseClicked#0;class#3414:6288" expanded="false" />
-            <element signature="method#mousePressed#0;class#3414:6288" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3414:6288" expanded="false" />
-            <element signature="class#6327:8436" expanded="false" />
-            <element signature="method#mouseDragged#0;class#6327:8436" expanded="false" />
-            <element signature="method#mouseMoved#0;class#6327:8436" expanded="false" />
-            <element signature="method#setMapSize#0;class#Field#0" expanded="false" />
-            <element signature="method#initMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="class#803:3192" expanded="false" />
+            <element signature="e#9423#9424#0" expanded="true" />
+            <element signature="e#9457#9458#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#10215#10216#0" expanded="true" />
             <element signature="method#zoom#0;class#Field#0" expanded="false" />
             <element signature="method#undo#0;class#Field#0" expanded="false" />
             <element signature="method#redo#0;class#Field#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -943,34 +925,31 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#1405:2278" expanded="false" />
-            <element signature="class#2718:3840" expanded="false" />
-            <element signature="class#4914:5101" expanded="false" />
-            <element signature="class#5298:6595" expanded="false" />
-            <element signature="class#6824:7216" expanded="false" />
-            <element signature="class#7391:7628" expanded="false" />
-            <element signature="e#8180#8181#0" expanded="true" />
-            <element signature="e#8226#8227#0" expanded="true" />
-            <element signature="e#8583#8584#0" expanded="true" />
-            <element signature="e#8629#8630#0" expanded="true" />
-            <element signature="e#9521#9522#0" expanded="true" />
-            <element signature="e#9579#9580#0" expanded="true" />
-            <element signature="e#9888#9889#0" expanded="true" />
-            <element signature="e#9946#9947#0" expanded="true" />
-            <element signature="e#10252#10253#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10604#10605#0" expanded="true" />
-            <element signature="e#10662#10663#0" expanded="true" />
-            <element signature="e#10964#10965#0" expanded="true" />
-            <element signature="e#11022#11023#0" expanded="true" />
-            <element signature="e#11310#11311#0" expanded="true" />
-            <element signature="e#11368#11369#0" expanded="true" />
-            <element signature="e#11714#11715#0" expanded="true" />
-            <element signature="e#11773#11774#0" expanded="true" />
-            <element signature="e#12313#12314#0" expanded="true" />
-            <element signature="e#12363#12364#0" expanded="true" />
-            <element signature="e#12694#12695#0" expanded="true" />
-            <element signature="e#12745#12746#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="class#1570:2443" expanded="false" />
+            <element signature="e#9583#9584#0" expanded="true" />
+            <element signature="e#9629#9630#0" expanded="true" />
+            <element signature="e#9986#9987#0" expanded="true" />
+            <element signature="e#10032#10033#0" expanded="true" />
+            <element signature="e#10924#10925#0" expanded="true" />
+            <element signature="e#10982#10983#0" expanded="true" />
+            <element signature="e#11291#11292#0" expanded="true" />
+            <element signature="e#11349#11350#0" expanded="true" />
+            <element signature="e#11655#11656#0" expanded="true" />
+            <element signature="e#11713#11714#0" expanded="true" />
+            <element signature="e#12007#12008#0" expanded="true" />
+            <element signature="e#12065#12066#0" expanded="true" />
+            <element signature="e#12367#12368#0" expanded="true" />
+            <element signature="e#12425#12426#0" expanded="true" />
+            <element signature="e#12713#12714#0" expanded="true" />
+            <element signature="e#12771#12772#0" expanded="true" />
+            <element signature="e#13117#13118#0" expanded="true" />
+            <element signature="e#13176#13177#0" expanded="true" />
+            <element signature="e#13716#13717#0" expanded="true" />
+            <element signature="e#13766#13767#0" expanded="true" />
+            <element signature="e#14097#14098#0" expanded="true" />
+            <element signature="e#14148#14149#0" expanded="true" />
+            <element signature="method#setFileAsUnsaved#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setMapSizeInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setLineInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
@@ -988,23 +967,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="190" column="0" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
           <folding>
-            <element signature="method#Field#0;class#Field#0" expanded="false" />
-            <element signature="class#976:3381" expanded="false" />
-            <element signature="class#3414:6288" expanded="false" />
-            <element signature="method#mouseClicked#0;class#3414:6288" expanded="false" />
-            <element signature="method#mousePressed#0;class#3414:6288" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3414:6288" expanded="false" />
-            <element signature="class#6327:8436" expanded="false" />
-            <element signature="method#mouseDragged#0;class#6327:8436" expanded="false" />
-            <element signature="method#mouseMoved#0;class#6327:8436" expanded="false" />
-            <element signature="method#setMapSize#0;class#Field#0" expanded="false" />
-            <element signature="method#initMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="class#803:3192" expanded="false" />
+            <element signature="e#9423#9424#0" expanded="true" />
+            <element signature="e#9457#9458#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#10215#10216#0" expanded="true" />
             <element signature="method#zoom#0;class#Field#0" expanded="false" />
             <element signature="method#undo#0;class#Field#0" expanded="false" />
             <element signature="method#redo#0;class#Field#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1037,34 +1007,31 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#1405:2278" expanded="false" />
-            <element signature="class#2718:3840" expanded="false" />
-            <element signature="class#4914:5101" expanded="false" />
-            <element signature="class#5298:6595" expanded="false" />
-            <element signature="class#6824:7216" expanded="false" />
-            <element signature="class#7391:7628" expanded="false" />
-            <element signature="e#8180#8181#0" expanded="true" />
-            <element signature="e#8226#8227#0" expanded="true" />
-            <element signature="e#8583#8584#0" expanded="true" />
-            <element signature="e#8629#8630#0" expanded="true" />
-            <element signature="e#9521#9522#0" expanded="true" />
-            <element signature="e#9579#9580#0" expanded="true" />
-            <element signature="e#9888#9889#0" expanded="true" />
-            <element signature="e#9946#9947#0" expanded="true" />
-            <element signature="e#10252#10253#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10604#10605#0" expanded="true" />
-            <element signature="e#10662#10663#0" expanded="true" />
-            <element signature="e#10964#10965#0" expanded="true" />
-            <element signature="e#11022#11023#0" expanded="true" />
-            <element signature="e#11310#11311#0" expanded="true" />
-            <element signature="e#11368#11369#0" expanded="true" />
-            <element signature="e#11714#11715#0" expanded="true" />
-            <element signature="e#11773#11774#0" expanded="true" />
-            <element signature="e#12313#12314#0" expanded="true" />
-            <element signature="e#12363#12364#0" expanded="true" />
-            <element signature="e#12694#12695#0" expanded="true" />
-            <element signature="e#12745#12746#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="class#1570:2443" expanded="false" />
+            <element signature="e#9583#9584#0" expanded="true" />
+            <element signature="e#9629#9630#0" expanded="true" />
+            <element signature="e#9986#9987#0" expanded="true" />
+            <element signature="e#10032#10033#0" expanded="true" />
+            <element signature="e#10924#10925#0" expanded="true" />
+            <element signature="e#10982#10983#0" expanded="true" />
+            <element signature="e#11291#11292#0" expanded="true" />
+            <element signature="e#11349#11350#0" expanded="true" />
+            <element signature="e#11655#11656#0" expanded="true" />
+            <element signature="e#11713#11714#0" expanded="true" />
+            <element signature="e#12007#12008#0" expanded="true" />
+            <element signature="e#12065#12066#0" expanded="true" />
+            <element signature="e#12367#12368#0" expanded="true" />
+            <element signature="e#12425#12426#0" expanded="true" />
+            <element signature="e#12713#12714#0" expanded="true" />
+            <element signature="e#12771#12772#0" expanded="true" />
+            <element signature="e#13117#13118#0" expanded="true" />
+            <element signature="e#13176#13177#0" expanded="true" />
+            <element signature="e#13716#13717#0" expanded="true" />
+            <element signature="e#13766#13767#0" expanded="true" />
+            <element signature="e#14097#14098#0" expanded="true" />
+            <element signature="e#14148#14149#0" expanded="true" />
+            <element signature="method#setFileAsUnsaved#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setMapSizeInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setLineInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
@@ -1082,23 +1049,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="150" column="22" selection-start-line="150" selection-start-column="22" selection-end-line="150" selection-end-column="22" />
           <folding>
-            <element signature="method#Field#0;class#Field#0" expanded="false" />
-            <element signature="class#976:3381" expanded="false" />
-            <element signature="class#3414:6288" expanded="false" />
-            <element signature="method#mouseClicked#0;class#3414:6288" expanded="false" />
-            <element signature="method#mousePressed#0;class#3414:6288" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3414:6288" expanded="false" />
-            <element signature="class#6327:8436" expanded="false" />
-            <element signature="method#mouseDragged#0;class#6327:8436" expanded="false" />
-            <element signature="method#mouseMoved#0;class#6327:8436" expanded="false" />
-            <element signature="method#setMapSize#0;class#Field#0" expanded="false" />
-            <element signature="method#initMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="class#803:3192" expanded="false" />
+            <element signature="e#9423#9424#0" expanded="true" />
+            <element signature="e#9457#9458#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#10215#10216#0" expanded="true" />
             <element signature="method#zoom#0;class#Field#0" expanded="false" />
             <element signature="method#undo#0;class#Field#0" expanded="false" />
             <element signature="method#redo#0;class#Field#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1131,34 +1089,31 @@
           <caret line="121" column="46" selection-start-line="121" selection-start-column="46" selection-end-line="121" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#1405:2278" expanded="false" />
-            <element signature="class#2718:3840" expanded="false" />
-            <element signature="class#4914:5101" expanded="false" />
-            <element signature="class#5298:6595" expanded="false" />
-            <element signature="class#6824:7216" expanded="false" />
-            <element signature="class#7391:7628" expanded="false" />
-            <element signature="e#8180#8181#0" expanded="true" />
-            <element signature="e#8226#8227#0" expanded="true" />
-            <element signature="e#8583#8584#0" expanded="true" />
-            <element signature="e#8629#8630#0" expanded="true" />
-            <element signature="e#9521#9522#0" expanded="true" />
-            <element signature="e#9579#9580#0" expanded="true" />
-            <element signature="e#9888#9889#0" expanded="true" />
-            <element signature="e#9946#9947#0" expanded="true" />
-            <element signature="e#10252#10253#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10604#10605#0" expanded="true" />
-            <element signature="e#10662#10663#0" expanded="true" />
-            <element signature="e#10964#10965#0" expanded="true" />
-            <element signature="e#11022#11023#0" expanded="true" />
-            <element signature="e#11310#11311#0" expanded="true" />
-            <element signature="e#11368#11369#0" expanded="true" />
-            <element signature="e#11714#11715#0" expanded="true" />
-            <element signature="e#11773#11774#0" expanded="true" />
-            <element signature="e#12313#12314#0" expanded="true" />
-            <element signature="e#12363#12364#0" expanded="true" />
-            <element signature="e#12694#12695#0" expanded="true" />
-            <element signature="e#12745#12746#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="class#1570:2443" expanded="false" />
+            <element signature="e#9583#9584#0" expanded="true" />
+            <element signature="e#9629#9630#0" expanded="true" />
+            <element signature="e#9986#9987#0" expanded="true" />
+            <element signature="e#10032#10033#0" expanded="true" />
+            <element signature="e#10924#10925#0" expanded="true" />
+            <element signature="e#10982#10983#0" expanded="true" />
+            <element signature="e#11291#11292#0" expanded="true" />
+            <element signature="e#11349#11350#0" expanded="true" />
+            <element signature="e#11655#11656#0" expanded="true" />
+            <element signature="e#11713#11714#0" expanded="true" />
+            <element signature="e#12007#12008#0" expanded="true" />
+            <element signature="e#12065#12066#0" expanded="true" />
+            <element signature="e#12367#12368#0" expanded="true" />
+            <element signature="e#12425#12426#0" expanded="true" />
+            <element signature="e#12713#12714#0" expanded="true" />
+            <element signature="e#12771#12772#0" expanded="true" />
+            <element signature="e#13117#13118#0" expanded="true" />
+            <element signature="e#13176#13177#0" expanded="true" />
+            <element signature="e#13716#13717#0" expanded="true" />
+            <element signature="e#13766#13767#0" expanded="true" />
+            <element signature="e#14097#14098#0" expanded="true" />
+            <element signature="e#14148#14149#0" expanded="true" />
+            <element signature="method#setFileAsUnsaved#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setMapSizeInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setLineInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
@@ -1176,23 +1131,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#Field#0;class#Field#0" expanded="false" />
-            <element signature="class#976:3381" expanded="false" />
-            <element signature="class#3414:6288" expanded="false" />
-            <element signature="method#mouseClicked#0;class#3414:6288" expanded="false" />
-            <element signature="method#mousePressed#0;class#3414:6288" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3414:6288" expanded="false" />
-            <element signature="class#6327:8436" expanded="false" />
-            <element signature="method#mouseDragged#0;class#6327:8436" expanded="false" />
-            <element signature="method#mouseMoved#0;class#6327:8436" expanded="false" />
-            <element signature="method#setMapSize#0;class#Field#0" expanded="false" />
-            <element signature="method#initMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="class#803:3192" expanded="false" />
+            <element signature="e#9423#9424#0" expanded="true" />
+            <element signature="e#9457#9458#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#10215#10216#0" expanded="true" />
             <element signature="method#zoom#0;class#Field#0" expanded="false" />
             <element signature="method#undo#0;class#Field#0" expanded="false" />
             <element signature="method#redo#0;class#Field#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1218,34 +1164,31 @@
           <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#1405:2278" expanded="false" />
-            <element signature="class#2718:3840" expanded="false" />
-            <element signature="class#4914:5101" expanded="false" />
-            <element signature="class#5298:6595" expanded="false" />
-            <element signature="class#6824:7216" expanded="false" />
-            <element signature="class#7391:7628" expanded="false" />
-            <element signature="e#8180#8181#0" expanded="true" />
-            <element signature="e#8226#8227#0" expanded="true" />
-            <element signature="e#8583#8584#0" expanded="true" />
-            <element signature="e#8629#8630#0" expanded="true" />
-            <element signature="e#9521#9522#0" expanded="true" />
-            <element signature="e#9579#9580#0" expanded="true" />
-            <element signature="e#9888#9889#0" expanded="true" />
-            <element signature="e#9946#9947#0" expanded="true" />
-            <element signature="e#10252#10253#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10604#10605#0" expanded="true" />
-            <element signature="e#10662#10663#0" expanded="true" />
-            <element signature="e#10964#10965#0" expanded="true" />
-            <element signature="e#11022#11023#0" expanded="true" />
-            <element signature="e#11310#11311#0" expanded="true" />
-            <element signature="e#11368#11369#0" expanded="true" />
-            <element signature="e#11714#11715#0" expanded="true" />
-            <element signature="e#11773#11774#0" expanded="true" />
-            <element signature="e#12313#12314#0" expanded="true" />
-            <element signature="e#12363#12364#0" expanded="true" />
-            <element signature="e#12694#12695#0" expanded="true" />
-            <element signature="e#12745#12746#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="class#1570:2443" expanded="false" />
+            <element signature="e#9583#9584#0" expanded="true" />
+            <element signature="e#9629#9630#0" expanded="true" />
+            <element signature="e#9986#9987#0" expanded="true" />
+            <element signature="e#10032#10033#0" expanded="true" />
+            <element signature="e#10924#10925#0" expanded="true" />
+            <element signature="e#10982#10983#0" expanded="true" />
+            <element signature="e#11291#11292#0" expanded="true" />
+            <element signature="e#11349#11350#0" expanded="true" />
+            <element signature="e#11655#11656#0" expanded="true" />
+            <element signature="e#11713#11714#0" expanded="true" />
+            <element signature="e#12007#12008#0" expanded="true" />
+            <element signature="e#12065#12066#0" expanded="true" />
+            <element signature="e#12367#12368#0" expanded="true" />
+            <element signature="e#12425#12426#0" expanded="true" />
+            <element signature="e#12713#12714#0" expanded="true" />
+            <element signature="e#12771#12772#0" expanded="true" />
+            <element signature="e#13117#13118#0" expanded="true" />
+            <element signature="e#13176#13177#0" expanded="true" />
+            <element signature="e#13716#13717#0" expanded="true" />
+            <element signature="e#13766#13767#0" expanded="true" />
+            <element signature="e#14097#14098#0" expanded="true" />
+            <element signature="e#14148#14149#0" expanded="true" />
+            <element signature="method#setFileAsUnsaved#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setMapSizeInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setLineInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
@@ -1263,23 +1206,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#Field#0;class#Field#0" expanded="false" />
-            <element signature="class#976:3381" expanded="false" />
-            <element signature="class#3414:6288" expanded="false" />
-            <element signature="method#mouseClicked#0;class#3414:6288" expanded="false" />
-            <element signature="method#mousePressed#0;class#3414:6288" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3414:6288" expanded="false" />
-            <element signature="class#6327:8436" expanded="false" />
-            <element signature="method#mouseDragged#0;class#6327:8436" expanded="false" />
-            <element signature="method#mouseMoved#0;class#6327:8436" expanded="false" />
-            <element signature="method#setMapSize#0;class#Field#0" expanded="false" />
-            <element signature="method#initMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="class#803:3192" expanded="false" />
+            <element signature="e#9423#9424#0" expanded="true" />
+            <element signature="e#9457#9458#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#10215#10216#0" expanded="true" />
             <element signature="method#zoom#0;class#Field#0" expanded="false" />
             <element signature="method#undo#0;class#Field#0" expanded="false" />
             <element signature="method#redo#0;class#Field#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1305,34 +1239,31 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#1405:2278" expanded="false" />
-            <element signature="class#2718:3840" expanded="false" />
-            <element signature="class#4914:5101" expanded="false" />
-            <element signature="class#5298:6595" expanded="false" />
-            <element signature="class#6824:7216" expanded="false" />
-            <element signature="class#7391:7628" expanded="false" />
-            <element signature="e#8180#8181#0" expanded="true" />
-            <element signature="e#8226#8227#0" expanded="true" />
-            <element signature="e#8583#8584#0" expanded="true" />
-            <element signature="e#8629#8630#0" expanded="true" />
-            <element signature="e#9521#9522#0" expanded="true" />
-            <element signature="e#9579#9580#0" expanded="true" />
-            <element signature="e#9888#9889#0" expanded="true" />
-            <element signature="e#9946#9947#0" expanded="true" />
-            <element signature="e#10252#10253#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10604#10605#0" expanded="true" />
-            <element signature="e#10662#10663#0" expanded="true" />
-            <element signature="e#10964#10965#0" expanded="true" />
-            <element signature="e#11022#11023#0" expanded="true" />
-            <element signature="e#11310#11311#0" expanded="true" />
-            <element signature="e#11368#11369#0" expanded="true" />
-            <element signature="e#11714#11715#0" expanded="true" />
-            <element signature="e#11773#11774#0" expanded="true" />
-            <element signature="e#12313#12314#0" expanded="true" />
-            <element signature="e#12363#12364#0" expanded="true" />
-            <element signature="e#12694#12695#0" expanded="true" />
-            <element signature="e#12745#12746#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="class#1570:2443" expanded="false" />
+            <element signature="e#9583#9584#0" expanded="true" />
+            <element signature="e#9629#9630#0" expanded="true" />
+            <element signature="e#9986#9987#0" expanded="true" />
+            <element signature="e#10032#10033#0" expanded="true" />
+            <element signature="e#10924#10925#0" expanded="true" />
+            <element signature="e#10982#10983#0" expanded="true" />
+            <element signature="e#11291#11292#0" expanded="true" />
+            <element signature="e#11349#11350#0" expanded="true" />
+            <element signature="e#11655#11656#0" expanded="true" />
+            <element signature="e#11713#11714#0" expanded="true" />
+            <element signature="e#12007#12008#0" expanded="true" />
+            <element signature="e#12065#12066#0" expanded="true" />
+            <element signature="e#12367#12368#0" expanded="true" />
+            <element signature="e#12425#12426#0" expanded="true" />
+            <element signature="e#12713#12714#0" expanded="true" />
+            <element signature="e#12771#12772#0" expanded="true" />
+            <element signature="e#13117#13118#0" expanded="true" />
+            <element signature="e#13176#13177#0" expanded="true" />
+            <element signature="e#13716#13717#0" expanded="true" />
+            <element signature="e#13766#13767#0" expanded="true" />
+            <element signature="e#14097#14098#0" expanded="true" />
+            <element signature="e#14148#14149#0" expanded="true" />
+            <element signature="method#setFileAsUnsaved#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setMapSizeInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setLineInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
@@ -1350,23 +1281,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
           <folding>
-            <element signature="method#Field#0;class#Field#0" expanded="false" />
-            <element signature="class#976:3381" expanded="false" />
-            <element signature="class#3414:6288" expanded="false" />
-            <element signature="method#mouseClicked#0;class#3414:6288" expanded="false" />
-            <element signature="method#mousePressed#0;class#3414:6288" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3414:6288" expanded="false" />
-            <element signature="class#6327:8436" expanded="false" />
-            <element signature="method#mouseDragged#0;class#6327:8436" expanded="false" />
-            <element signature="method#mouseMoved#0;class#6327:8436" expanded="false" />
-            <element signature="method#setMapSize#0;class#Field#0" expanded="false" />
-            <element signature="method#initMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="class#803:3192" expanded="false" />
+            <element signature="e#9423#9424#0" expanded="true" />
+            <element signature="e#9457#9458#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#10215#10216#0" expanded="true" />
             <element signature="method#zoom#0;class#Field#0" expanded="false" />
             <element signature="method#undo#0;class#Field#0" expanded="false" />
             <element signature="method#redo#0;class#Field#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1377,34 +1299,31 @@
           <caret line="90" column="33" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#1405:2278" expanded="false" />
-            <element signature="class#2718:3840" expanded="false" />
-            <element signature="class#4914:5101" expanded="false" />
-            <element signature="class#5298:6595" expanded="false" />
-            <element signature="class#6824:7216" expanded="false" />
-            <element signature="class#7391:7628" expanded="false" />
-            <element signature="e#8180#8181#0" expanded="true" />
-            <element signature="e#8226#8227#0" expanded="true" />
-            <element signature="e#8583#8584#0" expanded="true" />
-            <element signature="e#8629#8630#0" expanded="true" />
-            <element signature="e#9521#9522#0" expanded="true" />
-            <element signature="e#9579#9580#0" expanded="true" />
-            <element signature="e#9888#9889#0" expanded="true" />
-            <element signature="e#9946#9947#0" expanded="true" />
-            <element signature="e#10252#10253#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10604#10605#0" expanded="true" />
-            <element signature="e#10662#10663#0" expanded="true" />
-            <element signature="e#10964#10965#0" expanded="true" />
-            <element signature="e#11022#11023#0" expanded="true" />
-            <element signature="e#11310#11311#0" expanded="true" />
-            <element signature="e#11368#11369#0" expanded="true" />
-            <element signature="e#11714#11715#0" expanded="true" />
-            <element signature="e#11773#11774#0" expanded="true" />
-            <element signature="e#12313#12314#0" expanded="true" />
-            <element signature="e#12363#12364#0" expanded="true" />
-            <element signature="e#12694#12695#0" expanded="true" />
-            <element signature="e#12745#12746#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="class#1570:2443" expanded="false" />
+            <element signature="e#9583#9584#0" expanded="true" />
+            <element signature="e#9629#9630#0" expanded="true" />
+            <element signature="e#9986#9987#0" expanded="true" />
+            <element signature="e#10032#10033#0" expanded="true" />
+            <element signature="e#10924#10925#0" expanded="true" />
+            <element signature="e#10982#10983#0" expanded="true" />
+            <element signature="e#11291#11292#0" expanded="true" />
+            <element signature="e#11349#11350#0" expanded="true" />
+            <element signature="e#11655#11656#0" expanded="true" />
+            <element signature="e#11713#11714#0" expanded="true" />
+            <element signature="e#12007#12008#0" expanded="true" />
+            <element signature="e#12065#12066#0" expanded="true" />
+            <element signature="e#12367#12368#0" expanded="true" />
+            <element signature="e#12425#12426#0" expanded="true" />
+            <element signature="e#12713#12714#0" expanded="true" />
+            <element signature="e#12771#12772#0" expanded="true" />
+            <element signature="e#13117#13118#0" expanded="true" />
+            <element signature="e#13176#13177#0" expanded="true" />
+            <element signature="e#13716#13717#0" expanded="true" />
+            <element signature="e#13766#13767#0" expanded="true" />
+            <element signature="e#14097#14098#0" expanded="true" />
+            <element signature="e#14148#14149#0" expanded="true" />
+            <element signature="method#setFileAsUnsaved#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setMapSizeInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setLineInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
@@ -1429,23 +1348,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#Field#0;class#Field#0" expanded="false" />
-            <element signature="class#976:3381" expanded="false" />
-            <element signature="class#3414:6288" expanded="false" />
-            <element signature="method#mouseClicked#0;class#3414:6288" expanded="false" />
-            <element signature="method#mousePressed#0;class#3414:6288" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3414:6288" expanded="false" />
-            <element signature="class#6327:8436" expanded="false" />
-            <element signature="method#mouseDragged#0;class#6327:8436" expanded="false" />
-            <element signature="method#mouseMoved#0;class#6327:8436" expanded="false" />
-            <element signature="method#setMapSize#0;class#Field#0" expanded="false" />
-            <element signature="method#initMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="class#803:3192" expanded="false" />
+            <element signature="e#9423#9424#0" expanded="true" />
+            <element signature="e#9457#9458#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#10215#10216#0" expanded="true" />
             <element signature="method#zoom#0;class#Field#0" expanded="false" />
             <element signature="method#undo#0;class#Field#0" expanded="false" />
             <element signature="method#redo#0;class#Field#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1456,34 +1366,31 @@
           <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#1405:2278" expanded="false" />
-            <element signature="class#2718:3840" expanded="false" />
-            <element signature="class#4914:5101" expanded="false" />
-            <element signature="class#5298:6595" expanded="false" />
-            <element signature="class#6824:7216" expanded="false" />
-            <element signature="class#7391:7628" expanded="false" />
-            <element signature="e#8180#8181#0" expanded="true" />
-            <element signature="e#8226#8227#0" expanded="true" />
-            <element signature="e#8583#8584#0" expanded="true" />
-            <element signature="e#8629#8630#0" expanded="true" />
-            <element signature="e#9521#9522#0" expanded="true" />
-            <element signature="e#9579#9580#0" expanded="true" />
-            <element signature="e#9888#9889#0" expanded="true" />
-            <element signature="e#9946#9947#0" expanded="true" />
-            <element signature="e#10252#10253#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10604#10605#0" expanded="true" />
-            <element signature="e#10662#10663#0" expanded="true" />
-            <element signature="e#10964#10965#0" expanded="true" />
-            <element signature="e#11022#11023#0" expanded="true" />
-            <element signature="e#11310#11311#0" expanded="true" />
-            <element signature="e#11368#11369#0" expanded="true" />
-            <element signature="e#11714#11715#0" expanded="true" />
-            <element signature="e#11773#11774#0" expanded="true" />
-            <element signature="e#12313#12314#0" expanded="true" />
-            <element signature="e#12363#12364#0" expanded="true" />
-            <element signature="e#12694#12695#0" expanded="true" />
-            <element signature="e#12745#12746#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="class#1570:2443" expanded="false" />
+            <element signature="e#9583#9584#0" expanded="true" />
+            <element signature="e#9629#9630#0" expanded="true" />
+            <element signature="e#9986#9987#0" expanded="true" />
+            <element signature="e#10032#10033#0" expanded="true" />
+            <element signature="e#10924#10925#0" expanded="true" />
+            <element signature="e#10982#10983#0" expanded="true" />
+            <element signature="e#11291#11292#0" expanded="true" />
+            <element signature="e#11349#11350#0" expanded="true" />
+            <element signature="e#11655#11656#0" expanded="true" />
+            <element signature="e#11713#11714#0" expanded="true" />
+            <element signature="e#12007#12008#0" expanded="true" />
+            <element signature="e#12065#12066#0" expanded="true" />
+            <element signature="e#12367#12368#0" expanded="true" />
+            <element signature="e#12425#12426#0" expanded="true" />
+            <element signature="e#12713#12714#0" expanded="true" />
+            <element signature="e#12771#12772#0" expanded="true" />
+            <element signature="e#13117#13118#0" expanded="true" />
+            <element signature="e#13176#13177#0" expanded="true" />
+            <element signature="e#13716#13717#0" expanded="true" />
+            <element signature="e#13766#13767#0" expanded="true" />
+            <element signature="e#14097#14098#0" expanded="true" />
+            <element signature="e#14148#14149#0" expanded="true" />
+            <element signature="method#setFileAsUnsaved#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setMapSizeInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setLineInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
@@ -1579,6 +1486,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0953758">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://P:/Program Files/Java/jdk1.8.0_60/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1957" column="18" selection-start-line="1957" selection-start-column="18" selection-end-line="1957" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1592,63 +1522,51 @@
     <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+          <caret line="287" column="59" selection-start-line="287" selection-start-column="59" selection-end-line="287" selection-end-column="59" />
           <folding>
-            <element signature="method#Field#0;class#Field#0" expanded="false" />
-            <element signature="class#976:3381" expanded="false" />
-            <element signature="class#3414:6288" expanded="false" />
-            <element signature="method#mouseClicked#0;class#3414:6288" expanded="false" />
-            <element signature="method#mousePressed#0;class#3414:6288" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3414:6288" expanded="false" />
-            <element signature="class#6327:8436" expanded="false" />
-            <element signature="method#mouseDragged#0;class#6327:8436" expanded="false" />
-            <element signature="method#mouseMoved#0;class#6327:8436" expanded="false" />
-            <element signature="method#setMapSize#0;class#Field#0" expanded="false" />
-            <element signature="method#initMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="class#803:3192" expanded="false" />
+            <element signature="e#9423#9424#0" expanded="true" />
+            <element signature="e#9457#9458#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#10215#10216#0" expanded="true" />
             <element signature="method#zoom#0;class#Field#0" expanded="false" />
             <element signature="method#undo#0;class#Field#0" expanded="false" />
             <element signature="method#redo#0;class#Field#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="55" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.5005441">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#1405:2278" expanded="false" />
-            <element signature="class#2718:3840" expanded="false" />
-            <element signature="class#4914:5101" expanded="false" />
-            <element signature="class#5298:6595" expanded="false" />
-            <element signature="class#6824:7216" expanded="false" />
-            <element signature="class#7391:7628" expanded="false" />
-            <element signature="e#8180#8181#0" expanded="true" />
-            <element signature="e#8226#8227#0" expanded="true" />
-            <element signature="e#8583#8584#0" expanded="true" />
-            <element signature="e#8629#8630#0" expanded="true" />
-            <element signature="e#9521#9522#0" expanded="true" />
-            <element signature="e#9579#9580#0" expanded="true" />
-            <element signature="e#9888#9889#0" expanded="true" />
-            <element signature="e#9946#9947#0" expanded="true" />
-            <element signature="e#10252#10253#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10604#10605#0" expanded="true" />
-            <element signature="e#10662#10663#0" expanded="true" />
-            <element signature="e#10964#10965#0" expanded="true" />
-            <element signature="e#11022#11023#0" expanded="true" />
-            <element signature="e#11310#11311#0" expanded="true" />
-            <element signature="e#11368#11369#0" expanded="true" />
-            <element signature="e#11714#11715#0" expanded="true" />
-            <element signature="e#11773#11774#0" expanded="true" />
-            <element signature="e#12313#12314#0" expanded="true" />
-            <element signature="e#12363#12364#0" expanded="true" />
-            <element signature="e#12694#12695#0" expanded="true" />
-            <element signature="e#12745#12746#0" expanded="true" />
+            <element signature="method#MainWindow#0;class#MainWindow#0" expanded="false" />
+            <element signature="class#1570:2443" expanded="false" />
+            <element signature="e#9583#9584#0" expanded="true" />
+            <element signature="e#9629#9630#0" expanded="true" />
+            <element signature="e#9986#9987#0" expanded="true" />
+            <element signature="e#10032#10033#0" expanded="true" />
+            <element signature="e#10924#10925#0" expanded="true" />
+            <element signature="e#10982#10983#0" expanded="true" />
+            <element signature="e#11291#11292#0" expanded="true" />
+            <element signature="e#11349#11350#0" expanded="true" />
+            <element signature="e#11655#11656#0" expanded="true" />
+            <element signature="e#11713#11714#0" expanded="true" />
+            <element signature="e#12007#12008#0" expanded="true" />
+            <element signature="e#12065#12066#0" expanded="true" />
+            <element signature="e#12367#12368#0" expanded="true" />
+            <element signature="e#12425#12426#0" expanded="true" />
+            <element signature="e#12713#12714#0" expanded="true" />
+            <element signature="e#12771#12772#0" expanded="true" />
+            <element signature="e#13117#13118#0" expanded="true" />
+            <element signature="e#13176#13177#0" expanded="true" />
+            <element signature="e#13716#13717#0" expanded="true" />
+            <element signature="e#13766#13767#0" expanded="true" />
+            <element signature="e#14097#14098#0" expanded="true" />
+            <element signature="e#14148#14149#0" expanded="true" />
+            <element signature="method#setFileAsUnsaved#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setMapSizeInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setLineInfo#0;class#MainWindow#0" expanded="false" />
             <element signature="method#setUndoEnabled#0;class#MainWindow#0" expanded="false" />
@@ -1658,14 +1576,6 @@
             <element signature="method#saveOnCloseDialog#0;class#MainWindow#0" expanded="false" />
             <element signature="method#saveDialog#0;class#MainWindow#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/GeneratorColors.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38583815">
-          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
