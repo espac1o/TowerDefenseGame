@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1764488e-5e37-4719-8a1c-921473f72f8c" name="Default" comment="">
-      <change type="DELETED" beforePath="M:\Documents\Программирование\TowerDefenseFlashGame\JavaMapsGenerator\out\production\JavaMapsGenerator\ru\burningGlobe\generator\Map.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JavaMapsGenerator/ru/burningGlobe/generator/GeneratorColors.class" afterPath="$PROJECT_DIR$/out/production/JavaMapsGenerator/ru/burningGlobe/generator/GeneratorColors.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JavaMapsGenerator/ru/burningGlobe/generator/MainWindow.class" afterPath="$PROJECT_DIR$/out/production/JavaMapsGenerator/ru/burningGlobe/generator/MainWindow.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java" afterPath="$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java" afterPath="$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="td_maps_generator.iws" />
@@ -29,10 +25,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.9797688">
               <caret line="259" column="39" selection-start-line="259" selection-start-column="39" selection-end-line="259" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -52,16 +48,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Field.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Field.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7731214">
-              <caret line="93" column="51" selection-start-line="93" selection-start-column="51" selection-end-line="93" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="205" column="21" selection-start-line="205" selection-start-column="21" selection-end-line="205" selection-end-column="21" />
               <folding>
-                <element signature="class#1028:3433" expanded="false" />
-                <element signature="method#mousePressed#0;class#3466:6279" expanded="false" />
-                <element signature="method#mouseReleased#0;class#3466:6279" expanded="false" />
-                <element signature="class#6318:8231" expanded="false" />
+                <element signature="class#976:3381" expanded="false" />
+                <element signature="method#mousePressed#0;class#3414:6227" expanded="false" />
+                <element signature="method#mouseReleased#0;class#3414:6227" expanded="false" />
+                <element signature="class#6266:8179" expanded="false" />
+                <element signature="method#setMap#0;class#Field#0" expanded="false" />
                 <element signature="method#initMap#0;class#Field#0" expanded="false" />
                 <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
                 <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
@@ -492,7 +489,13 @@
       <option name="project" value="LOCAL" />
       <updated>1474629177275</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Изменение границ карты">
+      <created>1474731106589</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1474731106589</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -543,14 +546,15 @@
     <MESSAGE value="Добавлены методы &quot;Отменить&quot; и &quot;Повторить&quot;" />
     <MESSAGE value="Добавлена обработка кнопки закрытия" />
     <MESSAGE value="Добавлена граница карты" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлена граница карты" />
+    <MESSAGE value="Изменение границ карты" />
+    <option name="LAST_COMMIT_MESSAGE" value="Изменение границ карты" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java</url>
-          <line>137</line>
+          <line>135</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
@@ -598,10 +602,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="177" column="33" selection-start-line="177" selection-start-column="33" selection-end-line="177" selection-end-column="33" />
           <folding>
-            <element signature="class#1028:3433" expanded="false" />
-            <element signature="method#mousePressed#0;class#3466:6279" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3466:6279" expanded="false" />
-            <element signature="class#6318:8231" expanded="false" />
+            <element signature="class#976:3381" expanded="false" />
+            <element signature="method#mousePressed#0;class#3414:6227" expanded="false" />
+            <element signature="method#mouseReleased#0;class#3414:6227" expanded="false" />
+            <element signature="class#6266:8179" expanded="false" />
+            <element signature="method#setMap#0;class#Field#0" expanded="false" />
             <element signature="method#initMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
@@ -646,10 +651,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="177" column="33" selection-start-line="177" selection-start-column="33" selection-end-line="177" selection-end-column="33" />
           <folding>
-            <element signature="class#1028:3433" expanded="false" />
-            <element signature="method#mousePressed#0;class#3466:6279" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3466:6279" expanded="false" />
-            <element signature="class#6318:8231" expanded="false" />
+            <element signature="class#976:3381" expanded="false" />
+            <element signature="method#mousePressed#0;class#3414:6227" expanded="false" />
+            <element signature="method#mouseReleased#0;class#3414:6227" expanded="false" />
+            <element signature="class#6266:8179" expanded="false" />
+            <element signature="method#setMap#0;class#Field#0" expanded="false" />
             <element signature="method#initMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
@@ -694,10 +700,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#1028:3433" expanded="false" />
-            <element signature="method#mousePressed#0;class#3466:6279" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3466:6279" expanded="false" />
-            <element signature="class#6318:8231" expanded="false" />
+            <element signature="class#976:3381" expanded="false" />
+            <element signature="method#mousePressed#0;class#3414:6227" expanded="false" />
+            <element signature="method#mouseReleased#0;class#3414:6227" expanded="false" />
+            <element signature="class#6266:8179" expanded="false" />
+            <element signature="method#setMap#0;class#Field#0" expanded="false" />
             <element signature="method#initMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
@@ -742,10 +749,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="5" selection-start-line="169" selection-start-column="5" selection-end-line="169" selection-end-column="5" />
           <folding>
-            <element signature="class#1028:3433" expanded="false" />
-            <element signature="method#mousePressed#0;class#3466:6279" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3466:6279" expanded="false" />
-            <element signature="class#6318:8231" expanded="false" />
+            <element signature="class#976:3381" expanded="false" />
+            <element signature="method#mousePressed#0;class#3414:6227" expanded="false" />
+            <element signature="method#mouseReleased#0;class#3414:6227" expanded="false" />
+            <element signature="class#6266:8179" expanded="false" />
+            <element signature="method#setMap#0;class#Field#0" expanded="false" />
             <element signature="method#initMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
@@ -804,10 +812,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="190" column="0" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
           <folding>
-            <element signature="class#1028:3433" expanded="false" />
-            <element signature="method#mousePressed#0;class#3466:6279" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3466:6279" expanded="false" />
-            <element signature="class#6318:8231" expanded="false" />
+            <element signature="class#976:3381" expanded="false" />
+            <element signature="method#mousePressed#0;class#3414:6227" expanded="false" />
+            <element signature="method#mouseReleased#0;class#3414:6227" expanded="false" />
+            <element signature="class#6266:8179" expanded="false" />
+            <element signature="method#setMap#0;class#Field#0" expanded="false" />
             <element signature="method#initMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
@@ -866,10 +875,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="150" column="22" selection-start-line="150" selection-start-column="22" selection-end-line="150" selection-end-column="22" />
           <folding>
-            <element signature="class#1028:3433" expanded="false" />
-            <element signature="method#mousePressed#0;class#3466:6279" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3466:6279" expanded="false" />
-            <element signature="class#6318:8231" expanded="false" />
+            <element signature="class#976:3381" expanded="false" />
+            <element signature="method#mousePressed#0;class#3414:6227" expanded="false" />
+            <element signature="method#mouseReleased#0;class#3414:6227" expanded="false" />
+            <element signature="class#6266:8179" expanded="false" />
+            <element signature="method#setMap#0;class#Field#0" expanded="false" />
             <element signature="method#initMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
@@ -928,10 +938,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#1028:3433" expanded="false" />
-            <element signature="method#mousePressed#0;class#3466:6279" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3466:6279" expanded="false" />
-            <element signature="class#6318:8231" expanded="false" />
+            <element signature="class#976:3381" expanded="false" />
+            <element signature="method#mousePressed#0;class#3414:6227" expanded="false" />
+            <element signature="method#mouseReleased#0;class#3414:6227" expanded="false" />
+            <element signature="class#6266:8179" expanded="false" />
+            <element signature="method#setMap#0;class#Field#0" expanded="false" />
             <element signature="method#initMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
@@ -983,10 +994,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#1028:3433" expanded="false" />
-            <element signature="method#mousePressed#0;class#3466:6279" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3466:6279" expanded="false" />
-            <element signature="class#6318:8231" expanded="false" />
+            <element signature="class#976:3381" expanded="false" />
+            <element signature="method#mousePressed#0;class#3414:6227" expanded="false" />
+            <element signature="method#mouseReleased#0;class#3414:6227" expanded="false" />
+            <element signature="class#6266:8179" expanded="false" />
+            <element signature="method#setMap#0;class#Field#0" expanded="false" />
             <element signature="method#initMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
@@ -1038,10 +1050,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
           <folding>
-            <element signature="class#1028:3433" expanded="false" />
-            <element signature="method#mousePressed#0;class#3466:6279" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3466:6279" expanded="false" />
-            <element signature="class#6318:8231" expanded="false" />
+            <element signature="class#976:3381" expanded="false" />
+            <element signature="method#mousePressed#0;class#3414:6227" expanded="false" />
+            <element signature="method#mouseReleased#0;class#3414:6227" expanded="false" />
+            <element signature="class#6266:8179" expanded="false" />
+            <element signature="method#setMap#0;class#Field#0" expanded="false" />
             <element signature="method#initMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
@@ -1085,10 +1098,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#1028:3433" expanded="false" />
-            <element signature="method#mousePressed#0;class#3466:6279" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3466:6279" expanded="false" />
-            <element signature="class#6318:8231" expanded="false" />
+            <element signature="class#976:3381" expanded="false" />
+            <element signature="method#mousePressed#0;class#3414:6227" expanded="false" />
+            <element signature="method#mouseReleased#0;class#3414:6227" expanded="false" />
+            <element signature="class#6266:8179" expanded="false" />
+            <element signature="method#setMap#0;class#Field#0" expanded="false" />
             <element signature="method#initMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
             <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
@@ -1192,9 +1206,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="205" column="21" selection-start-line="205" selection-start-column="21" selection-end-line="205" selection-end-column="21" />
+          <folding>
+            <element signature="class#976:3381" expanded="false" />
+            <element signature="method#mousePressed#0;class#3414:6227" expanded="false" />
+            <element signature="method#mouseReleased#0;class#3414:6227" expanded="false" />
+            <element signature="class#6266:8179" expanded="false" />
+            <element signature="method#setMap#0;class#Field#0" expanded="false" />
+            <element signature="method#initMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
+            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
+            <element signature="method#zoom#0;class#Field#0" expanded="false" />
+            <element signature="method#undo#0;class#Field#0" expanded="false" />
+            <element signature="method#redo#0;class#Field#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9797688">
           <caret line="259" column="39" selection-start-line="259" selection-start-column="39" selection-end-line="259" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1209,25 +1243,6 @@
             <element signature="method#openFile#0;class#MainWindow#0" expanded="false" />
             <element signature="method#saveOnCloseDialog#0;class#MainWindow#0" expanded="false" />
             <element signature="method#saveDialog#0;class#MainWindow#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/burningGlobe/generator/Field.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7731214">
-          <caret line="93" column="51" selection-start-line="93" selection-start-column="51" selection-end-line="93" selection-end-column="51" />
-          <folding>
-            <element signature="class#1028:3433" expanded="false" />
-            <element signature="method#mousePressed#0;class#3466:6279" expanded="false" />
-            <element signature="method#mouseReleased#0;class#3466:6279" expanded="false" />
-            <element signature="class#6318:8231" expanded="false" />
-            <element signature="method#initMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#0;class#Field#0" expanded="false" />
-            <element signature="method#createNewMap#1;class#Field#0" expanded="false" />
-            <element signature="method#zoom#0;class#Field#0" expanded="false" />
-            <element signature="method#undo#0;class#Field#0" expanded="false" />
-            <element signature="method#redo#0;class#Field#0" expanded="false" />
           </folding>
         </state>
       </provider>

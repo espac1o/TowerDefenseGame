@@ -19,8 +19,6 @@ class Field extends JPanel{
     private ArrayList<String> stack;
     private String currentStep;
     private int linesMissed;
-    private int mapSizeX;
-    private int mapSizeY;
     private Point mapStartPoint;
     private Point mapEndPoint;
     private boolean borderIsPressed;
@@ -205,10 +203,9 @@ class Field extends JPanel{
         this.field = field;
     }
 
-    private void setMap(Point mapStartPoint, int mapSizeX, int mapSizeY) {
+    private void setMap(Point mapStartPoint, Point mapEndPoint) {
         this.mapStartPoint = mapStartPoint;
-        this.mapSizeX = mapSizeX;
-        this.mapSizeY = mapSizeY;
+        this.mapEndPoint = mapEndPoint;
     }
 
     int[][] getField() {
