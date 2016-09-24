@@ -15,23 +15,47 @@ public final class GeneratorColors {
     static final Color mapBorderColor = new Color(255, 0, 0);
     static final Color mapBorderPointColor = new Color(140, 0, 0);
     static final Color statusBarBorderColor = new Color(0, 0, 0);
+    static final Color errorColor = new Color(255, 0, 0);
 
     static String getColorType(int brushId) {
         switch (brushId) {
             case -1:
-                return "ластик";
+                return " ластик";
             case 1:
-                return "дорога";
+                return " дорога";
             case 2:
-                return "пустыня";
+                return " пустыня";
             case 3:
-                return "камень";
+                return " камень";
             case 4:
-                return "рубидий";
+                return " рубидий";
             case 5:
-                return "нексус";
+                return " нексус";
+            case 6:
+                return " граница";
             default:
-                return "неизвестный тип";
+                return " неизвестный тип";
+        }
+    }
+
+    static Color getColorByType(int brushId) {
+        switch (brushId) {
+            case -1:
+                return eraserColor;
+            case 1:
+                return roadColor;
+            case 2:
+                return desertColor;
+            case 3:
+                return stoneColor;
+            case 4:
+                return rbColor;
+            case 5:
+                return nexusColor;
+            case 6:
+                return mapBorderColor;
+            default:
+                return errorColor;
         }
     }
 }

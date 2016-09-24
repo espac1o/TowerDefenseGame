@@ -26,7 +26,7 @@ class MainWindow extends JFrame {
     private File file;
     private static boolean fileSaved = true;
     private static JMenuItem jmiUndo, jmiRedo;
-    private static JLabel jlMapSizeInfo, jlPositionInfo, jlFieldSizeInfo;;
+    private static JLabel jlPositionInfo, jlCurrentBrushColorTypeInfo, jlMapSizeInfo, jlFieldSizeInfo;
 
     private Field jpField;
 
@@ -37,7 +37,7 @@ class MainWindow extends JFrame {
         JMenuItem jmiBrushRoad, jmiBrushDesert,  jmiBrushStone, jmiBrushRb, jmiBrushNexus, jmiBrushMapBorder, jmiBrushEraser;
         JMenuItem jmiZoomIn, jmiZoomOut;
         JPanel jpStatusBar;
-        JLabel jlPositionFlatText, jlMapSizeFlatText, jlFieldSizeFlatText;
+        JLabel jlPositionFlatText, jlCurrentBrushColorTypeFlatText, jlMapSizeFlatText, jlFieldSizeFlatText;
 
         setSize(WINDOW_X, WINDOW_Y);
         setResizable(false);
@@ -93,6 +93,13 @@ class MainWindow extends JFrame {
         jlPositionInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.statusBarBorderColor));
         jlPositionInfo.setFont(statusBarFont);
         jlPositionInfo.setHorizontalTextPosition(JLabel.CENTER);
+        jlCurrentBrushColorTypeFlatText = new JLabel("Текущая кисть: ");
+        jlCurrentBrushColorTypeFlatText.setFont(statusBarFont);
+        jlCurrentBrushColorTypeInfo = new JLabel("");
+        jlCurrentBrushColorTypeInfo.setPreferredSize(new Dimension(70, 16));
+        jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.statusBarBorderColor));
+        jlCurrentBrushColorTypeInfo.setFont(statusBarFont);
+        jlCurrentBrushColorTypeInfo.setHorizontalTextPosition(JLabel.CENTER);
         jlMapSizeFlatText = new JLabel("Размер карты: ");
         jlMapSizeFlatText.setFont(statusBarFont);
         jlMapSizeInfo = new JLabel("0x0");
@@ -108,7 +115,7 @@ class MainWindow extends JFrame {
                     return;
                 }
                 while (true) {
-                    s = (String) JOptionPane.showInputDialog(
+                    s = JOptionPane.showInputDialog(
                             MainWindow.this,
                             "Введите размер карты (минимум: 15x15):",
                             jpField.getMapSize());
@@ -136,6 +143,8 @@ class MainWindow extends JFrame {
         jlFieldSizeInfo.setHorizontalTextPosition(JLabel.CENTER);
         jpStatusBar.add(jlPositionFlatText);
         jpStatusBar.add(jlPositionInfo);
+        jpStatusBar.add(jlCurrentBrushColorTypeFlatText);
+        jpStatusBar.add(jlCurrentBrushColorTypeInfo);
         jpStatusBar.add(jlMapSizeFlatText);
         jpStatusBar.add(jlMapSizeInfo);
         jpStatusBar.add(jlFieldSizeFlatText);
@@ -278,7 +287,10 @@ class MainWindow extends JFrame {
         jmiBrushRoad.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpField.setCurrentBrush(1);
+                int brushId = 1;
+                jpField.setCurrentBrush(brushId);
+                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
+                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
             }
         });
         jmBrush.add(jmiBrushRoad);
@@ -288,7 +300,10 @@ class MainWindow extends JFrame {
         jmiBrushDesert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpField.setCurrentBrush(2);
+                int brushId = 2;
+                jpField.setCurrentBrush(brushId);
+                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
+                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
             }
         });
         jmBrush.add(jmiBrushDesert);
@@ -298,7 +313,10 @@ class MainWindow extends JFrame {
         jmiBrushStone.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpField.setCurrentBrush(3);
+                int brushId = 3;
+                jpField.setCurrentBrush(brushId);
+                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
+                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
             }
         });
         jmBrush.add(jmiBrushStone);
@@ -308,7 +326,10 @@ class MainWindow extends JFrame {
         jmiBrushRb.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpField.setCurrentBrush(4);
+                int brushId = 4;
+                jpField.setCurrentBrush(brushId);
+                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
+                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
             }
         });
         jmBrush.add(jmiBrushRb);
@@ -318,7 +339,10 @@ class MainWindow extends JFrame {
         jmiBrushNexus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpField.setCurrentBrush(5);
+                int brushId = 5;
+                jpField.setCurrentBrush(brushId);
+                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
+                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
             }
         });
         jmBrush.add(jmiBrushNexus);
@@ -329,7 +353,10 @@ class MainWindow extends JFrame {
         jmiBrushMapBorder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpField.setCurrentBrush(6);
+                int brushId = 6;
+                jpField.setCurrentBrush(brushId);
+                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
+                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
             }
         });
         jmBrush.add(jmiBrushMapBorder);
@@ -341,7 +368,10 @@ class MainWindow extends JFrame {
         jmiBrushEraser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jpField.setCurrentBrush(-1);
+                int brushId = -1;
+                jpField.setCurrentBrush(brushId);
+                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
+                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
             }
         });
         jmBrush.add(jmiBrushEraser);
