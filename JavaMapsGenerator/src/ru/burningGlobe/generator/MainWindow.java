@@ -29,8 +29,8 @@ class MainWindow extends JFrame {
         JMenuBar jmbMenu;
         JMenu jmFile, jmEdit, jmBrush, jmView;
         JMenuItem jmiCreate, jmiOpen, jmiSave, jmiExit;
-        JMenuItem jmiBrushRoad, jmiBrushDesert,  jmiBrushStone, jmiBrushRb, jmiBrushNexus, jmiBrushEraser;
-        JMenuItem jmiZoomIn, jmiZoomOut;
+        JMenuItem jmiBrushRoad, jmiBrushDesert,  jmiBrushStone, jmiBrushRb, jmiBrushNexus, jmiBrushMapBorder, jmiBrushEraser;
+        JMenuItem jmiZoomIn, jmiZoomOut, jmiSetMapSize;
 
         setSize(WINDOW_X, WINDOW_Y);
         setResizable(false);
@@ -250,6 +250,17 @@ class MainWindow extends JFrame {
 
         jmBrush.addSeparator();
 
+        jmiBrushMapBorder = new JMenuItem("Граница карты");
+        jmiBrushMapBorder.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jpMap.setCurrentBrush(6);
+            }
+        });
+        jmBrush.add(jmiBrushMapBorder);
+
+        jmBrush.addSeparator();
+
         jmiBrushEraser = new JMenuItem("Ластик");
         jmiBrushEraser.setBackground(GeneratorColors.eraserColor);
         jmiBrushEraser.addActionListener(new ActionListener() {
@@ -264,7 +275,7 @@ class MainWindow extends JFrame {
 
         jmView.setEnabled(false);
         jmbMenu.add(jmView);
-        jmiZoomIn = new JMenuItem("Zoom In");
+        jmiZoomIn = new JMenuItem("Приблизить");
         jmiZoomIn.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_EQUALS, InputEvent.CTRL_MASK));
         jmiZoomIn.addActionListener(new ActionListener() {
             @Override
@@ -274,7 +285,7 @@ class MainWindow extends JFrame {
         });
         jmView.add(jmiZoomIn);
 
-        jmiZoomOut = new JMenuItem("Zoom Out");
+        jmiZoomOut = new JMenuItem("Отдалить");
         jmiZoomOut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_MINUS, InputEvent.CTRL_MASK));
         jmiZoomOut.addActionListener(new ActionListener() {
             @Override
@@ -283,6 +294,14 @@ class MainWindow extends JFrame {
             }
         });
         jmView.add(jmiZoomOut);
+
+//        jmiSetMapSize = new JMenuItem("Установить размер карты");
+//        jmiSetMapSize.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//
+//            }
+//        });
 
         setVisible(true);
     }
@@ -328,7 +347,7 @@ class MainWindow extends JFrame {
             fw = new FileWriter(filename);
             sb = new StringBuilder();
             sb.append(jpMap.getXLinesCount()).append(" ").append(jpMap.getYLinesCount()).append("\r\n");
-            int[][] mapArray = jpMap.getMap();
+            int[][] mapArray = jpMap.getField();
             for (int i = 0; i < jpMap.getYLinesCount(); i++) {
                 for (int j = 0; j < jpMap.getXLinesCount(); j++) {
                     sb.append(mapArray[i][j]).append(" ");
