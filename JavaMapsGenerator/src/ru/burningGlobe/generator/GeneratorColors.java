@@ -13,6 +13,8 @@ public final class GeneratorColors {
     static final Color rbColor = new Color(130, 10, 80);
     static final Color nexusColor = new Color(0, 255, 0);
     static final Color mapBorderColor = new Color(255, 0, 0);
+    static final Color mapBorderPointColor = new Color(140, 0, 0);
+    static final Color statusBarBorderColor = new Color(0, 0, 0);
 
     static String getColorType(int brushId) {
         switch (brushId) {
