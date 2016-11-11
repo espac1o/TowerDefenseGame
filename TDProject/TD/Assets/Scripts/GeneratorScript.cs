@@ -76,19 +76,19 @@ public class GeneratorScript : MonoBehaviour {
 					break;
 				case 2: // desert
 					int txtr_id = rand.Next (0, 100);
-					if (txtr_id >= 16) {
+					if (txtr_id >= 15) {
 						if (txtr_id >= 35)
-							txtr_id = 17;
-						else
 							txtr_id = 16;
+						else
+							txtr_id = 15;
 					}
 					ncell = Instantiate(wasteland_txtrs[txtr_id]) as GameObject;
 					break;
-				case 3:
-					ncell = Instantiate (test_txtrs[2]) as GameObject;
+				case 3: // stone
+					ncell = Instantiate (wasteland_txtrs[17]) as GameObject;
 					break;
-				case 4:
-					ncell = Instantiate (test_txtrs[3]) as GameObject;
+				case 4: // рубидий
+					ncell = Instantiate (game_obj_txtrs[2]) as GameObject;
 					break;
 				case 51:
 					ncell = Instantiate (test_txtrs[4]) as GameObject;
@@ -96,8 +96,8 @@ public class GeneratorScript : MonoBehaviour {
 				case 52:
 					ncell = Instantiate (game_obj_txtrs[0]) as GameObject;
 					break;
-				case 7:
-					ncell = Instantiate (test_txtrs[6]) as GameObject;
+				case 7: // tower
+					ncell = Instantiate (game_obj_txtrs[1]) as GameObject;
 					break;
 				case 8:
 					ncell = Instantiate (test_txtrs[7]) as GameObject;
