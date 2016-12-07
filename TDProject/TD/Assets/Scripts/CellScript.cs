@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 public class CellScript : MonoBehaviour {
 
@@ -32,6 +33,7 @@ public class CellScript : MonoBehaviour {
 
     void OnMouseDown()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+       	//gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+
     }
 }

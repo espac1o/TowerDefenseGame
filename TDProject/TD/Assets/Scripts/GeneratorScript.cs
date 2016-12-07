@@ -65,7 +65,7 @@ public class GeneratorScript : MonoBehaviour {
 					if (j - 1 >= startPoint.y && map[j - 1, i] == 1) {
 						up = true;
 					}
-
+						
 					if (up && down) ncell = Instantiate (road_txtrs[rand.Next(0, 2)]) as GameObject;
 					//else if (left && right) ncell = Instantiate (road_txtrs[3]) as GameObject;
 					else if (up && right) ncell = Instantiate (road_txtrs[4]) as GameObject;
@@ -111,6 +111,11 @@ public class GeneratorScript : MonoBehaviour {
 				}
 				pos = new Vector3((i - startPoint.x) * CELL_SIZE, (startPoint.y - j) * CELL_SIZE, 0);
 				ncell.GetComponent<Transform>().transform.position = pos;
+				if (txtr == 1 || txtr > 4) {
+					ncell.AddComponent<CellScript>();
+					ncell.AddComponent<BoxCollider2D> ();
+					ncell.GetComponent<BoxCollider2D> ().isTrigger = true;
+				}
             }
 
         return true;
