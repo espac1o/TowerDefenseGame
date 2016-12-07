@@ -12,7 +12,7 @@ public class GeneratorScript : MonoBehaviour {
 	public GameObject[] test_txtrs = null;
 	public GameObject[] game_obj_txtrs = null;
     public GameObject empty_cell = null;
-    public const int CELL_SIZE = 2;
+    public int CELL_SIZE = 2;
 
     private int size_x = 0;
     private int size_y = 0;
@@ -20,6 +20,8 @@ public class GeneratorScript : MonoBehaviour {
 	private Point startPoint, endPoint;
 
     private int[,] map = null;
+
+	public Dictionary<int, int[]> roadRoute = new Dictionary<int, int[]>();
 
 	// Use this for initialization
 	void Start () {
@@ -46,6 +48,7 @@ public class GeneratorScript : MonoBehaviour {
         Vector3 pos;
         GameObject ncell = null;
 		System.Random rand = new System.Random(DateTime.Now.Millisecond);
+		int roadCounter = 0;
         for(int j = startPoint.y; j < endPoint.y; j++)
             for(int i = startPoint.x; i < endPoint.x; i++)
             {
@@ -56,26 +59,33 @@ public class GeneratorScript : MonoBehaviour {
 				case 1: // road
 					bool left, right, up, down;
 					left = right = up = down = false;
-					if (i + 1 < endPoint.x && map[j, i + 1] == 1) {
+					if (i + 1 < endPoint.x && map [j, i + 1] == 1) {
 						right = true;
 					}
-					if (j + 1 < endPoint.y && map[j + 1, i] == 1) {
+					if (j + 1 < endPoint.y && map [j + 1, i] == 1) {
 						down = true;
 					}
-					if (i - 1 >= startPoint.x && map[j, i - 1] == 1) {
+					if (i - 1 >= startPoint.x && map [j, i - 1] == 1) {
 						left = true;
 					}
-					if (j - 1 >= startPoint.y && map[j - 1, i] == 1) {
+					if (j - 1 >= startPoint.y && map [j - 1, i] == 1) {
 						up = true;
 					}
 
-					if (up && down) ncell = Instantiate (road_txtrs[rand.Next(0, 2)]) as GameObject;
+					if (up && down)
+						ncell = Instantiate (road_txtrs [rand.Next (0, 2)]) as GameObject;
 					//else if (left && right) ncell = Instantiate (road_txtrs[3]) as GameObject;
-					else if (up && right) ncell = Instantiate (road_txtrs[4]) as GameObject;
-					else if (left && up) ncell = Instantiate (road_txtrs[5]) as GameObject;
-					else if (left && down) ncell = Instantiate (road_txtrs[6]) as GameObject;
-					else if (down && right) ncell = Instantiate (road_txtrs[7]) as GameObject;
-					else ncell = Instantiate (road_txtrs[3]) as GameObject;
+					else if (up && right)
+						ncell = Instantiate (road_txtrs [4]) as GameObject;
+					else if (left && up)
+						ncell = Instantiate (road_txtrs [5]) as GameObject;
+					else if (left && down)
+						ncell = Instantiate (road_txtrs [6]) as GameObject;
+					else if (down && right)
+						ncell = Instantiate (road_txtrs [7]) as GameObject;
+					else
+						ncell = Instantiate (road_txtrs [3]) as GameObject;
+					roadRoute.Add (roadCounter++, new int[]{ startPoint.y - j, i - startPoint.x });
 					break;
 				case 2: // desert
 					int txtr_id = rand.Next (0, 100);
@@ -98,9 +108,11 @@ public class GeneratorScript : MonoBehaviour {
                     var spwn = GameObject.Find("SPAWNER");
                     spwn.GetComponent<Transform>().position = pos;
 					ncell = Instantiate (test_txtrs[4]) as GameObject;
+					roadRoute.Add (roadCounter++, new int[]{ startPoint.y - j, i - startPoint.x });
 					break;
 				case 52:
 					ncell = Instantiate (game_obj_txtrs[0]) as GameObject;
+					roadRoute.Add (roadCounter++, new int[]{ startPoint.y - j, i - startPoint.x });
 					break;
 				case 7: // tower
 					ncell = Instantiate (game_obj_txtrs[1]) as GameObject;

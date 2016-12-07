@@ -87,17 +87,19 @@ public class TowerScript : MonoBehaviour {
     {
         float y1, y2;
         float x1, x2;
-        x1 = target.GetComponent<Transform>().position.x;
-        x2 = gameObject.GetComponent<Transform>().position.x;
-        y1 = target.GetComponent<Transform>().position.y;
-        y2 = gameObject.GetComponent<Transform>().position.y;
-        gameObject.GetComponent<Transform>().Rotate(0,0,10);
-        if(gameObject.GetComponent<Transform>().rotation.z >= Mathf.Atan((y1 - y2)/(x2 - x1)))
-        {
-        gameObject.GetComponent<Transform>().Rotate(0,0,10);
-        }
-        ////hz
+		float rotation;
+		int speed = 10;
+		const float RAD_TO_GRAD_CONST = 180 / Mathf.PI;
 
+		x1 = gameObject.GetComponent<Transform>().position.x;
+		x2 = target.GetComponent<Transform>().position.x;
+		y1 = gameObject.GetComponent<Transform>().position.y;
+		y2 = target.GetComponent<Transform>().position.y;
+
+		rotation = Mathf.Atan ((x1 - x2) / (y2 - y1)) * RAD_TO_GRAD_CONST;
+		if (y2 - y1 < 0)
+			rotation += 180;
+		if (gameObject.GetComponent<Transform> ().rotation.z != rotation)
+			gameObject.GetComponent<Transform> ().eulerAngles = new Vector3 (0, 0, rotation);
     }
- 
 }

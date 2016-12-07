@@ -17,6 +17,7 @@ public class AmmoScript : MonoBehaviour {
 
         Vector2 v = target.GetComponent<Transform>().position - gameObject.GetComponent<Transform>().position;
         if (v.magnitude < 0.1f){
+			target.GetComponent<UnitScript> ().lostHpOn (damage);
             Destroy(gameObject);
         }
         v.Normalize();

@@ -1,9 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GeneratorScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TowerScript.cs">
     <Files>
       <File FileName="Assets\Scripts\CellScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GeneratorScript.cs" Line="91" Column="44" />
+      <File FileName="Assets\Scripts\GeneratorScript.cs" Line="115" Column="85" />
+      <File FileName="Assets\Scripts\TowerScript.cs" Line="79" Column="1" />
+      <File FileName="Assets\Scripts\SpawnerScript.cs" Line="11" Column="32" />
+      <File FileName="Assets\Scripts\UnitScript.cs" Line="87" Column="12" />
+      <File FileName="Assets\Scripts\AmmoScript.cs" Line="20" Column="57" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

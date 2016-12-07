@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SpawnerScript : MonoBehaviour {
 
-    public float calm_time = 100;
+    public float calm_time = 15;
     private float curr_calm_time = 0;
     public float spawn_rate = 1;
     private float curr_spawn_time = 0;
@@ -13,7 +13,7 @@ public class SpawnerScript : MonoBehaviour {
     public GameObject target;
     public GameObject[] monsters;
 
-    public float speed = 1;
+    public float speed = 4;
     public float hp = 10;
     public float damage = 1f;
 
@@ -25,7 +25,8 @@ public class SpawnerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        curr_calm_time = 0;
+        curr_calm_time = 3;
+		curr_spawn_time = spawn_rate;
         target = null;
 	}
 	
