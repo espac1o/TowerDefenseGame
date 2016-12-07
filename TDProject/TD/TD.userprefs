@@ -1,21 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CellMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GeneratorScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\GeneratorScript.cs" Line="114" Column="30" />
-      <File FileName="Assets\Scripts\CellScript.cs" Line="37" Column="3" />
-      <File FileName="Assets\Scripts\CellManager.cs" Line="68" Column="21" />
-      <File FileName="Assets\Scripts\CellMenu.cs" Line="19" Column="4" />
+      <File FileName="Assets\Scripts\CellScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GeneratorScript.cs" Line="91" Column="44" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="TD" expanded="True">
-            <Node name="Assembly-CSharp-Editor" selected="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

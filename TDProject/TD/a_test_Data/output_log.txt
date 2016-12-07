@@ -1,0 +1,31 @@
+Initialize engine version: 5.2.0f3 (e7947df39b5c)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 8650G + HD 8600M Dual Graphics (ID=0x990b)
+    Vendor:   ATI
+    VRAM:     1752 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: F:\TDProject\TD\a_test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading F:\TDProject\TD\a_test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: F:\TDProject\TD\a_test_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading F:\TDProject\TD\a_test_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: F:\TDProject\TD\a_test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading F:\TDProject\TD\a_test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: F:\TDProject\TD\a_test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading F:\TDProject\TD\a_test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: F:\TDProject\TD\a_test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading F:\TDProject\TD\a_test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: F:\TDProject\TD\a_test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading F:\TDProject\TD\a_test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: F:\TDProject\TD\a_test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading F:\TDProject\TD\a_test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: F:\TDProject\TD\a_test_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.123 seconds
+desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: F:\TDProject\TD\a_test_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 2b74 -> priority: 1 

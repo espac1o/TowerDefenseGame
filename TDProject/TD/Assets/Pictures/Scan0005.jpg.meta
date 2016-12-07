@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1cf10c560e7a6d2439f34b54a2661104
-timeCreated: 1478729679
+timeCreated: 1481111313
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,8 @@ TextureImporter:
     21300012: Scan0005_46
     21300014: Scan0005_59
     21300016: Scan0005_61
+    21300018: Scan0005_0
+    21300020: Scan0005_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,7 +28,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: 0.25
+    heightScale: .25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -51,18 +53,15 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    serializedVersion: 2
     sprites:
-    - serializedVersion: 2
-      name: Scan0005_9
+    - name: Scan0005_9
       rect:
         serializedVersion: 2
         x: 347
@@ -70,12 +69,9 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Scan0005_10
+    - name: Scan0005_10
       rect:
         serializedVersion: 2
         x: 662
@@ -83,12 +79,9 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Scan0005_11
+    - name: Scan0005_11
       rect:
         serializedVersion: 2
         x: 948
@@ -96,12 +89,9 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Scan0005_17
+    - name: Scan0005_17
       rect:
         serializedVersion: 2
         x: 343
@@ -109,12 +99,9 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Scan0005_18
+    - name: Scan0005_18
       rect:
         serializedVersion: 2
         x: 674
@@ -122,12 +109,9 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Scan0005_19
+    - name: Scan0005_19
       rect:
         serializedVersion: 2
         x: 975
@@ -135,12 +119,9 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Scan0005_46
+    - name: Scan0005_46
       rect:
         serializedVersion: 2
         x: 976
@@ -148,12 +129,9 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Scan0005_59
+    - name: Scan0005_59
       rect:
         serializedVersion: 2
         x: 692
@@ -161,12 +139,9 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Scan0005_61
+    - name: Scan0005_61
       rect:
         serializedVersion: 2
         x: 963
@@ -174,11 +149,28 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    outline: []
+    - name: Scan0005_0
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 725
+        width: 215
+        height: 206
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Scan0005_1
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 745
+        width: 180
+        height: 186
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

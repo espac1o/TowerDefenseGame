@@ -1,32 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CellMenu : MonoBehaviour {
+using UnityEngine;
+using System.Collections;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+public class CellMenu : MonoBehaviour
+{
+   
+    public Vector3 pos;
 
-	public void OnClick(string actionName) {
-		switch(actionName) {
-		case "tower1":
-			buildTower ("tower1");
-			break;
-		}
-	}
+    void Start()
+    {
+        gameObject.GetComponent<Transform>().position = new Vector3(-1000, -1000, -1);
+    }
 
-	private void buildTower(string towerType) {
-		GameObject current = CellManager.Instance.CurrentObject;
-		if (current != null) {
-			// building tower
 
-			CellManager.Instance.CloseCellMenu ();
-		}
-	}
+
+
 }

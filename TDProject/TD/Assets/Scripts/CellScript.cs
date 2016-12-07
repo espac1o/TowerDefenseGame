@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor;
 
 public class CellScript : MonoBehaviour {
 
@@ -31,9 +30,15 @@ public class CellScript : MonoBehaviour {
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
-    void OnMouseDown()
+    void OnMouseUp()
     {
-       	//gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+        if (!is_buildable) { return; }
+        gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+        var menu = GameObject.Find("CELLMENU");
+        menu.GetComponent<CellMenu>().pos = gameObject.GetComponent<Transform>().position;
+        menu.GetComponent<Transform>().position = new Vector3 (gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, -1);
+        
+
 
     }
 }
