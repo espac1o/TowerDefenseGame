@@ -32,7 +32,6 @@ public class GeneratorScript : MonoBehaviour {
 
 	}
 
-
     private bool Generate() {
 		/*
       	Дорога 1
@@ -49,6 +48,12 @@ public class GeneratorScript : MonoBehaviour {
         GameObject ncell = null;
 		System.Random rand = new System.Random(DateTime.Now.Millisecond);
 		int roadCounter = 0;
+
+		GameObject roadParent = GameObject.Find ("Road");
+		GameObject decorationsParent = GameObject.Find ("Decorations");
+		GameObject buildableParent = GameObject.Find ("Buildable");
+		GameObject otherParent = GameObject.Find ("Other");
+
         for(int j = startPoint.y; j < endPoint.y; j++)
             for(int i = startPoint.x; i < endPoint.x; i++)
             {
@@ -57,6 +62,7 @@ public class GeneratorScript : MonoBehaviour {
                 pos = new Vector3((i - startPoint.x) * CELL_SIZE, (startPoint.y - j) * CELL_SIZE, 0);
 				switch (txtr) {
 				case 1: // road
+					roadRoute.Add (roadCounter++, new int[]{ startPoint.y - j, i - startPoint.x });
 					bool left, right, up, down;
 					left = right = up = down = false;
 					if (i + 1 < endPoint.x && map [j, i + 1] == 1) {
@@ -72,20 +78,26 @@ public class GeneratorScript : MonoBehaviour {
 						up = true;
 					}
 
-					if (up && down)
+					if (up && down) {
 						ncell = Instantiate (road_txtrs [rand.Next (0, 2)]) as GameObject;
-					//else if (left && right) ncell = Instantiate (road_txtrs[3]) as GameObject;
-					else if (up && right)
+						roadRoute.Add (roadCounter++, new int[]{ -2, -4 });
+					} else if (up && right) {
 						ncell = Instantiate (road_txtrs [4]) as GameObject;
-					else if (left && up)
+						roadRoute.Add (roadCounter++, new int[]{ -2, -1 });
+					} else if (left && up) {
 						ncell = Instantiate (road_txtrs [5]) as GameObject;
-					else if (left && down)
+						roadRoute.Add (roadCounter++, new int[]{ -3, -2 });
+					} else if (left && down) {
 						ncell = Instantiate (road_txtrs [6]) as GameObject;
-					else if (down && right)
+						roadRoute.Add (roadCounter++, new int[]{ -3, -4 });
+					} else if (down && right) {
 						ncell = Instantiate (road_txtrs [7]) as GameObject;
-					else
+						roadRoute.Add (roadCounter++, new int[]{ -4, -1 });
+					} else {
 						ncell = Instantiate (road_txtrs [3]) as GameObject;
-					roadRoute.Add (roadCounter++, new int[]{ startPoint.y - j, i - startPoint.x });
+					}
+
+					ncell.transform.parent = roadParent.transform;
 					break;
 				case 2: // desert
 					int txtr_id = rand.Next (0, 100);
@@ -96,35 +108,44 @@ public class GeneratorScript : MonoBehaviour {
 							txtr_id = 15;
 					}
 					ncell = Instantiate(wasteland_txtrs[txtr_id]) as GameObject;
+					ncell.transform.parent = decorationsParent.transform;
 					break;
 				case 3: // stone
 					ncell = Instantiate (wasteland_txtrs[17]) as GameObject;
+					ncell.transform.parent = decorationsParent.transform;
 					break;
 				case 4: // рубидий
 					ncell = Instantiate (game_obj_txtrs[2]) as GameObject;
+					ncell.transform.parent = decorationsParent.transform;
 					break;
 				case 51:
                         ////
                     var spwn = GameObject.Find("SPAWNER");
                     spwn.GetComponent<Transform>().position = pos;
 					ncell = Instantiate (test_txtrs[4]) as GameObject;
+					ncell.transform.parent = otherParent.transform;
 					roadRoute.Add (roadCounter++, new int[]{ startPoint.y - j, i - startPoint.x });
 					break;
 				case 52:
 					ncell = Instantiate (game_obj_txtrs[0]) as GameObject;
+					ncell.transform.parent = otherParent.transform;
 					roadRoute.Add (roadCounter++, new int[]{ startPoint.y - j, i - startPoint.x });
 					break;
 				case 7: // tower
 					ncell = Instantiate (game_obj_txtrs[1]) as GameObject;
+					ncell.transform.parent = buildableParent.transform;
 					break;
-				case 8:
+				case 8: // water
 					ncell = Instantiate (test_txtrs[7]) as GameObject;
+					ncell.transform.parent = otherParent.transform;
 					break;
-				case 9:
+				case 9: // underground
 					ncell = Instantiate (test_txtrs[8]) as GameObject;
+					ncell.transform.parent = otherParent.transform;
 					break;
 				default:
 					ncell = Instantiate (empty_cell) as GameObject;
+					ncell.transform.parent = otherParent.transform;
 					break;
 				}
 				

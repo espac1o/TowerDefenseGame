@@ -9,12 +9,13 @@ public class SpawnerScript : MonoBehaviour {
     private float curr_spawn_time = 0;
 
     public int[] Wave_len = { 2 };
+    public int waveLength;
 
     public GameObject target;
     public GameObject[] monsters;
 
     public float speed = 4;
-    public float hp = 10;
+    public float hp = 3;
     public float damage = 1f;
 
     private bool is_Wave = false;
@@ -28,10 +29,12 @@ public class SpawnerScript : MonoBehaviour {
         curr_calm_time = 3;
 		curr_spawn_time = spawn_rate;
         target = null;
+        waveLength = 0;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        waveLength = monsters_list.Count;
         if (!is_Wave)
         {
             if (curr_calm_time > 0)
@@ -53,7 +56,7 @@ public class SpawnerScript : MonoBehaviour {
             }
             else
             {
-                spawn(0);
+				spawn (new System.Random (System.DateTime.Now.Millisecond).Next (0, 2));
                 curr_spawn_time = spawn_rate;
                 curr_count -= 1;
                 if (curr_count <= 0) { is_Wave = false; }
@@ -64,18 +67,22 @@ public class SpawnerScript : MonoBehaviour {
 
     void Wave(int count)
     {
+        if (waveLength != 0) return;
+        GameObject.Find("COUNTER").GetComponent<CounterScript>().NextWave();
         is_Wave = true;
         curr_count = count;
     }
 
     void spawn(int monster_type)
     {
-        var monst_new = Instantiate(monsters[monster_type]) as GameObject;
-        monsters_list.Add(monst_new);
+		var newMonster = Instantiate(monsters[monster_type]) as GameObject;
+		newMonster.transform.parent = (GameObject.Find ("Zombies")).transform;
+        monsters_list.Add(newMonster);
+ 
 
-        monst_new.GetComponent<Transform>().position = gameObject.GetComponent<Transform>().position;
-        monst_new.GetComponent<UnitScript>().speed = speed;
-        monst_new.GetComponent<UnitScript>().damage = damage;
-        monst_new.GetComponent<UnitScript>().hp = hp;
+        newMonster.GetComponent<Transform>().position = gameObject.GetComponent<Transform>().position;
+        newMonster.GetComponent<UnitScript>().speed = speed;
+        newMonster.GetComponent<UnitScript>().damage = damage;
+        newMonster.GetComponent<UnitScript>().hp = hp;
     }
 }

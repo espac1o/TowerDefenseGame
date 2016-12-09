@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TowerScript : MonoBehaviour {
 
+    public int[] cost = {1, 2, 3};
     public Sprite[] look;
     public GameObject[] ammo;
 
@@ -44,11 +45,12 @@ public class TowerScript : MonoBehaviour {
         {
             target = null;
         }
-        else { rt(); }   	
+        else { rotateToTarget(); }   	
 	}
 
     void shoot(){
         var shot = Instantiate(ammo[lvl]) as GameObject;
+		shot.transform.parent = gameObject.transform;
         shot.GetComponent<Transform>().position = gameObject.GetComponent<Transform>().position;
         shot.GetComponent<AmmoScript>().target = target;
         shot.GetComponent<AmmoScript>().damage = damage[lvl];
@@ -61,7 +63,7 @@ public class TowerScript : MonoBehaviour {
         ArrayList mnstrs = spwn.GetComponent<SpawnerScript>().monsters_list;
 
 
-        float min_distance = 1.1f * shooting_range[lvl];
+        float min_distance = 1.01f * shooting_range[lvl];
         target = null;
         foreach(GameObject gameObj in mnstrs) {
             float d = dist(gameObj);
@@ -76,6 +78,10 @@ public class TowerScript : MonoBehaviour {
 
     float dist(GameObject obj)
     {
+        if (!obj)
+        {
+            return 10 * shooting_range[lvl];
+        }
         Vector2 v_1 = obj.GetComponent<Transform>().position;
         Vector2 v_2 = gameObject.GetComponent<Transform>().position;
 
@@ -83,12 +89,11 @@ public class TowerScript : MonoBehaviour {
         return d;        
     }
 
-    void rt() //rotate
+    void rotateToTarget() //rotate
     {
         float y1, y2;
         float x1, x2;
 		float rotation;
-		int speed = 10;
 		const float RAD_TO_GRAD_CONST = 180 / Mathf.PI;
 
 		x1 = gameObject.GetComponent<Transform>().position.x;

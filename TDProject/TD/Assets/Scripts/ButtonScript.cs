@@ -23,7 +23,7 @@ public class ButtonScript : MonoBehaviour
             return;
         }
 
-        if (tower)
+        if (tower && GameObject.Find("COUNTER").GetComponent<CounterScript>().cash(-tower.GetComponent<TowerScript>().cost[0]))
         {
             
             var tower_ = Instantiate(tower) as GameObject;

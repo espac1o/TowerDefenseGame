@@ -48,8 +48,10 @@
      <Compile Include="Assets\Scripts\AmmoScript.cs" />
      <Compile Include="Assets\Scripts\ButtonScript.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
+     <Compile Include="Assets\Scripts\CellManager.cs" />
      <Compile Include="Assets\Scripts\CellMenu.cs" />
      <Compile Include="Assets\Scripts\CellScript.cs" />
+     <Compile Include="Assets\Scripts\CounterScript.cs" />
      <Compile Include="Assets\Scripts\GeneratorScript.cs" />
      <Compile Include="Assets\Scripts\SpawnerScript.cs" />
      <Compile Include="Assets\Scripts\TowerScript.cs" />

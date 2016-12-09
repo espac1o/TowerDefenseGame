@@ -7,6 +7,8 @@ public class UnitScript : MonoBehaviour {
     public float hp = 10;
     public float damage = 1f;
 
+    public int reward = 1;
+
 	private Dictionary<int, int[]> route; // general route to nexus, get it from GeneratorScript
 	private int CELL_SIZE; // const size, get it from GeneratorScript
 
@@ -14,6 +16,7 @@ public class UnitScript : MonoBehaviour {
 	private const float CELL_PASSING_TIME = 32; // time that needs "to pass" the cell
 	private float currPassingTime;
 	private Vector3 distance;
+	private bool isRotated;
     
     // Use this for initialization
 	void Start () {
@@ -23,6 +26,7 @@ public class UnitScript : MonoBehaviour {
 		currStep = 0;
 		currPassingTime = CELL_PASSING_TIME;
 		distance = new Vector3 (route[0][1] * CELL_SIZE, route[0][0] * CELL_SIZE, 0);
+		isRotated = false;
 	}
 	
 	// Update is called once per frame
@@ -32,40 +36,43 @@ public class UnitScript : MonoBehaviour {
 	}
 
 	void move() {
+		int[] currCell = new int[2];
+		int[] nextCell = new int[2];
+
 		if (currPassingTime <= 0) {
 			currPassingTime = CELL_PASSING_TIME;
 			currStep++;
+			isRotated = false;
+			nextCell = route [currStep + 1];
+			if (nextCell[0] < 0) {
+				Vector3 currRotation = gameObject.GetComponent<Transform> ().eulerAngles;
+				int currMode = (int)currRotation.z / 90 + 1; // f.e. if we have 90 gradus rotation, we will get mode 90/90 + 1 = 2
+				if (nextCell [0] == -currMode)
+					currMode = -nextCell [1];
+				else
+					currMode = -nextCell [0];
+				currRotation.z = (currMode - 1) * 90;
+				gameObject.GetComponent<Transform> ().eulerAngles = currRotation;
+				isRotated = true;
+			}
 		}
 
 		if (currStep + 1 >= route.Count)
 			return;
-		
-		//float delta = speed / CELL_PASSING_TIME;
-		int[] currCell = new int[2];
-		int[] nextCell = new int[2];
-		currCell = route [currStep];
-		nextCell = route [currStep + 1];
 
-		//float dx = 1, dy = 1;
+		currCell = route [currStep];
+		if (isRotated) {
+			nextCell = route [currStep + 2];
+		} else {
+			nextCell = route [currStep + 1];
+		}
+
 		int x1 = currCell [1] * CELL_SIZE;
 		int y1 = currCell [0] * CELL_SIZE;
 
 		int x2 = nextCell [1] * CELL_SIZE;
 		int y2 = nextCell [0] * CELL_SIZE;
-		/*
-		if (gameObject.GetComponent<Transform>().position.x != x) {
-			dx = delta;
-		}
-		if (gameObject.GetComponent<Transform>().position.y != y) {
-			dy = delta;
-		}
-		
-		Vector3 v = new Vector3 (x * dx, y * dy, 0);
-		if (distance.Equals(new Vector3(0, 0, 0)))
-			distance = v;
-		else
-			distance += v;
-		*/
+
 		distance += new Vector3 (x2 - x1, y2 - y1, 0) * speed / CELL_PASSING_TIME;
 		gameObject.GetComponent<Transform>().position = distance;
 
@@ -73,10 +80,17 @@ public class UnitScript : MonoBehaviour {
 	}
 
 	void moveStep() {
+		/*
+			  2
+			3   1
+			  4
+			  for rotation
+		*/
 		if (currStep > 0)
 			return;
 		int[] nextCell = new int[2];
 		nextCell = route [currStep];
+
 		distance = new Vector3 (nextCell [1] * CELL_SIZE, nextCell [0] * CELL_SIZE, 0);
 		gameObject.GetComponent<Transform>().position = distance;
 		currStep++;
@@ -88,4 +102,10 @@ public class UnitScript : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+
+    void OnDestroy()
+    {
+        GameObject.Find("COUNTER").GetComponent<CounterScript>().cash(reward);
+        GameObject.Find("SPAWNER").GetComponent<SpawnerScript>().monsters_list.Remove(gameObject);
+    }
 }

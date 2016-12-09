@@ -15,14 +15,19 @@ public class AmmoScript : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
+        if (!target) { 
+            Destroy(gameObject);
+            return;
+        }
         Vector2 v = target.GetComponent<Transform>().position - gameObject.GetComponent<Transform>().position;
-        if (v.magnitude < 0.1f){
-			target.GetComponent<UnitScript> ().lostHpOn (damage);
+        if (v.magnitude < 0.1f)
+        {
+            target.GetComponent<UnitScript>().lostHpOn(damage);
             Destroy(gameObject);
         }
         v.Normalize();
         gameObject.GetComponent<Rigidbody2D>().velocity = v * speed;
-
+        
         
 	}
 }
