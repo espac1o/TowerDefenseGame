@@ -1,111 +1,204 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 public class UnitScript : MonoBehaviour {
 
-    public float speed = 2;
-    public float hp = 10;
-    public float damage = 1f;
 
-    public int reward = 1;
 
-	private Dictionary<int, int[]> route; // general route to nexus, get it from GeneratorScript
-	private int CELL_SIZE; // const size, get it from GeneratorScript
+    public float speed;
+    public float Speed
+    {
+        get
+        {
+            return speed;
+        }
+        set
+        {
+            speed = value;
+        }
+    }
 
-	private int currStep; // or how much it went (amount of cells)
-	private const float CELL_PASSING_TIME = 32; // time that needs "to pass" the cell
-	private float currPassingTime;
-	private Vector3 distance;
-	private bool isRotated;
+    public float hp;
+    public float HP
+    {
+        get
+        {
+            return hp;
+        }
+        set
+        {
+            hp = value;
+        }
+    }
+
+    public int damage;
+    public int Damage
+    {
+        get
+        {
+            return damage;
+        }
+        set
+        {
+            damage = value;
+        }
+    }
+
+    public int reward;
+    public int Reward
+    {
+        get
+        {
+            return reward;
+        }
+        set
+        {
+            reward = value;
+        }
+    }
+
+    public float currDelay;
+    public bool ready;
+
+    public float timeScale;
+
+    public bool wasHere1 = false;
+    public bool wasHere2 = false;
+    public bool wasHere3 = false;
+
+	//private Dictionary<int, Vector2> route; // general route to nexus, get it from GeneratorScript
+    public Queue<Vector2> route;
+    public Vector2[] routeTMP;
+
+//	private int currStep; // how much it went (amount of cells)
+    private Vector2 currentStep;
+
+    public Vector2 TMP;
+
+    private readonly object syncLostHPLock = new object();
     
     // Use this for initialization
 	void Start () {
-		var generator = GameObject.Find ("GENERATOR");
-		route = generator.GetComponent<GeneratorScript> ().roadRoute;
-		CELL_SIZE = generator.GetComponent<GeneratorScript> ().CELL_SIZE;
-		currStep = 0;
-		currPassingTime = CELL_PASSING_TIME;
-		distance = new Vector3 (route[0][1] * CELL_SIZE, route[0][0] * CELL_SIZE, 0);
-		isRotated = false;
+		//route = GameObject.Find ("GENERATOR").GetComponent<GeneratorScript> ().roadRoute;
+        route = new Queue<Vector2>(GameObject.Find("GENERATOR").GetComponent<GeneratorScript>().route);
+		//currStep = 0;
+        routeTMP = route.ToArray();
+        currentStep = route.Dequeue();
+        currDelay = 0;
+        
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		move ();
-		//moveStep ();
+		Move();
+        if (!ready)
+        {
+            if (currDelay > 0)
+            {
+                currDelay -= Time.deltaTime;
+            }
+            else
+            {
+                ready = true;
+            }
+        }
 	}
 
-	void move() {
-		int[] currCell = new int[2];
-		int[] nextCell = new int[2];
+    /*
+    void Move()
+    {
+        if (currStep + 1 >= route.Count) {
+            GameObject.Find("COUNTER").GetComponent<CounterScript>().DamageToNexus(Damage);
+            Destroy(gameObject);
+            return;
+        }
+        Vector3 targetedCell = route[currStep + 1];
+        TMP = route[currStep + 1];
+        Vector2 direction = targetedCell - gameObject.GetComponent<Transform>().position;
+        if (direction.magnitude <= 0.3 * GameObject.Find("GENERATOR").GetComponent<GeneratorScript>().CELL_SIZE)
+        {
+            currStep++;
+            Move();
+        }
+        else
+        {
+            direction.Normalize();
+            gameObject.GetComponent<Rigidbody2D>().velocity = direction * Speed;
+            Rotate(direction);
+        }
+    }
+    */
 
-		if (currPassingTime <= 0) {
-			currPassingTime = CELL_PASSING_TIME;
-			currStep++;
-			isRotated = false;
-			nextCell = route [currStep + 1];
-			if (nextCell[0] < 0) {
-				Vector3 currRotation = gameObject.GetComponent<Transform> ().eulerAngles;
-				int currMode = (int)currRotation.z / 90 + 1; // f.e. if we have 90 gradus rotation, we will get mode 90/90 + 1 = 2
-				if (nextCell [0] == -currMode)
-					currMode = -nextCell [1];
-				else
-					currMode = -nextCell [0];
-				currRotation.z = (currMode - 1) * 90;
-				gameObject.GetComponent<Transform> ().eulerAngles = currRotation;
-				isRotated = true;
-			}
-		}
+    void Move()
+    {
+        Vector3 targetedCell = currentStep;
+        TMP = currentStep;
+        Vector2 direction = targetedCell - gameObject.GetComponent<Transform>().position;
+        if (direction.magnitude <= 0.3 * GameObject.Find("GENERATOR").GetComponent<GeneratorScript>().CELL_SIZE)
+        {
+            if (route.Count != 0)
+            {
+                currentStep = route.Dequeue();
+                Move();
+            }
+            else
+            {
+                GameObject.Find("COUNTER").GetComponent<CounterScript>().DamageToNexus(Damage);
+                Destroy(gameObject);
+                return;
+            }
+        }
+        else
+        {
+            direction.Normalize();
+            gameObject.GetComponent<Rigidbody2D>().velocity = direction * Speed;
+            Rotate(direction);
+        }
+    }
 
-		if (currStep + 1 >= route.Count)
-			return;
+    void Rotate(Vector2 direction)
+    {
+        gameObject.GetComponent<Rigidbody2D>().MoveRotation(Mathf.Asin(direction.y) * 180 / Mathf.PI);
+        if (direction.x < 0) { gameObject.GetComponent<Rigidbody2D>().MoveRotation(180 - 
+            Mathf.Asin(direction.y) * 180 / Mathf.PI); }
+    }
 
-		currCell = route [currStep];
-		if (isRotated) {
-			nextCell = route [currStep + 2];
-		} else {
-			nextCell = route [currStep + 1];
-		}
-
-		int x1 = currCell [1] * CELL_SIZE;
-		int y1 = currCell [0] * CELL_SIZE;
-
-		int x2 = nextCell [1] * CELL_SIZE;
-		int y2 = nextCell [0] * CELL_SIZE;
-
-		distance += new Vector3 (x2 - x1, y2 - y1, 0) * speed / CELL_PASSING_TIME;
-		gameObject.GetComponent<Transform>().position = distance;
-
-		currPassingTime -= speed;
-	}
-
-	void moveStep() {
-		/*
-			  2
-			3   1
-			  4
-			  for rotation
-		*/
-		if (currStep > 0)
-			return;
-		int[] nextCell = new int[2];
-		nextCell = route [currStep];
-
-		distance = new Vector3 (nextCell [1] * CELL_SIZE, nextCell [0] * CELL_SIZE, 0);
-		gameObject.GetComponent<Transform>().position = distance;
-		currStep++;
-	}
-
-	public void lostHpOn(float damage) {
-		hp -= damage;
-		if (hp <= 0) {
-			Destroy (gameObject);
-		}
+    public void LostHp(float damage) {
+        lock (syncLostHPLock)
+        {
+            if (HP <= 0) return;
+            HP -= damage;
+            if (HP <= 0)
+            {
+                GameObject.Find("COUNTER").GetComponent<CounterScript>().Cash(Reward);
+                ApplicationStatistics.frags++;
+                Destroy(gameObject);
+            }
+        }
 	}
 
     void OnDestroy()
     {
-        GameObject.Find("COUNTER").GetComponent<CounterScript>().cash(reward);
-        GameObject.Find("SPAWNER").GetComponent<SpawnerScript>().monsters_list.Remove(gameObject);
+        var spawner = GameObject.Find("SPAWNER");
+        if (spawner != null)
+            spawner.GetComponent<SpawnerScript>().MonstersList.Remove(gameObject);
+    }
+
+    void OnTriggerStay2D(Collider2D obj)
+    {
+        AoeScript AS = obj.GetComponent<AoeScript>();
+        wasHere1 = true;
+        if (AS != null)
+        {
+            wasHere2 = true;
+            if (ready)
+            {
+                wasHere3 = true;
+                ready = false;
+                currDelay = AS.maxDelay;
+                LostHp(AS.damage);
+            }
+        }
     }
 }

@@ -1,14 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SpawnerScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CounterScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\GeneratorScript.cs" Line="54" Column="52" />
-      <File FileName="Assets\Scripts\SpawnerScript.cs" Line="79" Column="73" />
-      <File FileName="Assets\Scripts\CounterScript.cs" Line="49" Column="34" />
+      <File FileName="Assets\Scripts\GeneratorScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SpawnerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CounterScript.cs" Line="29" Column="25" />
       <File FileName="Assets\Scripts\CellScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TowerScript.cs" Line="53" Column="48" />
-      <File FileName="Assets\Scripts\UnitScript.cs" Line="47" Column="16" />
+      <File FileName="Assets\Scripts\TowerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UnitScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AmmoScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CameraScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

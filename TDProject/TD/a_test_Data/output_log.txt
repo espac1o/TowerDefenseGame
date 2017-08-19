@@ -1,31 +1,50 @@
-Initialize engine version: 5.2.0f3 (e7947df39b5c)
+Initialize engine version: 5.4.3f1 (01f4c123905a)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: AMD Radeon HD 8650G + HD 8600M Dual Graphics (ID=0x990b)
+    Renderer: AMD Radeon HD 5700 Series (ID=0x68b8)
     Vendor:   ATI
-    VRAM:     1752 MB
+    VRAM:     1010 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: F:\TDProject\TD\a_test_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading F:\TDProject\TD\a_test_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: F:\TDProject\TD\a_test_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading F:\TDProject\TD\a_test_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: F:\TDProject\TD\a_test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading F:\TDProject\TD\a_test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: F:\TDProject\TD\a_test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading F:\TDProject\TD\a_test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: F:\TDProject\TD\a_test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading F:\TDProject\TD\a_test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: F:\TDProject\TD\a_test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading F:\TDProject\TD\a_test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: F:\TDProject\TD\a_test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading F:\TDProject\TD\a_test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: F:\TDProject\TD\a_test_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.123 seconds
-desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
+Platform assembly: M:\Documents\Программирование\TowerDefenseFlashGame\TDProject\TD\a_test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading M:\Documents\Программирование\TowerDefenseFlashGame\TDProject\TD\a_test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: M:\Documents\Программирование\TowerDefenseFlashGame\TDProject\TD\a_test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading M:\Documents\Программирование\TowerDefenseFlashGame\TDProject\TD\a_test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: M:\Documents\Программирование\TowerDefenseFlashGame\TDProject\TD\a_test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading M:\Documents\Программирование\TowerDefenseFlashGame\TDProject\TD\a_test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: M:\Documents\Программирование\TowerDefenseFlashGame\TDProject\TD\a_test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading M:\Documents\Программирование\TowerDefenseFlashGame\TDProject\TD\a_test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.160 seconds
+Platform assembly: M:\Documents\Программирование\TowerDefenseFlashGame\TDProject\TD\a_test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: M:\Documents\Программирование\TowerDefenseFlashGame\TDProject\TD\a_test_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: F:\TDProject\TD\a_test_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 0.905422 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.698178 ms
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 734.
+Total: 2.581822 ms (FindLiveObjects: 0.029822 ms CreateObjectMapping: 0.033733 ms MarkObjects: 1.856311 ms  DeleteObjects: 0.656577 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.992000 ms
+
+Unloading 394 unused Assets to reduce memory usage. Loaded Objects now: 185.
+Total: 0.287955 ms (FindLiveObjects: 0.026888 ms CreateObjectMapping: 0.032266 ms MarkObjects: 0.125155 ms  DeleteObjects: 0.098266 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.314355 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 211.
+Total: 0.183333 ms (FindLiveObjects: 0.014177 ms CreateObjectMapping: 0.010755 ms MarkObjects: 0.148622 ms  DeleteObjects: 0.003911 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.363244 ms
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 734.
+Total: 0.372044 ms (FindLiveObjects: 0.029822 ms CreateObjectMapping: 0.033244 ms MarkObjects: 0.290400 ms  DeleteObjects: 0.012222 ms)
+
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2b74 -> priority: 1 
+  Thread -> id: 2e4c -> priority: 1 

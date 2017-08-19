@@ -4,6 +4,7 @@ using System.Collections;
 using System.IO;
 using System.Collections.Generic;
 
+
 public class GeneratorScript : MonoBehaviour {
 
     public Material def_material;
@@ -14,21 +15,30 @@ public class GeneratorScript : MonoBehaviour {
     public GameObject empty_cell = null;
     public int CELL_SIZE = 2;
 
+	public Color cellSelectionColor;
+
     private int size_x = 0;
     private int size_y = 0;
+    
 
 	private Point startPoint, endPoint;
+    public float map_size_x;
+    public float map_size_y;
 
     private int[,] map = null;
 
-	public Dictionary<int, int[]> roadRoute = new Dictionary<int, int[]>();
+	public Dictionary<int, Vector2> roadRoute = new Dictionary<int, Vector2>();
+    public Queue<Vector2> route = new Queue<Vector2>();
 
 	// Use this for initialization
 	void Start () {
+        if (Load())
+        {
+            map_size_x = endPoint.x - startPoint.x;
+            map_size_y = endPoint.y - startPoint.y;
 
-		string filename = ".\\Assets\\maps\\example.tdmap";
-        Load(filename);
-        Generate();
+            Generate();
+        }
 
 	}
 
@@ -62,7 +72,7 @@ public class GeneratorScript : MonoBehaviour {
                 pos = new Vector3((i - startPoint.x) * CELL_SIZE, (startPoint.y - j) * CELL_SIZE, 0);
 				switch (txtr) {
 				case 1: // road
-					roadRoute.Add (roadCounter++, new int[]{ startPoint.y - j, i - startPoint.x });
+                    roadRoute.Add(roadCounter++, new Vector2((i - startPoint.x) * CELL_SIZE, (startPoint.y - j) * CELL_SIZE));
 					bool left, right, up, down;
 					left = right = up = down = false;
 					if (i + 1 < endPoint.x && map [j, i + 1] == 1) {
@@ -78,24 +88,18 @@ public class GeneratorScript : MonoBehaviour {
 						up = true;
 					}
 
-					if (up && down) {
+					if (up && down)
 						ncell = Instantiate (road_txtrs [rand.Next (0, 2)]) as GameObject;
-						roadRoute.Add (roadCounter++, new int[]{ -2, -4 });
-					} else if (up && right) {
+					else if (up && right)
 						ncell = Instantiate (road_txtrs [4]) as GameObject;
-						roadRoute.Add (roadCounter++, new int[]{ -2, -1 });
-					} else if (left && up) {
+					else if (left && up)
 						ncell = Instantiate (road_txtrs [5]) as GameObject;
-						roadRoute.Add (roadCounter++, new int[]{ -3, -2 });
-					} else if (left && down) {
+					else if (left && down)
 						ncell = Instantiate (road_txtrs [6]) as GameObject;
-						roadRoute.Add (roadCounter++, new int[]{ -3, -4 });
-					} else if (down && right) {
+					else if (down && right)
 						ncell = Instantiate (road_txtrs [7]) as GameObject;
-						roadRoute.Add (roadCounter++, new int[]{ -4, -1 });
-					} else {
+					else
 						ncell = Instantiate (road_txtrs [3]) as GameObject;
-					}
 
 					ncell.transform.parent = roadParent.transform;
 					break;
@@ -124,12 +128,13 @@ public class GeneratorScript : MonoBehaviour {
                     spwn.GetComponent<Transform>().position = pos;
 					ncell = Instantiate (test_txtrs[4]) as GameObject;
 					ncell.transform.parent = otherParent.transform;
-					roadRoute.Add (roadCounter++, new int[]{ startPoint.y - j, i - startPoint.x });
+					//roadRoute.Add (roadCounter++, new Vector2(startPoint.y - j, i - startPoint.x) * CELL_SIZE);
+                    roadRoute.Add(roadCounter++, new Vector2((i - startPoint.x) * CELL_SIZE, (startPoint.y - j) * CELL_SIZE));
 					break;
 				case 52:
 					ncell = Instantiate (game_obj_txtrs[0]) as GameObject;
 					ncell.transform.parent = otherParent.transform;
-					roadRoute.Add (roadCounter++, new int[]{ startPoint.y - j, i - startPoint.x });
+                    roadRoute.Add(roadCounter++, new Vector2((i - startPoint.x) * CELL_SIZE, (startPoint.y - j) * CELL_SIZE));
 					break;
 				case 7: // tower
 					ncell = Instantiate (game_obj_txtrs[1]) as GameObject;
@@ -158,8 +163,18 @@ public class GeneratorScript : MonoBehaviour {
         return true;
     }
 
-    private bool Load(string fileName) {      
-        string line;       
+    private bool Load() {
+        string fileName;
+        string line;
+        if (ApplicationStatistics.GameType == 0)
+        {
+            fileName = ".\\Assets\\maps\\1.tdmap";
+        }
+        else
+        {
+            int fileNumber = new System.Random(System.DateTime.Now.Millisecond).Next(2, 7);
+            fileName = ".\\Assets\\maps\\" + fileNumber + ".tdmap";
+        }
         StreamReader theReader = new StreamReader(fileName);
         using (theReader) {   //field size
             line = theReader.ReadLine();
@@ -197,10 +212,54 @@ public class GeneratorScript : MonoBehaviour {
                             map[j, i] = int.Parse(entries[i]);
                     }
                 }
-            }   
+            } //cycle ends
+            /*
+             * route style: 1:2 %->% 1:3 %->% 2:3
+             * point x:y
+             */
+            line = theReader.ReadLine();
+            if (line != null)
+            {
+                // route exists
+                const String separator = "%->%";
+                int next;
+                while (line != null)
+                {
+                    next = line.IndexOf(separator);
+                    try
+                    {
+                        if (next == -1)
+                        {
+                            route.Enqueue(ParseVector2(line));
+                            break;
+                        }
+                        else
+                        {
+                            route.Enqueue(ParseVector2(line.Substring(0, next)));
+                            line = line.Substring(next + separator.Length);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        print(e.Message);
+                    }
+                }
+                if (route.Count == 0)
+                {
+                    // smth went wrong and route became null
+                    GameObject.Find("COUNTER").GetComponent<CounterScript>().GameOver(false);
+                    return false;
+                }
+            }
+            else
+            {
+                // route was not found
+                GameObject.Find("COUNTER").GetComponent<CounterScript>().GameOver(false);
+                return false;
+            }
             theReader.Close();
             return true;
-		} //cycle ends      
+		}     
 	}//load() ends
 
 	private class Point {
@@ -211,6 +270,30 @@ public class GeneratorScript : MonoBehaviour {
 			x = _x;
 			y = _y;
 		}
+        public Point(String value)
+        {
+            Parse(value);
+        }
+        private void Parse(String value)
+        {
+            const String separator = ":";
+            String[] values = value.Split(separator.ToCharArray());
+            if (values.Length != 2)
+                return;
+            x = int.Parse(values[0]);
+            y = int.Parse(values[1]);
+        }
 	}
+
+    private Vector2 ParseVector2(String value)
+    {
+        const String separator = ":";
+        String[] values = value.Split(separator.ToCharArray());
+        if (values.Length != 2)
+        {
+            throw new Exception("Illegal value");
+        }
+        return new Vector2(int.Parse(values[0]), -int.Parse(values[1])) * CELL_SIZE;
+    }
 }
 	

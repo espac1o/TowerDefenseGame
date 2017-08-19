@@ -4,15 +4,13 @@ import com.sun.istack.internal.NotNull;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.net.URL;
+import java.io.*;
+import java.util.ArrayList;
 
 /**
  ** Created by espacio on 19.09.2016.
@@ -22,22 +20,27 @@ class MainWindow extends JFrame {
     static final int WINDOW_X = 800; // actually, 805
     static final int WINDOW_Y = 600; // actually, 687
     private static final String WINDOW_TITLE = "TD Maps Generator";
-    Font statusBarFont = new Font("Century Gothic", Font.PLAIN, 12);
-    private File file;
     private static boolean fileSaved = true;
     private static JMenuItem jmiUndo, jmiRedo;
     private static JLabel jlPositionInfo, jlCurrentBrushColorTypeInfo, jlMapSizeInfo, jlFieldSizeInfo;
+    Font statusBarFont = new Font("Century Gothic", Font.PLAIN, 12);
+    private File file;
+    private JMenu jmFile, jmRecent;
+
 
     private Field jpField;
 
+    private ArrayList<String[]> recentFiles;
+
     MainWindow() {
         JMenuBar jmbMenu;
-        JMenu jmFile, jmEdit, jmBrush, jmView;
+        JMenu jmEdit, jmTools, jmView;
         JMenuItem jmiCreate, jmiOpen, jmiSave, jmiExit;
-        JMenuItem jmiBrushRoad, jmiBrushDesert,  jmiBrushStone, jmiBrushRb, jmiBrushNexus, jmiBrushMapBorder, jmiBrushEraser;
+        JMenuItem jmiGenerateRoute;
         JMenuItem jmiZoomIn, jmiZoomOut;
         JPanel jpStatusBar;
         JLabel jlPositionFlatText, jlCurrentBrushColorTypeFlatText, jlMapSizeFlatText, jlFieldSizeFlatText;
+        JToolBar jtbBrushes;
 
         setSize(WINDOW_X, WINDOW_Y);
         setResizable(false);
@@ -53,8 +56,10 @@ class MainWindow extends JFrame {
             public void windowClosing(WindowEvent e) {
                 if (!fileSaved && !saveOnCloseDialog())
                     System.out.println("Карта до сих пор не сохранена");
-                else
+                else {
+                    saveRecentFilesList();
                     System.exit(0);
+                }
             }
 
             @Override
@@ -82,6 +87,13 @@ class MainWindow extends JFrame {
 
             }
         });
+
+        recentFiles = openRecentFilesList();
+
+        jtbBrushes = new JToolBar();
+        jtbBrushes.setOrientation(SwingConstants.VERTICAL);
+        jtbBrushes.setPreferredSize(new Dimension(125, 125));
+        add(jtbBrushes, BorderLayout.LINE_END);
 
         jpStatusBar = new JPanel();
         jpStatusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
@@ -152,7 +164,6 @@ class MainWindow extends JFrame {
 
         add(jpStatusBar, BorderLayout.SOUTH);
 
-        jmBrush = new JMenu("Кисть");
         jmView = new JMenu("Вид");
 
                                                                                                                         /** MENU: FILE **/
@@ -171,6 +182,7 @@ class MainWindow extends JFrame {
                     setTitle(WINDOW_TITLE + " - " + file.toString());
             }
         });
+        jmFile.add(jmiSave);
 
         jmiCreate = new JMenuItem("Создать новую карту");
         jmiCreate.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
@@ -182,7 +194,7 @@ class MainWindow extends JFrame {
                 String s;
                 int x, y;
                 while (true) {
-                    s = (String) JOptionPane.showInputDialog(
+                    s = JOptionPane.showInputDialog(
                             MainWindow.this,
                             "Введите размер поля (минимум: 15x15):",
                             "100x100");
@@ -202,8 +214,8 @@ class MainWindow extends JFrame {
                     jpField.initField();
                     jlMapSizeInfo.setText(jpField.getMapSize());
                     fileSaved = true;
-                    jmBrush.setEnabled(true);
                     jmView.setEnabled(true);
+                    file = null;
                     setTitle(WINDOW_TITLE + " - Новая карта");
                     revalidate();
                     break;
@@ -221,26 +233,26 @@ class MainWindow extends JFrame {
                     return;
                 if (openFile()) {
                     add(jpField, BorderLayout.CENTER);
-                    setTitle(WINDOW_TITLE + " - " + file.toString());
-                    jmBrush.setEnabled(true);
+                    setTitle(WINDOW_TITLE + " - " + file.getAbsolutePath());
                     jmView.setEnabled(true);
                 }
             }
         });
         jmFile.add(jmiOpen);
 
-        jmFile.add(jmiSave);
+        jmFile.addSeparator();
+
+        updateRecentFilesMenu();
+        jmFile.add(jmRecent);
 
         jmFile.addSeparator();
 
         jmiExit = new JMenuItem("Выход");
-        jmiExit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (!fileSaved && !saveOnCloseDialog())
-                    return;
-                System.exit(0);
-            }
+        jmiExit.addActionListener(e -> {
+            if (!fileSaved && !saveOnCloseDialog())
+                return;
+            saveRecentFilesList();
+            System.exit(0);
         });
         jmFile.add(jmiExit);
 
@@ -251,130 +263,29 @@ class MainWindow extends JFrame {
         jmiUndo = new JMenuItem("Отменить");
         jmiUndo.setEnabled(false);
         jmiUndo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_DOWN_MASK));
-        jmiUndo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jpField.undo();
-            }
-        });
+        jmiUndo.addActionListener(e -> jpField.undo());
         jmEdit.add(jmiUndo);
 
         jmiRedo = new JMenuItem("Повторить");
         jmiRedo.setEnabled(false);
         jmiRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Y, InputEvent.CTRL_DOWN_MASK));
-        jmiRedo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jpField.redo();
-            }
-        });
+        jmiRedo.addActionListener(e -> jpField.redo());
         jmEdit.add(jmiRedo);
 
-                                                                                                                        /** MENU: BRUSHES **/
+        /** MENU: TOOLS **/
 
-        URL imageUrl = this.getClass().getResource(".\\src\\ru\\burningGlobe\\generator\\images\\brush.png");
-        if (imageUrl != null) {
-            jmBrush.setText("");
-            jmBrush.setIcon(new ImageIcon(imageUrl));
-        }
-        jmBrush.setEnabled(false);
-        jmbMenu.add(jmBrush);
-
-                                                                                                                        /** ALL TYPES OF BRUSHES **/
-
-        jmiBrushRoad = new JMenuItem("Дорога");
-        jmiBrushRoad.setBackground(GeneratorColors.roadColor);
-        jmiBrushRoad.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int brushId = 1;
-                jpField.setCurrentBrush(brushId);
-                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
-                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
+        jmTools = new JMenu("Инструменты");
+        jmbMenu.add(jmTools);
+        jmiGenerateRoute = new JMenuItem("Сгенерировать путь");
+        jmiGenerateRoute.addActionListener(e -> {
+            if (jpField != null) {
+                jpField.generateRoute();
+                jpField.repaint();
+            } else {
+                System.out.println("Поле еще не создано");
             }
         });
-        jmBrush.add(jmiBrushRoad);
-
-        jmiBrushDesert = new JMenuItem("Пустыня");
-        jmiBrushDesert.setBackground(GeneratorColors.desertColor);
-        jmiBrushDesert.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int brushId = 2;
-                jpField.setCurrentBrush(brushId);
-                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
-                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
-            }
-        });
-        jmBrush.add(jmiBrushDesert);
-
-        jmiBrushStone = new JMenuItem("Камень");
-        jmiBrushStone.setBackground(GeneratorColors.stoneColor);
-        jmiBrushStone.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int brushId = 3;
-                jpField.setCurrentBrush(brushId);
-                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
-                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
-            }
-        });
-        jmBrush.add(jmiBrushStone);
-
-        jmiBrushRb = new JMenuItem("Рубидий");
-        jmiBrushRb.setBackground(GeneratorColors.rbColor);
-        jmiBrushRb.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int brushId = 4;
-                jpField.setCurrentBrush(brushId);
-                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
-                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
-            }
-        });
-        jmBrush.add(jmiBrushRb);
-
-        jmiBrushNexus = new JMenuItem("Нексус");
-        jmiBrushNexus.setBackground(GeneratorColors.nexusColor);
-        jmiBrushNexus.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int brushId = 5;
-                jpField.setCurrentBrush(brushId);
-                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
-                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
-            }
-        });
-        jmBrush.add(jmiBrushNexus);
-
-        jmBrush.addSeparator();
-
-        jmiBrushMapBorder = new JMenuItem("Граница карты");
-        jmiBrushMapBorder.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int brushId = 6;
-                jpField.setCurrentBrush(brushId);
-                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
-                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
-            }
-        });
-        jmBrush.add(jmiBrushMapBorder);
-
-        jmBrush.addSeparator();
-
-        jmiBrushEraser = new JMenuItem("Ластик");
-        jmiBrushEraser.setBackground(GeneratorColors.eraserColor);
-        jmiBrushEraser.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int brushId = -1;
-                jpField.setCurrentBrush(brushId);
-                jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
-                jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorByType(brushId)));
-            }
-        });
-        jmBrush.add(jmiBrushEraser);
+        jmTools.add(jmiGenerateRoute);
 
                                                                                                                         /** MENU: VIEW **/
 
@@ -382,23 +293,34 @@ class MainWindow extends JFrame {
         jmbMenu.add(jmView);
         jmiZoomIn = new JMenuItem("Приблизить");
         jmiZoomIn.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_EQUALS, InputEvent.CTRL_MASK));
-        jmiZoomIn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jpField.zoom(0.5f);
-            }
-        });
+        jmiZoomIn.addActionListener(e -> jpField.zoom(0.5f));
         jmView.add(jmiZoomIn);
 
         jmiZoomOut = new JMenuItem("Отдалить");
         jmiZoomOut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_MINUS, InputEvent.CTRL_MASK));
-        jmiZoomOut.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jpField.zoom(-0.5f);
-            }
-        });
+        jmiZoomOut.addActionListener(e -> jpField.zoom(-0.5f));
         jmView.add(jmiZoomOut);
+
+        /** ALL TYPES OF BRUSHES **/
+
+        jtbBrushes.add(createBrushMenuItem("Дорога", BrushID.ROAD));
+        jtbBrushes.add(createBrushMenuItem("Пустыня", BrushID.DESERT, GeneratorColors.menuItemTitledBorderBlackTextColor));
+        jtbBrushes.add(createBrushMenuItem("Камень", BrushID.STONE, GeneratorColors.menuItemTitledBorderBlackTextColor));
+        jtbBrushes.add(createBrushMenuItem("Вода", BrushID.WATER));
+        jtbBrushes.add(createBrushMenuItem("Подземелье", BrushID.UNDERGROUND));
+        jtbBrushes.add(createBrushMenuItem("Рубидий", BrushID.RUBIDIUM));
+        jtbBrushes.add(createBrushMenuItem("Установка башни", BrushID.TOWER));
+
+        jtbBrushes.addSeparator();
+
+        jtbBrushes.add(createBrushMenuItem("Клетка старта", BrushID.SPAWNER));
+        jtbBrushes.add(createBrushMenuItem("Граница карты", BrushID.MAP_BORDER));
+//        jtbBrushes.add(createBrushMenuItem("Путь", BrushID.ROUTE));
+        jtbBrushes.add(createBrushMenuItem("Нексус", BrushID.NEXUS, GeneratorColors.menuItemTitledBorderBlackTextColor));
+
+        jtbBrushes.addSeparator();
+
+        jtbBrushes.add(createBrushMenuItem("Ластик", BrushID.ERAISER, GeneratorColors.menuItemTitledBorderBlackTextColor));
 
         setVisible(true);
     }
@@ -425,6 +347,14 @@ class MainWindow extends JFrame {
             jmiRedo.setEnabled(status);
     }
 
+    private void setBrush(int brushId) {
+        if (jpField != null)
+            jpField.setCurrentBrush(brushId);
+        if (jlCurrentBrushColorTypeInfo != null) {
+            jlCurrentBrushColorTypeInfo.setText(GeneratorColors.getColorType(brushId));
+            jlCurrentBrushColorTypeInfo.setBorder(BorderFactory.createLineBorder(GeneratorColors.getColorById(brushId)));
+        }
+    }
 
     @NotNull private Boolean saveFile() {
         if (fileSaved)
@@ -439,31 +369,47 @@ class MainWindow extends JFrame {
             fileChooser.setFileFilter(filter);
             returnVal = fileChooser.showSaveDialog(MainWindow.this);
 
-            if (returnVal == JFileChooser.APPROVE_OPTION)
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
                 file = fileChooser.getSelectedFile();
-            else if (returnVal == JFileChooser.CANCEL_OPTION)
+                return saveFile(file);
+            } else //if (returnVal == JFileChooser.CANCEL_OPTION)
                 return false;
         }
+
+        return saveFile(file);
+    }
+
+    private boolean saveFile(File newFile) {
         try {
             FileWriter fw;
             StringBuilder sb;
             String filename;
+            ArrayList<Point> route;
 
-            filename = file.toString();
+            filename = newFile.toString();
             if (!filename.contains(".tdmap"))
                 filename += ".tdmap";
             fw = new FileWriter(filename);
             sb = new StringBuilder();
-            sb.append(jpField.getXLinesCount()).append(" ").append(jpField.getYLinesCount()).append("\r\n");
+            sb.append(jpField.getXLinesCount()).append(" ").append(jpField.getYLinesCount()).append(System.lineSeparator());
+            sb.append(jpField.getMapStartPoint().x).append(" ").append(jpField.getMapStartPoint().y).append(System.lineSeparator());
+            sb.append(jpField.getMapEndPoint().x).append(" ").append(jpField.getMapEndPoint().y).append(System.lineSeparator());
             int[][] mapArray = jpField.getField();
             for (int i = 0; i < jpField.getYLinesCount(); i++) {
                 for (int j = 0; j < jpField.getXLinesCount(); j++) {
                     sb.append(mapArray[i][j]).append(" ");
                 }
-                sb.append("\r\n");
+                sb.append(System.lineSeparator());
             }
-            sb.append(jpField.getMapStartPoint().x).append(" ").append(jpField.getMapStartPoint().y).append("\r\n");
-            sb.append(jpField.getMapEndPoint().x).append(" ").append(jpField.getMapEndPoint().y).append("\r\n");
+            route = jpField.getRoute();
+            final String separator = " %->% ";
+            for (Point point : route) {
+                if (route.indexOf(point) != 0)
+                    sb.append(separator);
+                sb.append(point.x).append(":").append(point.y);
+            }
+
+            sb.append(System.lineSeparator());
             fw.write(sb.toString());
             fw.close();
             fileSaved = true;
@@ -471,88 +417,149 @@ class MainWindow extends JFrame {
         catch (IOException e1) {
             e1.printStackTrace();
         }
+
+        String[] oldObject = null;
+        if (file != null)
+            oldObject = new String[]{file.getName(), file.getAbsolutePath()};
+        file = newFile;
+        String[] newObject = {file.getName(), file.getAbsolutePath()};
+        if (oldObject == null)
+            oldObject = newObject;
+        int n = recentFiles.size();
+        for (int i = 0; i < n; i++) {
+            String[] element = recentFiles.get(i);
+            if (element[0].equals(oldObject[0]) && element[1].equals(oldObject[1])) {
+                recentFiles.remove(i);
+                recentFiles.add(0, newObject);
+                System.out.println("current file exist. Was moved up");
+                break;
+            }
+            if (i + 1 == n) {
+                recentFiles.add(0, newObject);
+                System.out.println("current file was added");
+            }
+        }
+        updateRecentFilesMenu();
         return true;
     }
 
     private boolean openFile() {
+        JFileChooser fileChooser;
+        FileFilter filter;
+        int returnVal;
+
+        fileChooser = new JFileChooser();
+        filter = new FileNameExtensionFilter("TD Map file", "tdmap");
+        fileChooser.setFileFilter(filter);
+        returnVal = fileChooser.showOpenDialog(MainWindow.this);
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            fileSaved = false;
+            return openFile(fileChooser.getSelectedFile());
+        } else  //returnVal == JFileChooser.CANCEL_OPTION
+            return false;
+    }
+
+    private boolean openFile(File newFile) {
+        FileReader fr;
+        int fieldSizeX, fieldSizeY;
+        StringBuilder fileData;
+        String sFile;
+        String[] lineElements;
+        int[][] field;
+        ArrayList<Point> route;
+
         try {
-            JFileChooser fileChooser;
-            FileFilter filter;
-            int returnVal;
-
-            fileChooser = new JFileChooser();
-            filter = new FileNameExtensionFilter("TD Map file","tdmap");
-            fileChooser.setFileFilter(filter);
-            returnVal = fileChooser.showOpenDialog(MainWindow.this);
-
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                file = fileChooser.getSelectedFile();
-                fileSaved = false;
-            }
-            else if (returnVal == JFileChooser.CANCEL_OPTION) {
-                return false;
-            }
-
-            FileReader fr;
-            int fieldSizeX, fieldSizeY;
-            StringBuilder fileData;
-            String sFile, s;
-            String[] lineElements;
-            int[][] field;
-
-            fr = new FileReader(file);
+            fr = new FileReader(newFile);
             fileData = new StringBuilder();
             int symbol;
             while ((symbol = fr.read()) != -1) {
-                fileData.append((char)symbol);
+                fileData.append((char) symbol);
             }
             fr.close();
 
+            // file size
             sFile = fileData.toString();
-            lineElements = sFile.substring(0, sFile.indexOf("\r\n")).split(" ");
+            lineElements = sFile.substring(0, sFile.indexOf(System.lineSeparator())).split(" ");
             fieldSizeX = Integer.parseInt(lineElements[0]);
             fieldSizeY = Integer.parseInt(lineElements[1]);
             field = new int[fieldSizeY][fieldSizeX];
-            for (int i = 0; i < fieldSizeY; i++) {
-                sFile = sFile.substring(sFile.indexOf("\n") + 1);
-                lineElements = sFile.substring(0, sFile.indexOf("\r\n")).split(" ");
-                for (int j = 0; j < fieldSizeX; j++) {
-                    field[i][j] = Integer.parseInt(lineElements[j]);
-                }
-            }
+
             if (jpField == null)
                 jpField = new Field(fieldSizeX, fieldSizeY);
             else
                 jpField.newField(fieldSizeX, fieldSizeY);
-            jlFieldSizeInfo.setText(fieldSizeX + "x" + fieldSizeY);
-            jpField.initField(field);
-            sFile = sFile.substring(sFile.indexOf("\n") + 1);
-            int nextElement = sFile.indexOf("\r\n");
+
+            fileSaved = true;
+
+            // map size
+            sFile = sFile.substring(sFile.indexOf(System.lineSeparator()) + System.lineSeparator().length());
+            int nextElement = sFile.indexOf(System.lineSeparator());
             if (nextElement != -1) {
                 lineElements = sFile.substring(0, nextElement).split(" ");
                 int x1, y1, x2, y2;
                 x1 = Integer.parseInt(lineElements[0]);
                 y1 = Integer.parseInt(lineElements[1]);
-                sFile = sFile.substring(sFile.indexOf("\n") + 1);
-                nextElement = sFile.indexOf("\r\n");
+                sFile = sFile.substring(sFile.indexOf(System.lineSeparator()) + System.lineSeparator().length());
+                nextElement = sFile.indexOf(System.lineSeparator());
                 if (nextElement != -1) {
                     lineElements = sFile.substring(0, nextElement).split(" ");
                     x2 = Integer.parseInt(lineElements[0]);
                     y2 = Integer.parseInt(lineElements[1]);
                     jpField.setMapSize(new Point(x1, y1), new Point(x2, y2));
-                }
-                else {
+                } else {
                     jpField.setMapSize(new Point(x1, y1), null);
                 }
             }
-            fileSaved = true;
-            revalidate();
-            return true;
-        }
-        catch (IOException e) {
+
+            // map
+            for (int i = 0; i < fieldSizeY; i++) {
+                sFile = sFile.substring(sFile.indexOf(System.lineSeparator()) + System.lineSeparator().length());
+                lineElements = sFile.substring(0, sFile.indexOf(System.lineSeparator())).split(" ");
+                for (int j = 0; j < fieldSizeX; j++) {
+                    field[i][j] = Integer.parseInt(lineElements[j]);
+                }
+            }
+            jlFieldSizeInfo.setText(fieldSizeX + "x" + fieldSizeY);
+
+            sFile = sFile.substring(sFile.indexOf(System.lineSeparator()) + System.lineSeparator().length());
+            int indexOfRouteStart = sFile.indexOf(System.lineSeparator());
+            if (indexOfRouteStart == -1) {
+                jpField.initField(field);
+            } else {
+                final String separator = " %->% ";
+                route = new ArrayList<>();
+
+                String[] points = sFile.split(System.lineSeparator())[0].split(separator);
+                for (String point : points) {
+                    route.add(new Point(Integer.parseInt(point.split(":")[0]), Integer.parseInt(point.split(":")[1])));
+                }
+                jpField.initField(field, route);
+            }
+        } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
+
+        file = newFile;
+        String[] object = {file.getName(), file.getAbsolutePath()};
+        int n = recentFiles.size();
+        for (int i = 0; i < n; i++) {
+            String[] element = recentFiles.get(i);
+            if (element[0].equals(object[0]) && element[1].equals(object[1])) {
+                recentFiles.remove(i);
+                recentFiles.add(0, object);
+                System.out.println("current file exist. Was moved up");
+                break;
+            }
+            if (i + 1 == n) {
+                recentFiles.add(0, object);
+                System.out.println("current file was added");
+            }
+        }
+        updateRecentFilesMenu();
+        revalidate();
+        return true;
     }
 
     private Boolean saveOnCloseDialog() {
@@ -575,6 +582,118 @@ class MainWindow extends JFrame {
     private boolean saveDialog() {
         if (file == null && fileSaved) {
             JOptionPane.showMessageDialog(MainWindow.this, "Карта еще не открыта");
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * @param title                 text of TitledBorder
+     * @param brushId               numeric id for brush
+     * @param titledBorderTextColor special color for text in TitledBorder
+     * @return a menu item that includes TitledBorder, ActionListener and bgColor
+     */
+    private JMenuItem createBrushMenuItem(String title, int brushId, Color titledBorderTextColor) {
+        JMenuItem jMenuItem = new JMenuItem();
+        jMenuItem.setBackground(GeneratorColors.getColorById(brushId));
+        jMenuItem.addActionListener(e -> setBrush(brushId));
+        TitledBorder titledBorder = BorderFactory.createTitledBorder(title);
+        titledBorder.setTitleColor(titledBorderTextColor);
+        jMenuItem.setBorder(titledBorder);
+        return jMenuItem;
+    }
+
+    /**
+     * analogue of createBrushMenuItem(...) that takes color for text in TitledBorder as default
+     *
+     * @param title   text of TitledBorder
+     * @param brushId numeric id for brush
+     * @return a menu item that includes TitledBorder, ActionListener and bgColor
+     */
+    private JMenuItem createBrushMenuItem(String title, int brushId) {
+        return createBrushMenuItem(title, brushId, GeneratorColors.menuItemTitledBorderDefaultTextColor);
+    }
+
+    private void updateRecentFilesMenu() {
+        jmRecent = new JMenu("Недавние карты");
+        if (recentFiles == null) {
+            jmRecent.setEnabled(false);
+        } else {
+            for (String[] element : recentFiles) {
+                JMenuItem jMenuItem = new JMenuItem(element[0]);
+                jMenuItem.addActionListener(e -> {
+                    if (!fileSaved && !saveOnCloseDialog())
+                        return;
+                    if (openFile(new File(element[1]))) {
+                        add(jpField, BorderLayout.CENTER);
+                        setTitle(WINDOW_TITLE + " - " + file.toString());
+//                        jmView.setEnabled(true);
+                    } else {
+                        System.out.println("Cannot open file \"" + element[1] + "\". Deleting it from \"Recent files\"\'s list");
+                        recentFiles.remove(element);
+                        jmRecent.remove(this);
+                    }
+                });
+                jmRecent.add(jMenuItem);
+                jmRecent.setEnabled(true);
+            }
+            jmFile.updateUI();
+        }
+    }
+
+    private ArrayList<String[]> openRecentFilesList() {
+        final String FILENAME = ".\\data\\recent_files.txt";
+        ArrayList<String[]> files = new ArrayList<>();
+        try {
+            File file = new File(FILENAME);
+            if (!file.exists()) {
+                System.out.println("\"Recent files\" is not exists");
+                if (file.createNewFile())
+                    System.out.println("successfully created");
+                else
+                    System.out.println("smth went wrong");
+                return null;
+            }
+            BufferedInputStream in = new BufferedInputStream(new FileInputStream(file));
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            int x;
+            while ((x = in.read()) != -1) {
+                out.write(x);
+            }
+            in.close();
+            String temp = new String(out.toByteArray());
+            String[] lines = temp.split(System.lineSeparator());
+            String splitter = " %filepath% ";
+            for (String line : lines) {
+                files.add(line.split(splitter));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("ERROR: openRecentFilesList() caught an exception ");
+            return null;
+        }
+        return files;
+    }
+
+    private boolean saveRecentFilesList() {
+        try {
+            FileWriter fw;
+            StringBuilder sb;
+            final String FILENAME = ".\\data\\recent_files.txt";
+            String splitter = " %filepath% ";
+
+            fw = new FileWriter(FILENAME);
+            sb = new StringBuilder();
+            if (recentFiles == null)
+                return true;
+            for (String[] element : recentFiles) {
+                sb.append(element[0]).append(splitter).append(element[1]).append(System.lineSeparator());
+            }
+
+            fw.write(sb.toString());
+            fw.close();
+        } catch (IOException e1) {
+            e1.printStackTrace();
             return false;
         }
         return true;
